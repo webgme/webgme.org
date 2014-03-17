@@ -1,0 +1,12 @@
+.navbar-wrapper .navbar {
+    margin-left: 125px;
+}
+
+.navbar-wrapper .container {
+    position: relative;
+}
+
+.navbar-logo {
+    position: absolute;
+    top: -15px;
+}
