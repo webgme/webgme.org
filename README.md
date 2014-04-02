@@ -1,7 +1,6 @@
 WegGME single-page website
 =========================
 
-To run contact.js you will need the following node packages:
+Before running server.js install all dependencies:
 
-- express
-- simple-recaptcha
+    npm install
