@@ -5,7 +5,73 @@
 $(function() {
     "use strict";
 
-    var captchaShown = false;
+    var captchaShown = false,
+        returnedError = false,
+
+        validate,
+        validatEmail,
+
+        $name = $('#name-field'),
+        $email = $('#email-field'),
+        $message = $('.message');
+
+
+    validatEmail = function(x) {
+        var atpos=x.indexOf("@");
+        var dotpos=x.lastIndexOf(".");
+        if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+        {
+          return false;
+        } else {
+          return true;
+        }
+    };
+
+    validate = function(setMessage) {
+
+        var result = true,
+            $recaptcha = $('#recaptcha_response_field');
+
+        $message.html('');
+        result = result && $name.val().length > 1;
+        if (result) {
+            $name.removeClass('error');
+        } else {
+            if (setMessage === true || returnedError === true) {
+                $name.addClass('error');
+            }
+        }
+
+        result = result && $recaptcha.val().length > 1;
+        if (result) {
+            $recaptcha.removeClass('error');
+        } else {
+            if (setMessage === true || returnedError === true) {
+                $recaptcha.addClass('error');
+            }
+        }
+
+        result = result && validatEmail($email.val());
+        if (result) {
+            $email.removeClass('error');
+        } else {
+            if (setMessage === true || returnedError === true) {
+                $email.addClass('error');
+            }
+        }
+
+        if (result) {
+            $message.removeClass('error');
+        } else {
+            if (setMessage === true || returnedError === true) {
+                $message.html('Invalid values!');
+                $message.addClass('error');                
+            }            
+        }
+
+        return result;
+
+    };
 
     $('.fancybox').fancybox({
         padding : 0,
@@ -13,12 +79,28 @@ $(function() {
     });
 
     $('form input').focus(function(){
+
+        function capcthaIsReady() {
+            $('#recaptcha_response_field').attr('style', '');
+            $('#recaptcha-holder').fadeIn(1000);
+            $('#submit-button').fadeIn(1000);
+            
+            $('form input[type=text]').keyup(function() {
+               validate();
+            });
+
+            $('form input[type=email]').keyup(function() {
+               validate();
+            });
+
+        }
+
         if (captchaShown === false) {
-            Recaptcha.create("6Lf0GPESAAAAANkosxMm9DyYwxjZko3FsPPHr6ZX",
-                "recaptcha-holder",
+            Recaptcha.create('6Lf0GPESAAAAANkosxMm9DyYwxjZko3FsPPHr6ZX',
+                'recaptcha-holder',
                 {
-                  theme: "clean",
-                  callback: Recaptcha.focus_response_field
+                  theme: 'clean',
+                  callback: capcthaIsReady
                 }
             );
 
@@ -26,45 +108,38 @@ $(function() {
         }
     });
 
+
     (function() {
-        // pre-submit callback
-        function showRequest(formData, jqForm, options) {
-            // formData is an array; here we use $.param to convert it to a string to display it
-            // but the form plugin does this for you automatically when it submits the data
-            var queryString = $.param(formData);
-
-            // jqForm is a jQuery object encapsulating the form element.  To access the
-            // DOM element for the form do this:
-            // var formElement = jqForm[0];
-
-            //alert('About to submit: \n\n' + queryString);
-
-            // here we could return false to prevent the form from being submitted;
-            // returning anything other than false will allow the form submit to continue
-            return true;
+        function beforeSubmit() {
+            return validate(true);
         }
 
         // post-submit callback
         function showResponse(responseText, statusText, xhr, $form)  {
-            // for normal html responses, the first argument to the success callback
-            // is the XMLHttpRequest object's responseText property
+            console.log(responseText);
 
-            // if the ajaxForm method was passed an Options Object with the dataType
-            // property set to 'xml' then the first argument to the success callback
-            // is the XMLHttpRequest object's responseXML property
+            $message.addClass(responseText.status);
+            $message.html(responseText.message);
 
-            // if the ajaxForm method was passed an Options Object with the dataType
-            // property set to 'json' then the first argument to the success callback
-            // is the json data object returned by the server
+            if ($.isArray(responseText.fields)) {
+                $.each(responseText.fields, function(k, v) {
+                    console.log(v);
+                    $('#' + v).addClass('error');
+                });
+            }
 
-            alert('status: ' + statusText + '\n\nresponseText: \n' + responseText +
-                '\n\nThe output div should have already been updated with the responseText.');
+            returnedError = responseText.status === 'error';
+
+            if (returnedError === false) {
+                $('form input[type=text]').val('');
+                $('form input[type=email]').val('');
+            }
+
         }
 
         var options = {
             dataType: 'json',
-            target:        '#output1',   // target element(s) to be updated with server response
-            beforeSubmit:  showRequest,  // pre-submit callback
+            beforeSubmit:  beforeSubmit,  // pre-submit callback
             success:       showResponse  // post-submit callback
 
             // other available options:

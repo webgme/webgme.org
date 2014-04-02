@@ -148,10 +148,14 @@
         <div class="col-md-6">
             <form action="/" method="POST" id="signupform">
                 <div class="row">
-                    <label class="col-md-2" for="name">Name:</label><input class="col-md-5 problems" id="name" name="name" maxlength="60" size="20" type="text"/>
+                    <label class="col-md-2"></label>
+                    <p class="message"></p>
                 </div>
                 <div class="row">
-                    <label class="col-md-2" for="email">E-mail:</label><input class="col-md-6" id="email" name="email" maxlength="60" size="20" type="email"/>
+                    <label class="col-md-2" for="name-field">Name:</label><input class="col-md-5" id="name-field" name="name" maxlength="60" size="20" type="text"/>
+                </div>
+                <div class="row">
+                    <label class="col-md-2" for="email-field">E-mail:</label><input class="col-md-6" id="email-field" name="email" maxlength="60" size="20" type="email"/>
                 </div>
                 <div class="row">
                     <label class="col-md-2"></label>
@@ -159,7 +163,7 @@
                 </div>
                 <div class="row">
                     <label class="col-md-2"></label>
-                    <input class="btn btn-sm btn-primary" type="submit"/>
+                    <input class="btn btn-sm btn-primary" id="submit-button" type="submit"/>
                 </div>
             </form>
         </div>

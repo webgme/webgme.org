@@ -161,21 +161,40 @@ h2 {
 }
 
 form {
-    margin-top: 50px;
+    margin-top: 35px;
 }
 
 form > .row {
     margin-bottom: 20px;
 }
 
-input.problems {
+input.error {
     border: 1px solid red;
     position: relative;
 }
 
-input.problems::before{
-    right: 0;
-    position: absolute;
-    content: "!";
+p.message {
+    min-height: 20px;
+    font-weight: bold;
+}
+
+p.message.error {
     color: red;
+}
+
+#recaptcha-holder, {
+    display: none;
+}
+
+#recaptcha_response_field {
+    border: 1px solid #777;
+    width: 302px;
+}
+
+#recaptcha_response_field.error {
+    border-color: red;
+}
+
+#submit-button {
+    display: none;
 }
