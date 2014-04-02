@@ -96,7 +96,7 @@ $(function() {
         }
 
         if (captchaShown === false) {
-            Recaptcha.create('6Lf0GPESAAAAANkosxMm9DyYwxjZko3FsPPHr6ZX',
+            Recaptcha.create('6LedJPESAAAAAD6-0I5Jh8mrqtUWNGAC3-885gHm',
                 'recaptcha-holder',
                 {
                   theme: 'clean',

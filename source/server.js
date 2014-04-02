@@ -1,6 +1,35 @@
+/*jslint nomen: true, vars: true, white: true, sloppy: true */
+/*global Buffer: false, clearInterval: false, clearTimeout: false, console: false, exports: false, global: false, module: false, process: false, querystring: false, require: false, setInterval: false, setTimeout: false, __filename: false, __dirname: false */
+var conf = require('nconf');
+
+  conf.argv()
+  .env()
+  .file({ file: __dirname + '/../config.json' })
+  .defaults({
+    'server': {
+      'host': '127.0.0.1',
+      'port': '8000'
+    },
+    'captcha': {
+      'privateKey': ''
+    },
+    'SES': {
+      'AWSAccessKeyID': '',
+      'AWSSecretKey': ''
+    }
+  });
+
 var express = require('express'),
     app     = express(),
-    simple_recaptcha = require('simple-recaptcha');
+    simple_recaptcha = require('simple-recaptcha'),
+    nodemailer = require("nodemailer");
+
+var mta = nodemailer.createTransport("SES", {
+    AWSAccessKeyID: conf.get('SES:AWSAccessKeyID'),
+    AWSSecretKey: conf.get('SES:AWSSecretKey')
+  });
+
+
 
 app.use(express.bodyParser());
 app.use(express.compress());
@@ -8,7 +37,8 @@ app.use(express.static(__dirname + '/static/'));
 
 app.post('/', function(req, res) {
 
-  var privateKey = '6Lf0GPESAAAAAN0R6DpSvloI7AAA3Zy3ZnGMnNyS'; // publicKey: 6Lf0GPESAAAAANkosxMm9DyYwxjZko3FsPPHr6ZX
+  var privateKey = conf.get('captcha:privateKey');
+  console.log(privateKey);
 
   var ip = req.ip,
       challenge = req.body.recaptcha_challenge_field,
@@ -74,11 +104,25 @@ app.post('/', function(req, res) {
   });
 
   // Every filed is allright
-
   console.log('New signup request from:' + name_field + ', ' + email_field + ', ' + ip);
 
+  var mailOptions = {
+    from: name_field + '<' + email_field + '>',
+    to: 'peter.volgyesi@gmail.com',
+    subject: 'WebGME Registration Request',
+    text: 'New signup request from:' + name_field + ', ' + email_field + ', ' + ip
+  };
+
+  mta.sendMail(mailOptions, function (error, response) {
+    if (error) {
+        console.log(error);
+    }
+    else {
+        console.log("Message sent: " + response.message);
+    }
+  });
 });
 
-app.listen(8080, function() {
-  console.log('Server running at http://127.0.0.1:8080/');
+app.listen(conf.get('server:port'), conf.get('server:host'), function() {
+  console.log('Server running at http://' + conf.get('server:host') + ':' + conf.get('server:port') + '/');
 });
