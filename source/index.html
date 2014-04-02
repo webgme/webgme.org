@@ -23,8 +23,8 @@
 
     <div class="navbar-wrapper">
       <div class="container">
-        <a href="/" class="navbar-logo">
-            <img src="images/webgme-header-logo.png" alt="WebGME"/>
+        <a href="/" class="navbar-logo" title="WebGME">
+            <img src="images/webgme-header-logo.png"/>
         </a>
         <div class="navbar navbar-inverse navbar-static-top" role="navigation">
           <div class="container">
@@ -38,21 +38,9 @@
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
+                <li class="active"><a href="#">About</a></li>
+                <li><a href="#signup">Sign Up</a></li>
+                <li id="login-link"><button role="button" class="btn btn-primary">Log In</button></li>
               </ul>
             </div>
           </div>
@@ -72,28 +60,38 @@
       </ol>
       <div class="carousel-inner">
         <div class="item active">
-          <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">
+          <img src="images/carousel/dsml.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Example headline.</h1>
-              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+              <h1>Versatile & Generic</h1>
+              <p>Create your own Domain Specific Modeling Language (DSML) right in the browser! Specify the modeling concepts, their relationships, attributes and aspects by drawing a UML class diagram-based metamodel and WebGME automatically configures itself to support the DSML.</p>
+              <p><a class="btn btn-lg btn-primary" href="#signup" role="button">Get a demo account</a></p>
             </div>
           </div>
         </div>
         <div class="item">
-          <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide">
+          <img src="images/carousel/inheritance.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+              <h1>Prototypical Inheritance</h1>
+              <p>WebGME supports prototypical inheritance. Any model can be instantiated. An instance is a deep copy of the model with all the children instantiated recursively down the composition hierarchy. Any changes in a prototype propagate down the inheritance tree providing a powerful way to manage, maintain and evolve models.</p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="images/carousel/versioning.jpg" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Model Versioning</h1>
+              <p>Source code versioning has been around for decades. Now WebGME introduces versioning for models as well. A lightweight branching scheme is transparently supported by the infrastructure.  Code generators and externals tools can work on consistent snapshots while users can keep editing the models.</p>
+              <p><a class="btn btn-lg btn-primary" href="#signup" role="button">Try it out!</a></p>
             </div>
           </div>
         </div>
       </div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+      <a class="isis-logo" href="http://isis.vanderbilt.edu" target="_blank" title="Software Integrated Systems at Vanderbilt University"><img src="images/isis_logo_white.png"/></a>
     </div><!-- /.carousel -->
 
 
@@ -107,22 +105,16 @@
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="col-lg-4">
-          <img class="img-circle" data-src="holder.js/140x140" alt="Generic placeholder image">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>Collaborate</h2>
+          <p>Collaborate with your colleagues by simultaneously working on the same project. WebGME works just like Google Docs; it updates and shows all changes to each user concurrently. And you never lose work because the models are stored in a database in the cloud.</p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" data-src="holder.js/140x140" alt="Generic placeholder image">
-          <h2>Heading</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>Crosscuts</h2>
+          <p>It is always the cross cutting concerns that are hardest to model and manage. WebGME introduces Crosscuts, a novel way to visualize and modify associations among model elements that are potentially far away in the composition and/or inheritance hierarchy.</p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" data-src="holder.js/140x140" alt="Generic placeholder image">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>APIs</h2>
+          <p>Both a native Javascript and a RESTful API are supported. The former makes it possible to write high-performance code generators, while the latter enables interfacing with WebGME in practically any programming language.</p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 
@@ -132,7 +124,7 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+          <h2 id="signup" class="featurette-heading">Sign up to get demo access!<span class="text-muted">It'll blow your mind.</span></h2>
           <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
         <div class="col-md-5">
@@ -142,40 +134,18 @@
 
       <hr class="featurette-divider">
 
-      <div class="row featurette">
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
-        <div class="col-md-7">
-          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
 
       <!-- /END THE FEATURETTES -->
 
-
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2014 <a href="http://http://isis.vanderbilt.edu/" target="_blank">ISIS</a> / <a href="http://www.vanderbilt.edu" target="_blank">Vanderbilt University</a> / <a href="http://www.vuse.vanderbilt.edu" target="_blank">School of Engineering</a></span></p>
-      </footer>
-
     </div><!-- /.container -->
+
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="pull-right"><a href="#">Back to top</a></p>
+    <p>&copy; 2014 <a href="http://http://isis.vanderbilt.edu/" target="_blank">ISIS</a> / <a href="http://www.vanderbilt.edu" target="_blank">Vanderbilt University</a> / <a href="http://www.vuse.vanderbilt.edu" target="_blank">School of Engineering</a></span></p>
+  </footer>
+
 
 
     <!-- Bootstrap core JavaScript
