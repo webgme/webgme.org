@@ -140,13 +140,28 @@
       </div><!-- /.row -->
       <hr>
 
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 id="signup" class="featurette-heading">Sign up to get demo access! <span class="text-muted">It'll blow your mind.</span></h2>
+      <div class="row">
+        <div class="col-md-6">
+          <h2 class="bigbig" id="signup">Sign up to get demo access! <br/><span class="text-muted">It'll blow your mind.</span></h2>
           <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        <div class="col-md-6">
+            <form action="/" method="POST" id="signupform">
+                <div class="row">
+                    <label class="col-md-2" for="name">Name:</label><input class="col-md-5 problems" id="name" name="name" maxlength="60" size="20" type="text"/>
+                </div>
+                <div class="row">
+                    <label class="col-md-2" for="email">E-mail:</label><input class="col-md-6" id="email" name="email" maxlength="60" size="20" type="email"/>
+                </div>
+                <div class="row">
+                    <label class="col-md-2"></label>
+                    <div id="recaptcha-holder"></div>
+                </div>
+                <div class="row">
+                    <label class="col-md-2"></label>
+                    <input class="btn btn-sm btn-primary" type="submit"/>
+                </div>
+            </form>
         </div>
       </div>
 
@@ -169,6 +184,9 @@
     <script src="libs/bootstrap/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
     <script src="libs/bootstrap/holder/holder.2.3.1.min.js"></script>
     <script src="libs/fancybox/jquery.fancybox.pack.js"></script>
+    <script src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
+    <script src="libs/form/jquery.form.min.js"></script>
+
     <script src="scripts/webgme_www.js"></script>
 
 </body>

@@ -42,3 +42,5 @@ fabfile*
 Allura/allura/public/css/images_*
 *_images-*
 _test_results_
+
+node_modules

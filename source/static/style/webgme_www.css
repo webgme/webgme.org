@@ -150,3 +150,32 @@ footer .back-to-top a:active {
 .container.marketing {
     padding-bottom: 20px;
 }
+
+h2 {
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+.bigbig {
+    font-size: 3em;
+}
+
+form {
+    margin-top: 50px;
+}
+
+form > .row {
+    margin-bottom: 20px;
+}
+
+input.problems {
+    border: 1px solid red;
+    position: relative;
+}
+
+input.problems::before{
+    right: 0;
+    position: absolute;
+    content: "!";
+    color: red;
+}
