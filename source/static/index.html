@@ -8,6 +8,9 @@
     <link href="style/carousel_theme.css" rel="stylesheet">
     <link href="style/webgme_www.css" rel="stylesheet">
 
+
+    <link rel="stylesheet" href="libs/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -51,7 +54,7 @@
 
  <!-- Carousel
     ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="15000">
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -63,28 +66,46 @@
           <img src="images/carousel/dsml.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Versatile & Generic</h1>
-              <p>Create your own Domain Specific Modeling Language (DSML) right in the browser! Specify the modeling concepts, their relationships, attributes and aspects by drawing a UML class diagram-based metamodel and WebGME automatically configures itself to support the DSML.</p>
-              <p><a class="btn btn-lg btn-primary" href="#signup" role="button">Get a demo account</a></p>
+              <div class="row">
+                <div class="col-lg-12">
+                  <h1>Versatile & Generic</h1>
+                </div>
+              </div>
+              <div class="row">
+                <p class="col-lg-8">Create your own Domain Specific Modeling Language (DSML) right in the browser! Specify the modeling concepts, their relationships, attributes and aspects by drawing a UML class diagram-based metamodel and WebGME automatically configures itself to support the DSML.</p>
+                <a href="images/screenshots/signalflowsystem.png" class="col-lg-4 fancybox" rel="gallery" title="Signalflow-system"><img src="images/screenshots/signalflowsystem_thumbnail.png" /></a>
+              </div>
+              <div class="row">
+                  <p><a class="btn btn-lg btn-primary" href="#signup" role="button">Get a demo account</a></p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="item">
+        <div class="item prototypical">
           <img src="images/carousel/inheritance.jpg" alt="First slide">
           <div class="container">
-            <div class="carousel-caption">
+            <div class="carousel-caption" style="padding-bottom: 80px;">
               <h1>Prototypical Inheritance</h1>
               <p>WebGME supports prototypical inheritance. Any model can be instantiated. An instance is a deep copy of the model with all the children instantiated recursively down the composition hierarchy. Any changes in a prototype propagate down the inheritance tree providing a powerful way to manage, maintain and evolve models.</p>
             </div>
           </div>
         </div>
-        <div class="item">
+        <div class="item versioning">
           <img src="images/carousel/versioning.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Model Versioning</h1>
-              <p>Source code versioning has been around for decades. Now WebGME introduces versioning for models as well. A lightweight branching scheme is transparently supported by the infrastructure.  Code generators and externals tools can work on consistent snapshots while users can keep editing the models.</p>
-              <p><a class="btn btn-lg btn-primary" href="#signup" role="button">Try it out!</a></p>
+              <div class="row">
+                <div class="col-lg-12">
+                  <h1>Model Versioning</h1>
+                </div>
+              </div>
+              <div class="row">
+                <p class="col-lg-8">Source code versioning has been around for decades. Now WebGME introduces versioning for models as well. A lightweight branching scheme is transparently supported by the infrastructure.  Code generators and externals tools can work on consistent snapshots while users can keep editing the models.</p>
+                <a href="images/screenshots/projectrepository.png" class="fancybox" rel="gallery" title="Signalflow-system"><img src="images/screenshots/projectrepository_thumbnail.png" /></a>
+              </div>
+              <div class="row">
+                  <p><a class="btn btn-lg btn-primary" href="#signup" role="button">Try it out!</a></p>
+              </div>
             </div>
           </div>
         </div>
@@ -117,14 +138,11 @@
           <p>Both a native Javascript and a RESTful API are supported. The former makes it possible to write high-performance code generators, while the latter enables interfacing with WebGME in practically any programming language.</p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
-
-  <!-- START THE FEATURETTES -->
-
-      <hr class="featurette-divider">
+      <hr>
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 id="signup" class="featurette-heading">Sign up to get demo access!<span class="text-muted">It'll blow your mind.</span></h2>
+          <h2 id="signup" class="featurette-heading">Sign up to get demo access! <span class="text-muted">It'll blow your mind.</span></h2>
           <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
         <div class="col-md-5">
@@ -132,18 +150,13 @@
         </div>
       </div>
 
-      <hr class="featurette-divider">
-
-
-      <!-- /END THE FEATURETTES -->
-
     </div><!-- /.container -->
 
 
   <!-- FOOTER -->
   <footer>
-    <p class="pull-right"><a href="#">Back to top</a></p>
-    <p>&copy; 2014 <a href="http://http://isis.vanderbilt.edu/" target="_blank">ISIS</a> / <a href="http://www.vanderbilt.edu" target="_blank">Vanderbilt University</a> / <a href="http://www.vuse.vanderbilt.edu" target="_blank">School of Engineering</a></span></p>
+    <p class="pull-right back-to-top"><a href="#">Back to top</a></p>
+    <p>&copy; 2014 <a href="http://isis.vanderbilt.edu/" target="_blank">ISIS</a> / <a href="http://www.vanderbilt.edu" target="_blank">Vanderbilt University</a> / <a href="http://www.vuse.vanderbilt.edu" target="_blank">School of Engineering</a></span></p>
   </footer>
 
 
@@ -155,6 +168,8 @@
     <script src="libs/jquery/jquery-2.1.0.min.js"></script>
     <script src="libs/bootstrap/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
     <script src="libs/bootstrap/holder/holder.2.3.1.min.js"></script>
+    <script src="libs/fancybox/jquery.fancybox.pack.js"></script>
+    <script src="scripts/webgme_www.js"></script>
 
 </body>
 </html>
