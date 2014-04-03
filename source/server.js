@@ -29,8 +29,6 @@ var mta = nodemailer.createTransport("SES", {
     AWSSecretKey: conf.get('SES:AWSSecretKey')
   });
 
-
-
 app.use(express.bodyParser());
 app.use(express.compress());
 app.use(express.static(__dirname + '/static/'));
@@ -107,7 +105,7 @@ app.post('/', function(req, res) {
   console.log('New signup request from:' + name_field + ', ' + email_field + ', ' + ip);
 
   var mailOptions = {
-    from: name_field + '<' + email_field + '>',
+    from: 'peter.volgyesi@gmail.com',
     to: 'peter.volgyesi@gmail.com',
     subject: 'WebGME Registration Request',
     text: 'New signup request from:' + name_field + ', ' + email_field + ', ' + ip
