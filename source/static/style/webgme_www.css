@@ -198,3 +198,25 @@ p.message.error {
 #submit-button {
     display: none;
 }
+
+div.carousel-caption .trylink {
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 850px)  {
+    div.carousel-caption img {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 900px)  {
+    .carousel-caption h1 {
+        font-size: 2.4em;
+    }
+}
+
+@media screen and (max-width: 1200px)  {
+    div.carousel-caption img {
+        width: 150px;
+    }
+}
