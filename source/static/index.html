@@ -261,7 +261,7 @@
     <script type="text/javascript">
       $(function () {
         var projectName = 'demo_' + clientip.replace(/\./g, '_');
-        $('.trylink').prop('href', 'http://editor.webgme.org/?user=demo&create=true&project=' + projectName);
+        $('.trylink').prop('href', window.location.protocal + '//editor.' + window.location.hostname + '/?user=demo&create=true&project=' + projectName);
       });
     </script>
 
