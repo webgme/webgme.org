@@ -45,7 +45,7 @@
                 <li><a class="trylink" href="#">Try Now</a></li>
                 <li><a href="WebGMEWhitePaper.pdf">White Paper</a></li>
                 <li><a href="https://www.youtube.com/watch?v=0YCo4cpoB7k">Tutorials</a></li>
-                <li id="login-link"><button role="button" class="btn btn-primary" onclick="window.location=window.location.protocol + '//editor.' + window.location.hostname + '/login?redirectUrl=%2F';">Log In</button></li>
+                <li id="login-link"><button role="button" class="btn btn-primary" onclick="window.location=window.location.protocol + '//editor.' + window.location.hostname + '/login?redirect=%2F';">Log In</button></li>
               </ul>
             </div>
           </div>
@@ -261,7 +261,7 @@
     <script type="text/javascript">
       $(function () {
         var projectName = 'demo_' + clientip.replace(/\./g, '_');
-        $('.trylink').prop('href', window.location.protocal + '//editor.' + window.location.hostname + '/?user=demo&create=true&project=' + projectName);
+        $('.trylink').prop('href', window.location.protocol + '//editor.' + window.location.hostname + '/?create=true&project=' + projectName);
       });
     </script>
 
