@@ -21,6 +21,7 @@ var conf = require('nconf');
 
 var express = require('express'),
     app     = express(),
+    bodyParser = require('body-parser'),
     simple_recaptcha = require('simple-recaptcha'),
     nodemailer = require("nodemailer");
 
@@ -29,8 +30,18 @@ var mta = nodemailer.createTransport("SES", {
     AWSSecretKey: conf.get('SES:AWSSecretKey')
   });
 
-app.use(express.bodyParser());
-app.use(express.compress());
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
+app.use(require('compression')());
+
+app.get('/api/user', function (req, res) {
+    res.status(200);
+    res.json({ip: req.ip});
+});
+
 app.use(express.static(__dirname + '/static/'));
 
 app.post('/', function(req, res) {

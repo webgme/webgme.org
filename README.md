@@ -1,6 +1,6 @@
-WegGME single-page website
+WebGME single-page website
 =========================
 
-Before running server.js install all dependencies:
+Before running `node source/server.js` install all dependencies:
 
     npm install

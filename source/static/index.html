@@ -256,13 +256,19 @@
     <script src="libs/rrssb/rrssb.min.js"></script>
 
     <script src="scripts/webgme_www.js"></script>
-    <script type="text/javascript" src="http://l2.io/ip.js?var=clientip"></script>
-    
+
     <script type="text/javascript">
-      $(function () {
-        var projectName = 'demo_' + clientip.replace(/\./g, '_');
-        $('.trylink').prop('href', window.location.protocol + '//editor.' + window.location.hostname + '/?create=true&project=' + projectName);
-      });
+        $(function () {
+            $.getJSON('http://jsonip.appspot.com?callback=?', function (data) {
+                var clientip = data.ip,
+                    projectName = 'demo_' + clientip.replace(/\./g, '_'),
+                        link = window.location.protocol + '//editor.' + window.location.hostname.replace('www.', '') + '/?create=true&project=' + projectName;
+                console.debug(data);
+                console.debug('Try link project name: ' + projectName);
+                console.debug('Try link: ' + link);
+                $('.trylink').prop('href', link);
+            });
+        });
     </script>
 
 </body>
