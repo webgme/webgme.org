@@ -11,108 +11,135 @@
     <link href="style/webgme_www.css" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="libs/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="libs/fancybox/jquery.fancybox.css" type="text/css" media="screen"/>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 <body>
 
 <!-- NAVBAR
 ================================================== -->
-    <div id="main-content">
+<div id="main-content">
     <div class="navbar-wrapper">
-      <div class="container">
-        <a href="/" class="navbar-logo" title="WebGME">
-            <img src="images/webgme-header-logo.png"/>
-        </a>
-        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-            </div>
-            <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="#">About</a></li>
-                <li><a class="trylink" href="#">Try Now</a></li>
-                <li><a href="WebGMEWhitePaper.pdf">White Paper</a></li>
-                <li><a href="https://www.youtube.com/watch?v=0YCo4cpoB7k">Tutorials</a></li>
-                <li id="login-link"><button role="button" class="btn btn-primary" onclick="window.location=window.location.protocol + '//editor.' + window.location.hostname + '/login?redirect=%2F';">Log In</button></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <div class="container">
+            <a href="/" class="navbar-logo" title="WebGME">
+                <img src="images/webgme-header-logo.png"/>
+            </a>
 
-      </div>
+            <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">About</a></li>
+                            <li><a class="trylink" href="#">Try Now</a></li>
+                            <li><a href="WebGMEWhitePaper.pdf">White Paper</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=0YCo4cpoB7k">Tutorials</a></li>
+                            <li id="login-link">
+                                <button role="button" class="btn btn-primary"
+                                        onclick="window.location=window.location.protocol + '//editor.' + window.location.hostname + '/login?redirect=%2F';">
+                                    Log In
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
- <!-- Carousel
-    ================================================== -->
+    <!-- Carousel
+       ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="15000">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="item active">
-          <img src="images/carousel/dsml.jpg" alt="First slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <div class="row">
-                <div class="col-sm-12 col-lg-12">
-                  <h1>Versatile & Generic</h1>
-                </div>
-              </div>
-              <div class="row">
-                <p class="col-sm-8 col-lg-8">Create your own Domain Specific Modeling Language (DSML) right in the browser! Specify the modeling concepts, their relationships, attributes and aspects by drawing a UML class diagram-based metamodel and WebGME automatically configures itself to support the DSML.</p>
-                <a href="images/screenshots/signalflowsystem.png" class="col-lg-4 fancybox" rel="gallery" title="Signalflow-system"><img src="images/screenshots/signalflowsystem_thumbnail.png" /></a>
-                <p><a class="btn btn-lg btn-primary trylink" href="#" role="button">Try it now!</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="item prototypical">
-          <img src="images/carousel/inheritance.jpg" alt="First slide">
-          <div class="container">
-            <div class="carousel-caption" style="padding-bottom: 80px;">
-              <h1>Prototypical Inheritance</h1>
-              <p>WebGME supports prototypical inheritance. Any model can be instantiated. An instance is a deep copy of the model with all the children instantiated recursively down the composition hierarchy. Any changes in a prototype propagate down the inheritance tree providing a powerful way to manage, maintain and evolve models.</p>
-            </div>
-          </div>
-        </div>
-        <div class="item versioning">
-          <img src="images/carousel/versioning.jpg" alt="First slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <div class="row">
-                <div class="col-sm-12 col-lg-12">
-                  <h1>Model Versioning</h1>
-                </div>
-              </div>
-              <div class="row">
-                <p class="col-sm-8 col-lg-8">Source code versioning has been around for decades. Now WebGME introduces versioning for models as well. A lightweight branching scheme is transparently supported by the infrastructure.  Code generators and externals tools can work on consistent snapshots while users can keep editing the models.</p>
-                <a href="images/screenshots/projectrepository.png" class="fancybox" rel="gallery" title="Signalflow-system"><img src="images/screenshots/projectrepository_thumbnail.png" /></a>
-                <p><a class="btn btn-lg btn-primary trylink" href="#" role="button">Try it now!</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-      <a class="isis-logo" href="http://isis.vanderbilt.edu" target="_blank" title="Software Integrated Systems at Vanderbilt University"><img src="images/isis_logo_white.png"/></a>
-    </div><!-- /.carousel -->
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="images/carousel/dsml.jpg" alt="First slide">
 
+                <div class="container">
+                    <div class="carousel-caption">
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-12">
+                                <h1>Versatile & Generic</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p class="col-sm-8 col-lg-8">Create your own Domain Specific Modeling Language (DSML) right
+                                in the browser! Specify the modeling concepts, their relationships, attributes and
+                                aspects by drawing a UML class diagram-based metamodel and WebGME automatically
+                                configures itself to support the DSML.</p>
+                            <a href="images/screenshots/signalflowsystem.png" class="col-lg-4 fancybox" rel="gallery"
+                               title="Signalflow-system"><img src="images/screenshots/signalflowsystem_thumbnail.png"/></a>
+
+                            <p><a class="btn btn-lg btn-primary trylink" href="#" role="button">Try it now!</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item prototypical">
+                <img src="images/carousel/inheritance.jpg" alt="First slide">
+
+                <div class="container">
+                    <div class="carousel-caption" style="padding-bottom: 80px;">
+                        <h1>Prototypical Inheritance</h1>
+
+                        <p>WebGME supports prototypical inheritance. Any model can be instantiated. An instance is a
+                            deep copy of the model with all the children instantiated recursively down the composition
+                            hierarchy. Any changes in a prototype propagate down the inheritance tree providing a
+                            powerful way to manage, maintain and evolve models.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item versioning">
+                <img src="images/carousel/versioning.jpg" alt="First slide">
+
+                <div class="container">
+                    <div class="carousel-caption">
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-12">
+                                <h1>Model Versioning</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p class="col-sm-8 col-lg-8">Source code versioning has been around for decades. Now WebGME
+                                introduces versioning for models as well. A lightweight branching scheme is
+                                transparently supported by the infrastructure. Code generators and externals tools can
+                                work on consistent snapshots while users can keep editing the models.</p>
+                            <a href="images/screenshots/projectrepository.png" class="fancybox" rel="gallery"
+                               title="Signalflow-system"><img src="images/screenshots/projectrepository_thumbnail.png"/></a>
+
+                            <p><a class="btn btn-lg btn-primary trylink" href="#" role="button">Try it now!</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span
+                class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next"><span
+                class="glyphicon glyphicon-chevron-right"></span></a>
+        <a class="isis-logo" href="http://isis.vanderbilt.edu" target="_blank"
+           title="Software Integrated Systems at Vanderbilt University"><img src="images/isis_logo_white.png"/></a>
+    </div>
+    <!-- /.carousel -->
 
 
     <!-- Marketing messaging and featurettes
@@ -121,29 +148,42 @@
 
     <div class="container marketing">
 
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4">
-          <h2>Collaborate</h2>
-          <p>Collaborate with your colleagues by simultaneously working on the same project. WebGME works just like Google Docs; it updates and shows all changes to each user concurrently. And you never lose work because the models are stored in a database in the cloud.</p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <h2>Crosscuts</h2>
-          <p>It is always the cross cutting concerns that are hardest to model and manage. WebGME introduces Crosscuts, a novel way to visualize and modify associations among model elements that are potentially far away in the composition and/or inheritance hierarchy.</p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <h2>APIs</h2>
-          <p>Both a native Javascript and a RESTful API are supported. The former makes it possible to write high-performance code generators, while the latter enables interfacing with WebGME in practically any programming language.</p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-      <hr>
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-4">
+                <h2>Collaborate</h2>
 
-      <div class="row social-buttons-holder">
-           <ul class="rrssb-buttons clearfix social-buttons">
+                <p>Collaborate with your colleagues by simultaneously working on the same project. WebGME works just
+                    like Google Docs; it updates and shows all changes to each user concurrently. And you never lose
+                    work because the models are stored in a database in the cloud.</p>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <h2>Crosscuts</h2>
+
+                <p>It is always the cross cutting concerns that are hardest to model and manage. WebGME introduces
+                    Crosscuts, a novel way to visualize and modify associations among model elements that are
+                    potentially far away in the composition and/or inheritance hierarchy.</p>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <h2>APIs</h2>
+
+                <p>Both a native Javascript and a RESTful API are supported. The former makes it possible to write
+                    high-performance code generators, while the latter enables interfacing with WebGME in practically
+                    any programming language.</p>
+            </div>
+            <!-- /.col-lg-4 -->
+        </div>
+        <!-- /.row -->
+        <hr>
+
+        <div class="row social-buttons-holder">
+            <ul class="rrssb-buttons clearfix social-buttons">
                 <li class="facebook">
-                        <!-- Replace with your URL. For best results, make sure you page has the proper FB Open Graph tags in header:
-                        https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content/ -->
-                        <a href="https://www.facebook.com/WebGME" class="popup">
+                    <!-- Replace with your URL. For best results, make sure you page has the proper FB Open Graph tags in header:
+                    https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content/ -->
+                    <a href="https://www.facebook.com/WebGME" class="popup">
                             <span class="icon">
                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
                                     <path d="M27.825,4.783c0-2.427-2.182-4.608-4.608-4.608H4.783c-2.422,0-4.608,2.182-4.608,4.608v18.434
@@ -151,12 +191,12 @@
                                         c-0.408,0-0.884,0.492-0.884,1.236v1.836h4.609v4.608h-4.609v10.446h4.916c2.422,0,4.608-2.188,4.608-4.608V4.783z"/>
                                 </svg>
                             </span>
-                            <span class="text">facebook</span>
-                        </a>
+                        <span class="text">facebook</span>
+                    </a>
                 </li>
                 <li class="googleplus">
-                        <!-- Replace href with your meta and URL information.  -->
-                        <a href="https://plus.google.com/b/103210743983716369979/103210743983716369979" class="popup">
+                    <!-- Replace href with your meta and URL information.  -->
+                    <a href="https://plus.google.com/b/103210743983716369979/103210743983716369979" class="popup">
                             <span class="icon">
                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
                                     <g>
@@ -177,11 +217,11 @@
                                     </g>
                                 </svg>
                             </span>
-                            <span class="text">google+</span>
-                        </a>
+                        <span class="text">google+</span>
+                    </a>
                 </li>
                 <li class="github">
-                        <a href="https://github.com/webgme/webgme">
+                    <a href="https://github.com/webgme/webgme">
                             <span class="icon">
                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                      width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
@@ -196,80 +236,117 @@
                                     C26.708,7.262,21.012,1.563,13.971,1.571L13.971,1.571z"/>
                                 </svg>
                             </span>
-                            <span class="text">github</span>
-                        </a>
+                        <span class="text">github</span>
+                    </a>
                 </li>
-           </ul>
-      </div>
-      <!-- No registration
-      <div class="row">
-        <div class="col-md-6">
-          <h2 class="bigbig" id="signup">Sign up to get demo access! <br/><span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </ul>
         </div>
-        <div class="col-md-6">
-            <form action="/" method="POST" id="signupform">
-                <div class="row">
-                    <label class="col-md-2"></label>
-                    <p class="message"></p>
-                </div>
-                <div class="row">
-                    <label class="col-md-2" for="name-field">Name:</label><input class="col-md-5" id="name-field" name="name" maxlength="60" size="20" type="text"/>
-                </div>
-                <div class="row">
-                    <label class="col-md-2" for="email-field">E-mail:</label><input class="col-md-6" id="email-field" name="email" maxlength="60" size="20" type="email"/>
-                </div>
-                <div class="row">
-                    <label class="col-md-2"></label>
-                    <div id="recaptcha-holder"></div>
-                </div>
-                <div class="row">
-                    <label class="col-md-2"></label>
-                    <input class="btn btn-sm btn-primary" id="submit-button" type="submit"/>
-                </div>
-            </form>
+        <!-- No registration
+        <div class="row">
+          <div class="col-md-6">
+            <h2 class="bigbig" id="signup">Sign up to get demo access! <br/><span class="text-muted">It'll blow your mind.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          </div>
+          <div class="col-md-6">
+              <form action="/" method="POST" id="signupform">
+                  <div class="row">
+                      <label class="col-md-2"></label>
+                      <p class="message"></p>
+                  </div>
+                  <div class="row">
+                      <label class="col-md-2" for="name-field">Name:</label><input class="col-md-5" id="name-field" name="name" maxlength="60" size="20" type="text"/>
+                  </div>
+                  <div class="row">
+                      <label class="col-md-2" for="email-field">E-mail:</label><input class="col-md-6" id="email-field" name="email" maxlength="60" size="20" type="email"/>
+                  </div>
+                  <div class="row">
+                      <label class="col-md-2"></label>
+                      <div id="recaptcha-holder"></div>
+                  </div>
+                  <div class="row">
+                      <label class="col-md-2"></label>
+                      <input class="btn btn-sm btn-primary" id="submit-button" type="submit"/>
+                  </div>
+              </form>
+          </div>
         </div>
-      </div> 
-      No registration -->
+        No registration -->
 
-    </div><!-- /.container -->
+    </div>
+    <!-- /.container -->
 
 
-  <!-- FOOTER -->
-  <footer>
-    <p class="pull-right back-to-top"><a href="#">Back to top</a></p>
-    <p>&copy; 2015 <a href="http://isis.vanderbilt.edu/" target="_blank">ISIS</a> / <a href="http://www.vanderbilt.edu" target="_blank">Vanderbilt University</a> / <a href="http://www.vuse.vanderbilt.edu" target="_blank">School of Engineering</a></span></p>
-  </footer>
+    <!-- FOOTER -->
+    <footer>
+        <p class="pull-right back-to-top"><a href="#">Back to top</a></p>
+
+        <p>&copy; 2015 <a href="http://isis.vanderbilt.edu/" target="_blank">ISIS</a> / <a
+                href="http://www.vanderbilt.edu" target="_blank">Vanderbilt University</a> / <a
+                href="http://www.vuse.vanderbilt.edu" target="_blank">School of Engineering</a></span></p>
+    </footer>
 
 </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
 
-    <script src="libs/jquery/jquery-2.1.0.min.js"></script>
-    <script src="libs/bootstrap/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
-    <script src="libs/bootstrap/holder/holder.2.3.1.min.js"></script>
-    <script src="libs/fancybox/jquery.fancybox.pack.js"></script>
-    <script src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
-    <script src="libs/form/jquery.form.min.js"></script>
-    <script src="libs/rrssb/rrssb.min.js"></script>
+<script src="libs/jquery/jquery-2.1.0.min.js"></script>
+<script src="libs/bootstrap/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap/holder/holder.2.3.1.min.js"></script>
+<script src="libs/fancybox/jquery.fancybox.pack.js"></script>
+<script src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
+<script src="libs/form/jquery.form.min.js"></script>
+<script src="libs/rrssb/rrssb.min.js"></script>
 
-    <script src="scripts/webgme_www.js"></script>
+<script src="scripts/webgme_www.js"></script>
 
-    <script type="text/javascript">
-        $(function () {
-            $.getJSON('http://jsonip.appspot.com?callback=?', function (data) {
-                var clientip = data.ip,
-                    projectName = 'demo_' + clientip.replace(/\./g, '_'),
-                        link = window.location.protocol + '//editor.' + window.location.hostname.replace('www.', '') + '/?create=true&project=' + projectName;
-                console.debug(data);
-                console.debug('Try link project name: ' + projectName);
-                console.debug('Try link: ' + link);
-                $('.trylink').prop('href', link);
-            });
-        });
-    </script>
+<script type="text/javascript">
+    $(function () {
+        var projectName,
+            link,
+            GME;
+
+        if (window && window.localStorage && localStorage['GME']) {
+            GME = JSON.parse(localStorage['GME']);
+            console.log(GME);
+        }
+
+        function generateId(len) {
+            var id;
+            len = len || 6;
+            if (len < 1 || len > 15) {
+                throw new Error('len parameter has to be between 1 and 15, got: ', len);
+            }
+
+            id = Math.random().toString(36).slice(2, 2 + len);
+
+            console.debug('Generated a new id: ' + id);
+            return id;
+        }
+
+        if (GME && GME.website && GME.website.defaultProjectName) {
+            projectName = GME.website.defaultProjectName;
+            console.debug('Found project name in local storage: ' + projectName);
+        } else {
+            projectName = 'demo_' + generateId(9);
+            GME = GME || {};
+            GME.website = GME.website || {};
+            GME.website.defaultProjectName = projectName;
+            if (window && window.localStorage) {
+                localStorage['GME'] = JSON.stringify(GME);
+                console.log(localStorage['GME']);
+            }
+        }
+
+        link = window.location.protocol + '//editor.' + window.location.hostname.replace('www.', '') +
+                  '/?create=true&project=' + projectName;
+
+        console.debug('Try link project name: ' + projectName);
+        console.debug('Try link: ' + link);
+        $('.trylink').prop('href', link);
+    });
+</script>
 
 </body>
 </html>
