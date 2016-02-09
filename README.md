@@ -1,6 +1,6 @@
-WebGME single-page website
+NetsBlox single-page website
 =========================
 
-Before running `node source/server.js` install all dependencies:
+Start the server with `npm install` then `npm start`
 
     npm install
