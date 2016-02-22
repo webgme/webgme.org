@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="144px"
+	 height="144px" viewBox="0 0 144 144" enable-background="new 0 0 144 144" xml:space="preserve">
+<g id="arrow">
+	<g>
+		<rect x="9" y="13.5" fill="none" width="44.5" height="117"/>
+		<rect x="90" y="13.5" fill="none" width="44.5" height="117"/>
+		<path d="M53.5,4.5H9H0v9v126h4h5h44.5H54h9V4.5h-9H53.5z M53.5,130.5H9v-117h44.5V130.5z"/>
+		<path d="M135,4.5h-0.5H90h-9v9v126h4h5h44.5h0.5h9V4.5H135z M134.5,130.5H90v-117h44.5V130.5z"/>
+	</g>
+	<rect x="67.5" width="9" height="144"/>
+</g>
+<g id="brokean_arrow">
+</g>
+<g id="broken_arrow_with_box">
+</g>
+</svg>
