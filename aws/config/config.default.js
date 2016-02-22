@@ -19,7 +19,7 @@ config.client.defaultContext.project = 'demo+SignalFlowSystem';
 config.client.defaultContext.branch = 'master';
 config.client.defaultContext.node = '/682825457'; //opens the FM Receiver
 
-config.visualization.decoratorPaths.push('./src/decorators');
+//config.visualization.decoratorPaths.push('./src/decorators');
 
 //config.plugin.basePaths.push('./src/plugins/Test');
 //config.plugin.basePaths = ['./src/plugins/Test']; //disable exposure of core-plugins
