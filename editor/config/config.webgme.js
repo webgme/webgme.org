@@ -8,12 +8,15 @@ var config = require('webgme/config/config.default'),
 
 
 // The paths can be loaded from the webgme-setup.json
+config.visualization.decoratorPaths.push('node_modules/petri-net/src/decorators');
 
 
 // Visualizer descriptors
 
 // Add requirejs paths
-
+config.requirejsPaths = {
+  'PetriNetDecorator': 'node_modules/petri-net/src/decorators/PetriNetDecorator'
+};
 
 
 config.mongo.uri = 'mongodb://127.0.0.1:27017/editor';

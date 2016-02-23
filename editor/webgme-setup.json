@@ -1,4 +1,17 @@
 {
-  "components": {},
-  "dependencies": {}
+  "components": {
+    "plugins": {},
+    "seeds": {},
+    "decorators": {}
+  },
+  "dependencies": {
+    "plugins": {},
+    "seeds": {},
+    "decorators": {
+      "PetriNetDecorator": {
+        "project": "petri-net",
+        "path": "node_modules/petri-net/src/decorators/PetriNetDecorator"
+      }
+    }
+  }
 }

@@ -6,7 +6,8 @@
   },
   "version": "1.0.0",
   "dependencies": {
-    "webgme-petri-net": "https://github.com/webgme/petri-net/tarball/master"
+    "webgme": "1.x",
+    "petri-net": "github:webgme/petri-net"
   },
   "devDependencies": {
     "mocha": "^2.2.5",
