@@ -6,7 +6,8 @@
   },
   "version": "1.0.0",
   "dependencies": {
-    "petri-net": "github:webgme/petri-net",
+    "logic-gates": "webgme/logic-gates",
+    "petri-net": "webgme/petri-net",
     "premonition": "webgme/premonition",
     "webgme": "1.x"
   },
