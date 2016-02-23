@@ -22,7 +22,7 @@ sudo stop webgme
 
 if [ -d /etc/init/ ]; then
   echo "Updating webgme.conf ..."
-  sudo cp webgme.conf /etc/init/webgme.conf
+  sudo cp ../aws/webgme.conf /etc/init/webgme.conf
 else
   echo "/etc/init/ does not exist; do not copy webgme.conf."
 fi
