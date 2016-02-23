@@ -1,8 +1,8 @@
 .idea
 
-aws/config_local.js
 editor/update.sh.log
 editor/server.log
+editor/server-error.log
 editor/blob-local-storage
 editor/node_modules
 editor/npm-debug.log

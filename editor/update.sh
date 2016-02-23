@@ -27,6 +27,9 @@ else
   echo "/etc/init/ does not exist; do not copy webgme.conf."
 fi
 
+echo "Installing all dependencies ..."
+npm install
+
 if [ -z "$1" ]; then
   echo "Installing latest release from npm ..."
   npm install webgme@latest
@@ -58,14 +61,6 @@ else
   fi
 fi
 
-CONFIG_FILE=config.js
-if [ -f config_local.js ]; then
-    CONFIG_FILE=config_local.js
-fi
-
-echo "Using config file: $CONFIG_FILE"
-
-cp $CONFIG_FILE node_modules/webgme/src/bin/config.js
 sudo start webgme
 
 npm list webgme --long
@@ -74,8 +69,6 @@ logfile=`basename $0`.log
 echo "$logfile"
 npm list webgme --long true > $logfile
 npm list webgme --parseable --long  >> $logfile
-
-echo "Configuration file: $CONFIG_FILE" >> $logfile
 
 if [ -n "$branch_or_tag" ]; then
   echo "installed from github" >> $logfile
