@@ -1,7 +1,5 @@
-/*jshint node:true*/
-/**
- * @author lattmann / https://github.com/lattmann
- */
+// jshint node: true
+'use strict';
 
 var gmeConfig = require('./config'),
     webgme = require('webgme'),

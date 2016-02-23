@@ -1,0 +1,47 @@
+{
+  "components": {
+    "plugins": {},
+    "seeds": {},
+    "decorators": {}
+  },
+  "dependencies": {
+    "plugins": {
+      "PipelinePlugin": {
+        "project": "premonition",
+        "path": "node_modules/premonition/src/plugins/PipelinePlugin"
+      },
+      "LogicGatesExporter": {
+        "project": "logic-gates",
+        "path": "node_modules/logic-gates/src/plugins/LogicGatesExporter"
+      },
+      "PetriNetExporter": {
+        "project": "petri-net",
+        "path": "node_modules/petri-net/src/plugins/PetriNetExporter"
+      }
+    },
+    "seeds": {
+      "premonition": {
+        "project": "premonition",
+        "path": "node_modules/premonition/src/seeds/premonition"
+      },
+      "LogicGates": {
+        "project": "logic-gates",
+        "path": "node_modules/logic-gates/src/seeds/LogicGates"
+      },
+      "PetriNet": {
+        "project": "petri-net",
+        "path": "node_modules/petri-net/src/seeds/PetriNet"
+      }
+    },
+    "decorators": {
+      "PetriNetDecorator": {
+        "project": "petri-net",
+        "path": "node_modules/petri-net/src/decorators/PetriNetDecorator"
+      },
+      "LogicGatesDecorator": {
+        "project": "logic-gates",
+        "path": "node_modules/logic-gates/src/decorators/LogicGatesDecorator"
+      }
+    }
+  }
+}

@@ -1,6 +1,8 @@
-node_modules
-npm-debug.log
-aws/update.sh.log
+.idea
+
 aws/config_local.js
-aws/server.log
-aws/blob-local-storage
+editor/update.sh.log
+editor/server.log
+editor/blob-local-storage
+editor/node_modules
+editor/npm-debug.log
