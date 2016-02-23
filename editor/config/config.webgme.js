@@ -8,14 +8,18 @@ var config = require('webgme/config/config.default'),
 
 
 // The paths can be loaded from the webgme-setup.json
+config.plugin.basePaths.push('node_modules/premonition/src/plugins');
 config.visualization.decoratorPaths.push('node_modules/petri-net/src/decorators');
+config.seedProjects.basePaths.push('node_modules/premonition/src/seeds/premonition');
 
 
 // Visualizer descriptors
 
 // Add requirejs paths
 config.requirejsPaths = {
-  'PetriNetDecorator': 'node_modules/petri-net/src/decorators/PetriNetDecorator'
+  'PetriNetDecorator': 'node_modules/petri-net/src/decorators/PetriNetDecorator',
+  'premonition': 'node_modules/premonition/src/seeds/premonition',
+  'PipelinePlugin': 'node_modules/premonition/src/plugins/PipelinePlugin'
 };
 
 

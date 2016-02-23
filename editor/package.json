@@ -6,8 +6,9 @@
   },
   "version": "1.0.0",
   "dependencies": {
-    "webgme": "1.x",
-    "petri-net": "github:webgme/petri-net"
+    "petri-net": "github:webgme/petri-net",
+    "premonition": "webgme/premonition",
+    "webgme": "1.x"
   },
   "devDependencies": {
     "mocha": "^2.2.5",

@@ -5,8 +5,18 @@
     "decorators": {}
   },
   "dependencies": {
-    "plugins": {},
-    "seeds": {},
+    "plugins": {
+      "PipelinePlugin": {
+        "project": "premonition",
+        "path": "node_modules/premonition/src/plugins/PipelinePlugin"
+      }
+    },
+    "seeds": {
+      "premonition": {
+        "project": "premonition",
+        "path": "node_modules/premonition/src/seeds/premonition"
+      }
+    },
     "decorators": {
       "PetriNetDecorator": {
         "project": "petri-net",
