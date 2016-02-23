@@ -27,6 +27,9 @@ else
   echo "/etc/init/ does not exist; do not copy webgme.conf."
 fi
 
+
+sudo rm -rf node_modules
+
 echo "Installing all dependencies ..."
 npm install
 
