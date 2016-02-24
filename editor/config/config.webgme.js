@@ -11,11 +11,13 @@ var config = require('webgme/config/config.default'),
 config.plugin.basePaths.push('node_modules/premonition/src/plugins');
 config.plugin.basePaths.push('node_modules/logic-gates/src/plugins');
 config.plugin.basePaths.push('node_modules/petri-net/src/plugins');
+config.plugin.basePaths.push('node_modules/finite-state-machine/src/plugins');
 config.visualization.decoratorPaths.push('node_modules/petri-net/src/decorators');
 config.visualization.decoratorPaths.push('node_modules/logic-gates/src/decorators');
 config.seedProjects.basePaths.push('node_modules/premonition/src/seeds/premonition');
 config.seedProjects.basePaths.push('node_modules/logic-gates/src/seeds/LogicGates');
 config.seedProjects.basePaths.push('node_modules/petri-net/src/seeds/PetriNet');
+config.seedProjects.basePaths.push('node_modules/finite-state-machine/src/seeds/FiniteStateMachine');
 
 
 // Visualizer descriptors
@@ -24,9 +26,12 @@ config.seedProjects.basePaths.push('node_modules/petri-net/src/seeds/PetriNet');
 config.requirejsPaths = {
   'LogicGatesDecorator': 'node_modules/logic-gates/src/decorators/LogicGatesDecorator',
   'PetriNetDecorator': 'node_modules/petri-net/src/decorators/PetriNetDecorator',
+  'FiniteStateMachine': 'node_modules/finite-state-machine/src/seeds/FiniteStateMachine',
   'PetriNet': 'node_modules/petri-net/src/seeds/PetriNet',
   'LogicGates': 'node_modules/logic-gates/src/seeds/LogicGates',
   'premonition': 'node_modules/premonition/src/seeds/premonition',
+  'FSMImporter': 'node_modules/finite-state-machine/src/plugins/FSMImporter',
+  'FSMCodeGenerator': 'node_modules/finite-state-machine/src/plugins/FSMCodeGenerator',
   'PetriNetExporter': 'node_modules/petri-net/src/plugins/PetriNetExporter',
   'LogicGatesExporter': 'node_modules/logic-gates/src/plugins/LogicGatesExporter',
   'PipelinePlugin': 'node_modules/premonition/src/plugins/PipelinePlugin'

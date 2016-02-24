@@ -17,6 +17,14 @@
       "PetriNetExporter": {
         "project": "petri-net",
         "path": "node_modules/petri-net/src/plugins/PetriNetExporter"
+      },
+      "FSMCodeGenerator": {
+        "project": "finite-state-machine",
+        "path": "node_modules/finite-state-machine/src/plugins/FSMCodeGenerator"
+      },
+      "FSMImporter": {
+        "project": "finite-state-machine",
+        "path": "node_modules/finite-state-machine/src/plugins/FSMImporter"
       }
     },
     "seeds": {
@@ -31,6 +39,10 @@
       "PetriNet": {
         "project": "petri-net",
         "path": "node_modules/petri-net/src/seeds/PetriNet"
+      },
+      "FiniteStateMachine": {
+        "project": "finite-state-machine",
+        "path": "node_modules/finite-state-machine/src/seeds/FiniteStateMachine"
       }
     },
     "decorators": {

@@ -6,6 +6,7 @@
   },
   "version": "1.0.0",
   "dependencies": {
+    "finite-state-machine": "webgme/finite-state-machine",
     "logic-gates": "webgme/logic-gates",
     "petri-net": "webgme/petri-net",
     "premonition": "webgme/premonition",
