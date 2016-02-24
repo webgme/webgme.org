@@ -1,0 +1,323 @@
+{
+    "root": {
+        "path": "",
+        "guid": "03d36072-9e09-7866-cb4e-d0a36ff825f6"
+    },
+    "containment": {
+        "2c92d4d8-9bbe-be2a-6d29-9e5a48c4dd16": {
+            "1fe606f6-5c39-77b1-1b3a-42eabd219b32": {},
+            "9fb5e56c-d8d3-8873-addc-212e7ba818d0": {}
+        },
+        "5f25ac74-9954-0028-31a5-65a12a02553c": {},
+        "a37b05f5-856a-1e83-03b1-264317911c1f": {},
+        "cd891e7b-e2ea-e929-f6cd-9faf4f1fc045": {}
+    },
+    "bases": {},
+    "nodes": {
+        "03d36072-9e09-7866-cb4e-d0a36ff825f6": {
+            "attributes": {
+                "name": "ROOT"
+            },
+            "base": null,
+            "meta": {
+                "attributes": {
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "children": {
+                    "items": [
+                        "cd891e7b-e2ea-e929-f6cd-9faf4f1fc045"
+                    ],
+                    "minItems": [
+                        -1
+                    ],
+                    "maxItems": [
+                        -1
+                    ]
+                }
+            },
+            "parent": null,
+            "pointers": {
+                "base": null
+            },
+            "registry": {
+                "MetaSheets": [
+                    {
+                        "SetID": "MetaAspectSet_68f8146d-b1b7-6c40-3464-f8c070e97e8d",
+                        "order": 0,
+                        "title": "META"
+                    },
+                    {
+                        "SetID": "MetaAspectSet_fb0be9df-7415-9358-c2f6-bb0bdbf3d97a",
+                        "order": 1,
+                        "title": "Helpers"
+                    }
+                ],
+                "ProjectRegistry": {
+                    "FCO_ID": "/1"
+                },
+                "usedAddOns": "",
+                "validDecorators": "CircleDecorator DefaultDecorator DocumentDecorator MetaDecorator ModelDecorator SVGDecorator",
+                "validPlugins": "",
+                "validVisualizers": "ModelEditor METAAspect"
+            },
+            "sets": {
+                "MetaAspectSet": [
+                    {
+                        "attributes": {},
+                        "guid": "2c92d4d8-9bbe-be2a-6d29-9e5a48c4dd16",
+                        "registry": {
+                            "position": {
+                                "x": 69,
+                                "y": 248
+                            }
+                        }
+                    },
+                    {
+                        "attributes": {},
+                        "guid": "9fb5e56c-d8d3-8873-addc-212e7ba818d0",
+                        "registry": {
+                            "position": {
+                                "x": 293,
+                                "y": 252
+                            }
+                        }
+                    },
+                    {
+                        "attributes": {},
+                        "guid": "cd891e7b-e2ea-e929-f6cd-9faf4f1fc045",
+                        "registry": {
+                            "position": {
+                                "x": 100,
+                                "y": 100
+                            }
+                        }
+                    }
+                ],
+                "MetaAspectSet_68f8146d-b1b7-6c40-3464-f8c070e97e8d": [
+                    {
+                        "attributes": {},
+                        "guid": "cd891e7b-e2ea-e929-f6cd-9faf4f1fc045",
+                        "registry": {
+                            "position": {
+                                "x": 100,
+                                "y": 100
+                            }
+                        }
+                    }
+                ],
+                "MetaAspectSet_fb0be9df-7415-9358-c2f6-bb0bdbf3d97a": [
+                    {
+                        "attributes": {},
+                        "guid": "2c92d4d8-9bbe-be2a-6d29-9e5a48c4dd16",
+                        "registry": {
+                            "position": {
+                                "x": 69,
+                                "y": 248
+                            }
+                        }
+                    },
+                    {
+                        "attributes": {},
+                        "guid": "9fb5e56c-d8d3-8873-addc-212e7ba818d0",
+                        "registry": {
+                            "position": {
+                                "x": 293,
+                                "y": 252
+                            }
+                        }
+                    },
+                    {
+                        "attributes": {},
+                        "guid": "cd891e7b-e2ea-e929-f6cd-9faf4f1fc045",
+                        "registry": {
+                            "position": {
+                                "x": 163,
+                                "y": 81
+                            }
+                        }
+                    }
+                ]
+            },
+            "constraints": {}
+        },
+        "1fe606f6-5c39-77b1-1b3a-42eabd219b32": {
+            "attributes": {
+                "documentation": "Here is a good place to store all nodes that are part of the META language. Keep in mind that the FCO cannot be moved.\n\nIn the META-Aspect under the Helper-tab you can see that it has a containment rule for any node (it can contain FCOs).",
+                "name": "Language Folder"
+            },
+            "base": "9fb5e56c-d8d3-8873-addc-212e7ba818d0",
+            "meta": {},
+            "parent": "2c92d4d8-9bbe-be2a-6d29-9e5a48c4dd16",
+            "pointers": {
+                "base": "9fb5e56c-d8d3-8873-addc-212e7ba818d0"
+            },
+            "registry": {
+                "borderColor": "#ffffff",
+                "position": {
+                    "x": 40,
+                    "y": 30
+                }
+            },
+            "sets": {},
+            "constraints": {}
+        },
+        "2c92d4d8-9bbe-be2a-6d29-9e5a48c4dd16": {
+            "attributes": {
+                "name": "Language"
+            },
+            "base": "cd891e7b-e2ea-e929-f6cd-9faf4f1fc045",
+            "meta": {
+                "children": {
+                    "items": [
+                        "cd891e7b-e2ea-e929-f6cd-9faf4f1fc045"
+                    ],
+                    "minItems": [
+                        -1
+                    ],
+                    "maxItems": [
+                        -1
+                    ]
+                }
+            },
+            "parent": "03d36072-9e09-7866-cb4e-d0a36ff825f6",
+            "pointers": {
+                "base": "cd891e7b-e2ea-e929-f6cd-9faf4f1fc045"
+            },
+            "registry": {
+                "position": {
+                    "x": 424,
+                    "y": 80
+                },
+                "validVisualizers": "ModelEditor METAAspect"
+            },
+            "sets": {},
+            "constraints": {}
+        },
+        "5f25ac74-9954-0028-31a5-65a12a02553c": {
+            "attributes": {
+                "documentation": "##Warning!\n\n**All projects stored under the demo user at webgme.org are publicly available and can as such be viewed, edited and deleted by anyone at any time.**\n\n\nProjects are regularly deleted on webgme.org that belong to the demo user. Later, you can register and create your private projects.",
+                "name": "Read this first!"
+            },
+            "base": "9fb5e56c-d8d3-8873-addc-212e7ba818d0",
+            "meta": {},
+            "parent": "03d36072-9e09-7866-cb4e-d0a36ff825f6",
+            "pointers": {
+                "base": "9fb5e56c-d8d3-8873-addc-212e7ba818d0"
+            },
+            "registry": {
+                "color": "#ffcccc",
+                "position": {
+                    "x": 420,
+                    "y": 140
+                }
+            },
+            "sets": {},
+            "constraints": {}
+        },
+        "9fb5e56c-d8d3-8873-addc-212e7ba818d0": {
+            "attributes": {
+                "documentation": "",
+                "name": "Documentation"
+            },
+            "base": "cd891e7b-e2ea-e929-f6cd-9faf4f1fc045",
+            "meta": {
+                "attributes": {
+                    "documentation": {
+                        "type": "string"
+                    }
+                }
+            },
+            "parent": "2c92d4d8-9bbe-be2a-6d29-9e5a48c4dd16",
+            "pointers": {
+                "base": "cd891e7b-e2ea-e929-f6cd-9faf4f1fc045"
+            },
+            "registry": {
+                "color": "#ffffff",
+                "decorator": "DocumentDecorator",
+                "position": {
+                    "x": 454,
+                    "y": 32
+                },
+                "validVisualizers": "ModelEditor"
+            },
+            "sets": {},
+            "constraints": {}
+        },
+        "a37b05f5-856a-1e83-03b1-264317911c1f": {
+            "attributes": {
+                "documentation": "#### The Roots\n\nRight now you can see the two most important nodes in a GME project:\n\n- `ROOT` - the root of the composition tree. This is the currently opened node, i.e. the node displayed as the canvas. All nodes are either children or grandchildren of this node.\n- `FCO` - the root of the inheritance tree. All nodes inherit, directly or indirectly, from this node. (The root node is the only exception.)\n\nYou can view the two tree representations for the composition and inheritance tree in the top right panel.\n\n#### The Helpers\n\nThe two roots are all that is needed in order to get started with a GME Project.\n\nHowever to get you started this project already contains a couple of helpers...\n\n- `Language` - a folder-like node where the nodes part of the META-model can be stored.\n- `Documentation` - a node that can be placed anywhere and stores a markdown text in the `documentation` attribute. This META-type is configured to use the `DocumentDecorator` that provides an editor for (click the cog-wheel below) and displays the formatted text of this attribute.\n\nTo view the containment rules for these nodes, open up the Meta (toggle from the top left panel) and select the `Helpers` tab.\n\n\n#### Your META Nodes\n\nTo add new META nodes first create a new instance from the `FCO` inside the `Language` folder. When your new node has been created you can add it to the META by opening the Meta and drag and drop the node from the tree. After you add containment rules - the node will be made available in the Part Browser (bottom left panel).\n\n#### Example Projects\n\nIf you are new to GME or META-modeling in general. There are plenty of read-only examples provided. Shift + click any of the links below to open them:\n\n- [Logic Gates](https://editor.webgme.org/?project=demo%2BLogicGates)\n- [Signal Flow System](https://editor.webgme.org/?project=demo%2BSignalFlowSystem)\n- [Petri Net](https://editor.webgme.org/?project=demo%2BPetriNet)\n- [Finite State Machine](https://editor.webgme.org/?project=demo%2BFiniteStateMachine)\n- [SysML](https://editor.webgme.org/?project=demo%2BSysML)\n\nAll these domains are also available as seeds when creating a new project.\n\n#### Final Notes\nSince this documentation is just a node in itself, you can modify the text (click the cogwheel) or just delete it.",
+                "name": "A Bare Bone GME Project"
+            },
+            "base": "9fb5e56c-d8d3-8873-addc-212e7ba818d0",
+            "meta": {},
+            "parent": "03d36072-9e09-7866-cb4e-d0a36ff825f6",
+            "pointers": {
+                "base": "9fb5e56c-d8d3-8873-addc-212e7ba818d0"
+            },
+            "registry": {
+                "borderColor": "#ffffff",
+                "position": {
+                    "x": 20,
+                    "y": 30
+                }
+            },
+            "sets": {},
+            "constraints": {}
+        },
+        "cd891e7b-e2ea-e929-f6cd-9faf4f1fc045": {
+            "attributes": {
+                "name": "FCO"
+            },
+            "base": null,
+            "meta": {
+                "attributes": {
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "children": {
+                    "items": [
+                        "9fb5e56c-d8d3-8873-addc-212e7ba818d0"
+                    ],
+                    "minItems": [
+                        -1
+                    ],
+                    "maxItems": [
+                        -1
+                    ]
+                }
+            },
+            "parent": "03d36072-9e09-7866-cb4e-d0a36ff825f6",
+            "pointers": {
+                "base": null
+            },
+            "registry": {
+                "DisplayFormat": "$name",
+                "PortSVGIcon": "",
+                "SVGIcon": "",
+                "decorator": "",
+                "isAbstract": false,
+                "isPort": false,
+                "position": {
+                    "x": 424,
+                    "y": 30
+                },
+                "validVisualizers": "ModelEditor METAAspect SetEditor Crosscut GraphViz"
+            },
+            "sets": {},
+            "constraints": {}
+        }
+    },
+    "relids": {
+        "03d36072-9e09-7866-cb4e-d0a36ff825f6": null,
+        "1fe606f6-5c39-77b1-1b3a-42eabd219b32": "c",
+        "2c92d4d8-9bbe-be2a-6d29-9e5a48c4dd16": "y",
+        "5f25ac74-9954-0028-31a5-65a12a02553c": "3",
+        "9fb5e56c-d8d3-8873-addc-212e7ba818d0": "K",
+        "a37b05f5-856a-1e83-03b1-264317911c1f": "x",
+        "cd891e7b-e2ea-e929-f6cd-9faf4f1fc045": "1"
+    },
+    "metaSheets": {}
+}
