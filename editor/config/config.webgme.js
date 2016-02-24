@@ -12,6 +12,7 @@ config.plugin.basePaths.push('node_modules/premonition/src/plugins');
 config.plugin.basePaths.push('node_modules/logic-gates/src/plugins');
 config.plugin.basePaths.push('node_modules/petri-net/src/plugins');
 config.plugin.basePaths.push('node_modules/finite-state-machine/src/plugins');
+config.plugin.basePaths.push('node_modules/formula/src/plugins');
 config.visualization.decoratorPaths.push('node_modules/petri-net/src/decorators');
 config.visualization.decoratorPaths.push('node_modules/logic-gates/src/decorators');
 config.seedProjects.basePaths.push('node_modules/premonition/src/seeds/premonition');
@@ -30,6 +31,7 @@ config.requirejsPaths = {
   'PetriNet': 'node_modules/petri-net/src/seeds/PetriNet',
   'LogicGates': 'node_modules/logic-gates/src/seeds/LogicGates',
   'premonition': 'node_modules/premonition/src/seeds/premonition',
+  'Export2FORMULA': 'node_modules/formula/src/plugins/Export2FORMULA',
   'FSMImporter': 'node_modules/finite-state-machine/src/plugins/FSMImporter',
   'FSMCodeGenerator': 'node_modules/finite-state-machine/src/plugins/FSMCodeGenerator',
   'PetriNetExporter': 'node_modules/petri-net/src/plugins/PetriNetExporter',

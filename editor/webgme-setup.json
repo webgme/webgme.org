@@ -25,6 +25,10 @@
       "FSMImporter": {
         "project": "finite-state-machine",
         "path": "node_modules/finite-state-machine/src/plugins/FSMImporter"
+      },
+      "Export2FORMULA": {
+        "project": "formula",
+        "path": "node_modules/formula/src/plugins/Export2FORMULA"
       }
     },
     "seeds": {
