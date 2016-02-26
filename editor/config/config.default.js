@@ -30,7 +30,7 @@ config.server.sessionStore.type = 'redis';
 config.server.sessionStore.options.url = 'redis:127.0.0.1:' + redisPort;
 
 config.socketIO.adapter.type = 'redis';
-config.socketIO.adapter.options.uri = '127.0.0.1' + redisPort;
+config.socketIO.adapter.options.uri = '127.0.0.1:' + redisPort;
 
 //TODO This should probably not be configured from here (for now it will do)
 config.visualization.svgDirs.push('./node_modules/premonition/icons/png');
