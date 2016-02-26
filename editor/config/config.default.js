@@ -2,7 +2,7 @@
 
 var config = require('./config.webgme'),
     os = require('os'),
-    redisPort = process.env.REDIS_PROT || '6379';
+    redisPort = process.env.REDIS_PORT || '6379';
 
 config.server.port = process.env.PORT ? parseInt(process.env.PORT) : 8001;
 

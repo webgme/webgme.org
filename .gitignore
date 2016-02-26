@@ -1,5 +1,6 @@
 .idea
 
+editor/SERVICE_NAME
 editor/update.sh.log
 editor/server.log
 editor/server-error.log

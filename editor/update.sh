@@ -3,8 +3,8 @@
 #
 # Usage:
 #
-# - Installs the latest webgme release from npm registry 
-#     $ ./update.sh 
+# - Installs the latest webgme release from npm registry
+#     $ ./update.sh
 # - Installs a specific webgme release from npm registry if found
 #     $ ./update.sh 0.7.0
 # - Installs a specific branch from github if found
@@ -17,14 +17,20 @@
 #     $ ./update.sh ccfcaff
 # - Otherwise the script will fail
 
+SERVICE_NAME=$(<SERVICE_NAME)
 
-sudo stop webgme
+if [ -z "$SERVICE_NAME" ]; then
+  error "Please create a file with the name of the service called SERVICE_NAME".
+  exit 1
+fi
+
+sudo stop $SERVICE_NAME
 
 if [ -d /etc/init/ ]; then
-  echo "Updating webgme.conf ..."
-  sudo cp ../aws/webgme.conf /etc/init/webgme.conf
+  echo "Updating $SERVICE_NAME.conf ..."
+  sudo cp ../aws/$SERVICE_NAME.conf /etc/init/$SERVICE_NAME.conf
 else
-  echo "/etc/init/ does not exist; do not copy webgme.conf."
+  echo "/etc/init/ does not exist; do not copy $SERVICE_NAME.conf."
 fi
 
 
@@ -47,10 +53,10 @@ else
     branch_or_tag="$1"
 
     commit_hash="$(git ls-remote git://github.com/webgme/webgme.git refs/heads/$branch_or_tag | cut -f 1)"
-    if [ -n "$commit_hash" ]; then    
+    if [ -n "$commit_hash" ]; then
       echo "Branch name was given: $branch_or_tag commit hash $commit_hash"
     else
-      # find annotated tag    
+      # find annotated tag
       commit_hash="$(git ls-remote git://github.com/webgme/webgme.git refs/tags/$branch_or_tag^{} | cut -f 1)"
       if [ -n "$commit_hash" ]; then
         echo "Tag was found: $branch_or_tag commit hash $commit_hash"
@@ -64,7 +70,7 @@ else
   fi
 fi
 
-sudo start webgme
+sudo start $SERVICE_NAME
 
 npm list webgme --long
 
@@ -77,7 +83,7 @@ if [ -n "$branch_or_tag" ]; then
   echo "installed from github" >> $logfile
   echo "branch tag or hosh $branch_or_tag" >> $logfile
   echo "commit $commit_hash" >> $logfile
- 
+
   echo "branch or tag or hash link https://github.com/webgme/webgme/tree/$branch_or_tag" >> $logfile
   echo "commit link https://github.com/webgme/webgme/tree/$commit_hash" >> $logfile
 else

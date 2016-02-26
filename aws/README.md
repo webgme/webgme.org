@@ -14,8 +14,8 @@ Setup instructions on AWS EC2 machines
  * Clone the webgme-deployment project to the home folder (or whatever, just update `/etc/init/webgme.conf` later):
      ```git clone https://github.com/webgme/webgme-deployment.git```
  * Optional: database migration
- * Optional: update config.js to your liking 
- * Run `update.sh` in this folder 
+ * Optional: update config.js to your liking
+ * Run `update.sh` in this folder
 
 Update instructions on AWS EC2 machines
 ========================================
@@ -28,6 +28,8 @@ webgme.org (editor) website specific instructions
     ```sudo cp nginx.conf /etc/nginx/sites-available/default```
  * Restart nginx:
     ```sudo /etc/init.d/nginx restart```
+ * Install redis: `sudo apt-get -y install redis-server`
+ * Install haproxy: `sudo apt-get -y install haproxy`
  * Make sure, that config.js was customized to use internal port (8001)
 
 User management
