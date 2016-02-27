@@ -29,6 +29,9 @@ webgme.org (editor) website specific instructions
  * Restart nginx:
     ```sudo /etc/init.d/nginx restart```
  * Install redis: `sudo apt-get -y install redis-server`
+ * `sudo add-apt-repository ppa:vbernat/haproxy-1.5`
+ * `sudo apt-get update`
+ * `sudo apt-get dist-upgrade`
  * Install haproxy: `sudo apt-get -y install haproxy`
  * Make sure, that config.js was customized to use internal port (8001)
 
