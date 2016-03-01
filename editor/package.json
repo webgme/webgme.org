@@ -12,6 +12,7 @@
     "logic-gates": "webgme/logic-gates",
     "petri-net": "webgme/petri-net",
     "premonition": "webgme/premonition",
+    "sysml": "webgme/sysml",
     "webgme": "1.x",
     "webgme-business-process-modeling": "webgme/business-process-modeling"
   },
