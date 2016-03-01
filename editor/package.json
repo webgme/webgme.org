@@ -6,12 +6,14 @@
   },
   "version": "1.0.0",
   "dependencies": {
+    "business-process-modeling": "webgme/business-process-modeling",
     "finite-state-machine": "webgme/finite-state-machine",
     "formula": "webgme/formula",
     "logic-gates": "webgme/logic-gates",
     "petri-net": "webgme/petri-net",
     "premonition": "webgme/premonition",
-    "webgme": "1.x"
+    "webgme": "1.x",
+    "webgme-business-process-modeling": "webgme/business-process-modeling"
   },
   "devDependencies": {
     "mocha": "^2.2.5",
