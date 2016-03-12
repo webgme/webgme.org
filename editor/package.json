@@ -14,7 +14,7 @@
     "power": "webgme/power#published",
     "premonition": "webgme/premonition#published",
     "sysml": "webgme/sysml#published",
-    "webgme": "1.x"
+    "webgme": "webgme/wegme#jwt"
   },
   "devDependencies": {
     "mocha": "^2.2.5",
