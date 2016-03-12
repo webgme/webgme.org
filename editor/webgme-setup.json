@@ -29,6 +29,18 @@
       "Export2FORMULA": {
         "project": "formula",
         "path": "node_modules/formula/src/plugins/Export2FORMULA"
+      },
+      "SysMLExporter": {
+        "project": "sysml",
+        "path": "node_modules/sysml/src/plugins/SysMLExporter"
+      },
+      "SysMLImporter": {
+        "project": "sysml",
+        "path": "node_modules/sysml/src/plugins/SysMLImporter"
+      },
+      "OpenDSS_Generator": {
+        "project": "power",
+        "path": "node_modules/power/src/plugins/OpenDSS_Generator"
       }
     },
     "seeds": {
@@ -47,6 +59,18 @@
       "FiniteStateMachine": {
         "project": "finite-state-machine",
         "path": "node_modules/finite-state-machine/src/seeds/FiniteStateMachine"
+      },
+      "BusinessProcessModeling": {
+        "project": "business-process-modeling",
+        "path": "node_modules/business-process-modeling/src/seeds/BusinessProcessModeling"
+      },
+      "SysML": {
+        "project": "sysml",
+        "path": "node_modules/sysml/src/seeds/SysML"
+      },
+      "Power": {
+        "project": "power",
+        "path": "node_modules/power/src/seeds/Power"
       }
     },
     "decorators": {
@@ -57,6 +81,14 @@
       "LogicGatesDecorator": {
         "project": "logic-gates",
         "path": "node_modules/logic-gates/src/decorators/LogicGatesDecorator"
+      },
+      "BusinessProcessModelingDecorator": {
+        "project": "business-process-modeling",
+        "path": "node_modules/business-process-modeling/src/decorators/BusinessProcessModelingDecorator"
+      },
+      "SysMLDecorator": {
+        "project": "sysml",
+        "path": "node_modules/sysml/src/decorators/SysMLDecorator"
       }
     }
   }
