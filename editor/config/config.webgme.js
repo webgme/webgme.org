@@ -14,6 +14,7 @@ config.plugin.basePaths.push('node_modules/petri-net/src/plugins');
 config.plugin.basePaths.push('node_modules/finite-state-machine/src/plugins');
 config.plugin.basePaths.push('node_modules/formula/src/plugins');
 config.plugin.basePaths.push('node_modules/sysml/src/plugins');
+config.plugin.basePaths.push('node_modules/power/src/plugins');
 config.visualization.decoratorPaths.push('node_modules/petri-net/src/decorators');
 config.visualization.decoratorPaths.push('node_modules/logic-gates/src/decorators');
 config.visualization.decoratorPaths.push('node_modules/business-process-modeling/src/decorators');
@@ -24,6 +25,7 @@ config.seedProjects.basePaths.push('node_modules/petri-net/src/seeds/PetriNet');
 config.seedProjects.basePaths.push('node_modules/finite-state-machine/src/seeds/FiniteStateMachine');
 config.seedProjects.basePaths.push('node_modules/business-process-modeling/src/seeds/BusinessProcessModeling');
 config.seedProjects.basePaths.push('node_modules/sysml/src/seeds/SysML');
+config.seedProjects.basePaths.push('node_modules/power/src/seeds/Power');
 
 
 // Visualizer descriptors
@@ -34,12 +36,14 @@ config.requirejsPaths = {
   'BusinessProcessModelingDecorator': 'node_modules/business-process-modeling/src/decorators/BusinessProcessModelingDecorator',
   'LogicGatesDecorator': 'node_modules/logic-gates/src/decorators/LogicGatesDecorator',
   'PetriNetDecorator': 'node_modules/petri-net/src/decorators/PetriNetDecorator',
+  'Power': 'node_modules/power/src/seeds/Power',
   'SysML': 'node_modules/sysml/src/seeds/SysML',
   'BusinessProcessModeling': 'node_modules/business-process-modeling/src/seeds/BusinessProcessModeling',
   'FiniteStateMachine': 'node_modules/finite-state-machine/src/seeds/FiniteStateMachine',
   'PetriNet': 'node_modules/petri-net/src/seeds/PetriNet',
   'LogicGates': 'node_modules/logic-gates/src/seeds/LogicGates',
   'premonition': 'node_modules/premonition/src/seeds/premonition',
+  'OpenDSS_Generator': 'node_modules/power/src/plugins/OpenDSS_Generator',
   'SysMLImporter': 'node_modules/sysml/src/plugins/SysMLImporter',
   'SysMLExporter': 'node_modules/sysml/src/plugins/SysMLExporter',
   'Export2FORMULA': 'node_modules/formula/src/plugins/Export2FORMULA',

@@ -37,6 +37,10 @@
       "SysMLImporter": {
         "project": "sysml",
         "path": "node_modules/sysml/src/plugins/SysMLImporter"
+      },
+      "OpenDSS_Generator": {
+        "project": "power",
+        "path": "node_modules/power/src/plugins/OpenDSS_Generator"
       }
     },
     "seeds": {
@@ -63,6 +67,10 @@
       "SysML": {
         "project": "sysml",
         "path": "node_modules/sysml/src/seeds/SysML"
+      },
+      "Power": {
+        "project": "power",
+        "path": "node_modules/power/src/seeds/Power"
       }
     },
     "decorators": {

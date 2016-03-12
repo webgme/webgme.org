@@ -6,15 +6,15 @@
   },
   "version": "1.0.0",
   "dependencies": {
-    "business-process-modeling": "webgme/business-process-modeling",
-    "finite-state-machine": "webgme/finite-state-machine",
-    "formula": "webgme/formula",
-    "logic-gates": "webgme/logic-gates",
-    "petri-net": "webgme/petri-net",
-    "premonition": "webgme/premonition",
-    "sysml": "webgme/sysml",
-    "webgme": "1.x",
-    "webgme-business-process-modeling": "webgme/business-process-modeling"
+    "business-process-modeling": "webgme/business-process-modeling#published",
+    "finite-state-machine": "webgme/finite-state-machine#published",
+    "formula": "webgme/formula#published",
+    "logic-gates": "webgme/logic-gates#published",
+    "petri-net": "webgme/petri-net#published",
+    "power": "webgme/power#published",
+    "premonition": "webgme/premonition#published",
+    "sysml": "webgme/sysml#published",
+    "webgme": "1.x"
   },
   "devDependencies": {
     "mocha": "^2.2.5",

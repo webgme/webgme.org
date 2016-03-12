@@ -27,5 +27,6 @@ config.seedProjects.defaultProject = 'Boilerplate';
 
 //TODO This should probably not be configured from here (for now it will do)
 config.visualization.svgDirs.push('./node_modules/premonition/icons/png');
+config.visualization.svgDirs.push('./node_modules/power/Icons');
 
 module.exports = config;
