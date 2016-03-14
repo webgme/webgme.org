@@ -13,8 +13,7 @@
     "petri-net": "webgme/petri-net#published",
     "power": "webgme/power#published",
     "premonition": "webgme/premonition#published",
-    "sysml": "webgme/sysml#published",
-    "webgme": "1.x"
+    "sysml": "webgme/sysml#published"
   },
   "devDependencies": {
     "mocha": "^2.2.5",
