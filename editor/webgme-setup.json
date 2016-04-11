@@ -89,6 +89,10 @@
       "SysMLDecorator": {
         "project": "sysml",
         "path": "node_modules/sysml/src/decorators/SysMLDecorator"
+      },
+      "UMLStateMachineDecorator": {
+        "project": "finite-state-machine",
+        "path": "node_modules/finite-state-machine/src/decorators/UMLStateMachineDecorator"
       }
     }
   }
