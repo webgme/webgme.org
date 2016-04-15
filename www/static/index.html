@@ -210,7 +210,11 @@
 
 <script type="text/javascript">
     $(function () {
-        var link = window.location.protocol + '//editor.' + window.location.hostname.replace('www.', '');
+        var link = window.location.protocol + '//editor.' +
+            window.location.hostname
+                .replace('www.', '')
+                .replace('.com', '.org');
+
         console.debug('Try link: ' + link);
         $('.trylink').prop('href', link);
     });
