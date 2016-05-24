@@ -8,7 +8,6 @@ var config = require('webgme/config/config.default'),
 
 
 // The paths can be loaded from the webgme-setup.json
-config.plugin.basePaths.push('node_modules/premonition/src/plugins');
 config.plugin.basePaths.push('node_modules/logic-gates/src/plugins');
 config.plugin.basePaths.push('node_modules/petri-net/src/plugins');
 config.plugin.basePaths.push('node_modules/finite-state-machine/src/plugins');
@@ -20,7 +19,6 @@ config.visualization.decoratorPaths.push('node_modules/logic-gates/src/decorator
 config.visualization.decoratorPaths.push('node_modules/business-process-modeling/src/decorators');
 config.visualization.decoratorPaths.push('node_modules/sysml/src/decorators');
 config.visualization.decoratorPaths.push('node_modules/finite-state-machine/src/decorators');
-config.seedProjects.basePaths.push('node_modules/premonition/src/seeds/premonition');
 config.seedProjects.basePaths.push('node_modules/logic-gates/src/seeds/LogicGates');
 config.seedProjects.basePaths.push('node_modules/petri-net/src/seeds/PetriNet');
 config.seedProjects.basePaths.push('node_modules/finite-state-machine/src/seeds/FiniteStateMachine');
@@ -47,7 +45,6 @@ config.requirejsPaths = {
   'FiniteStateMachine': 'node_modules/finite-state-machine/src/seeds/FiniteStateMachine',
   'PetriNet': 'node_modules/petri-net/src/seeds/PetriNet',
   'LogicGates': 'node_modules/logic-gates/src/seeds/LogicGates',
-  'premonition': 'node_modules/premonition/src/seeds/premonition',
   'OpenDSS_Generator': 'node_modules/power/src/plugins/OpenDSS_Generator',
   'SysMLImporter': 'node_modules/sysml/src/plugins/SysMLImporter',
   'SysMLExporter': 'node_modules/sysml/src/plugins/SysMLExporter',
@@ -55,8 +52,7 @@ config.requirejsPaths = {
   'FSMImporter': 'node_modules/finite-state-machine/src/plugins/FSMImporter',
   'FSMCodeGenerator': 'node_modules/finite-state-machine/src/plugins/FSMCodeGenerator',
   'PetriNetExporter': 'node_modules/petri-net/src/plugins/PetriNetExporter',
-  'LogicGatesExporter': 'node_modules/logic-gates/src/plugins/LogicGatesExporter',
-  'PipelinePlugin': 'node_modules/premonition/src/plugins/PipelinePlugin'
+  'LogicGatesExporter': 'node_modules/logic-gates/src/plugins/LogicGatesExporter'
 };
 
 

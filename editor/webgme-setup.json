@@ -6,10 +6,6 @@
   },
   "dependencies": {
     "plugins": {
-      "PipelinePlugin": {
-        "project": "premonition",
-        "path": "node_modules/premonition/src/plugins/PipelinePlugin"
-      },
       "LogicGatesExporter": {
         "project": "logic-gates",
         "path": "node_modules/logic-gates/src/plugins/LogicGatesExporter"
@@ -44,10 +40,6 @@
       }
     },
     "seeds": {
-      "premonition": {
-        "project": "premonition",
-        "path": "node_modules/premonition/src/seeds/premonition"
-      },
       "LogicGates": {
         "project": "logic-gates",
         "path": "node_modules/logic-gates/src/seeds/LogicGates"
