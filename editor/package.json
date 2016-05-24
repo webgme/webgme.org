@@ -12,7 +12,6 @@
     "logic-gates": "webgme/logic-gates#published",
     "petri-net": "webgme/petri-net#published",
     "power": "webgme/power#published",
-    "premonition": "webgme/premonition#published",
     "sysml": "webgme/sysml#published"
   },
   "devDependencies": {
