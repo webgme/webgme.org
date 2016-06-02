@@ -29,13 +29,15 @@ config.seedProjects.basePaths.push('node_modules/power/src/seeds/Power');
 
 
 
+config.visualization.panelPaths.push('node_modules/formula/src/visualizers/panels');
 
 
 // Visualizer descriptors
-
+config.visualization.visualizerDescriptors.push('./src/visualizers/Visualizers.json');
 // Add requirejs paths
 config.requirejsPaths = {
   'DisplayMetaDecorator': 'node_modules/ui-components/src/decorators/DisplayMetaDecorator',
+  'FormulaEditor': 'panels/FormulaEditor/FormulaEditorPanel',
   'UMLStateMachineDecorator': 'node_modules/finite-state-machine/src/decorators/UMLStateMachineDecorator',
   'SysMLDecorator': 'node_modules/sysml/src/decorators/SysMLDecorator',
   'BusinessProcessModelingDecorator': 'node_modules/business-process-modeling/src/decorators/BusinessProcessModelingDecorator',
@@ -47,6 +49,7 @@ config.requirejsPaths = {
   'FiniteStateMachine': 'node_modules/finite-state-machine/src/seeds/FiniteStateMachine',
   'PetriNet': 'node_modules/petri-net/src/seeds/PetriNet',
   'LogicGates': 'node_modules/logic-gates/src/seeds/LogicGates',
+  'CheckFORMULA': 'node_modules/formula/src/plugins/CheckFORMULA',
   'OpenDSS_Generator': 'node_modules/power/src/plugins/OpenDSS_Generator',
   'SysMLImporter': 'node_modules/sysml/src/plugins/SysMLImporter',
   'SysMLExporter': 'node_modules/sysml/src/plugins/SysMLExporter',
@@ -54,7 +57,11 @@ config.requirejsPaths = {
   'FSMImporter': 'node_modules/finite-state-machine/src/plugins/FSMImporter',
   'FSMCodeGenerator': 'node_modules/finite-state-machine/src/plugins/FSMCodeGenerator',
   'PetriNetExporter': 'node_modules/petri-net/src/plugins/PetriNetExporter',
-  'LogicGatesExporter': 'node_modules/logic-gates/src/plugins/LogicGatesExporter'
+  'LogicGatesExporter': 'node_modules/logic-gates/src/plugins/LogicGatesExporter',
+  'panels': './src/visualizers/panels',
+  'widgets': './src/visualizers/widgets',
+  'panels/FormulaEditor': './node_modules/formula/src/visualizers/panels/FormulaEditor',
+  'widgets/FormulaEditor': './node_modules/formula/src/visualizers/widgets/FormulaEditor'
 };
 
 

@@ -2,7 +2,10 @@
   "components": {
     "plugins": {},
     "seeds": {},
-    "decorators": {}
+    "decorators": {},
+    "addons": {},
+    "layouts": {},
+    "visualizers": {}
   },
   "dependencies": {
     "plugins": {
@@ -37,6 +40,10 @@
       "OpenDSS_Generator": {
         "project": "power",
         "path": "node_modules/power/src/plugins/OpenDSS_Generator"
+      },
+      "CheckFORMULA": {
+        "project": "formula",
+        "path": "node_modules/formula/src/plugins/CheckFORMULA"
       }
     },
     "seeds": {
@@ -89,6 +96,18 @@
       "DisplayMetaDecorator": {
         "project": "ui-components",
         "path": "node_modules\\ui-components\\src\\decorators\\DisplayMetaDecorator"
+      }
+    },
+    "addons": {},
+    "layouts": {},
+    "visualizers": {
+      "FormulaEditor": {
+        "src": "panels/FormulaEditor/FormulaEditorPanel",
+        "title": "FormulaEditor",
+        "panel": "src/visualizers/panels/FormulaEditor",
+        "secondary": false,
+        "widget": "src/visualizers/widgets/FormulaEditor",
+        "project": "formula"
       }
     }
   }
