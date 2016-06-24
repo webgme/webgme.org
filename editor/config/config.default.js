@@ -15,7 +15,7 @@ config.authentication.jwt.publicKey = path.join(__dirname, '..', '..', '..', 'to
 
 config.rest.secure = true;
 
-config.plugin.allowServerExecution = false;
+config.plugin.allowServerExecution = true;
 config.executor.enable = false;
 config.addOn.enable = false;
 config.storage.emitCommittedCoreObjects = true;
