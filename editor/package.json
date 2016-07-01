@@ -12,7 +12,8 @@
     "logic-gates": "webgme/logic-gates#published",
     "petri-net": "webgme/petri-net#published",
     "power": "webgme/power#published",
-    "sysml": "webgme/sysml#published"
+    "sysml": "webgme/sysml#published",
+    "ui-components": "github:webgme/ui-components"
   },
   "devDependencies": {
     "mocha": "^2.2.5",

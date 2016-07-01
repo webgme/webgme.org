@@ -85,6 +85,10 @@
       "UMLStateMachineDecorator": {
         "project": "finite-state-machine",
         "path": "node_modules/finite-state-machine/src/decorators/UMLStateMachineDecorator"
+      },
+      "DisplayMetaDecorator": {
+        "project": "ui-components",
+        "path": "node_modules\\ui-components\\src\\decorators\\DisplayMetaDecorator"
       }
     }
   }

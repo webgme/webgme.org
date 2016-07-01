@@ -19,6 +19,7 @@ config.visualization.decoratorPaths.push('node_modules/logic-gates/src/decorator
 config.visualization.decoratorPaths.push('node_modules/business-process-modeling/src/decorators');
 config.visualization.decoratorPaths.push('node_modules/sysml/src/decorators');
 config.visualization.decoratorPaths.push('node_modules/finite-state-machine/src/decorators');
+config.visualization.decoratorPaths.push('node_modules/ui-components/src/decorators');
 config.seedProjects.basePaths.push('node_modules/logic-gates/src/seeds/LogicGates');
 config.seedProjects.basePaths.push('node_modules/petri-net/src/seeds/PetriNet');
 config.seedProjects.basePaths.push('node_modules/finite-state-machine/src/seeds/FiniteStateMachine');
@@ -34,6 +35,7 @@ config.seedProjects.basePaths.push('node_modules/power/src/seeds/Power');
 
 // Add requirejs paths
 config.requirejsPaths = {
+  'DisplayMetaDecorator': 'node_modules\ui-components\src\decorators\DisplayMetaDecorator',
   'UMLStateMachineDecorator': 'node_modules/finite-state-machine/src/decorators/UMLStateMachineDecorator',
   'SysMLDecorator': 'node_modules/sysml/src/decorators/SysMLDecorator',
   'BusinessProcessModelingDecorator': 'node_modules/business-process-modeling/src/decorators/BusinessProcessModelingDecorator',
