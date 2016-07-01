@@ -35,7 +35,7 @@ config.seedProjects.basePaths.push('node_modules/power/src/seeds/Power');
 
 // Add requirejs paths
 config.requirejsPaths = {
-  'DisplayMetaDecorator': 'node_modules\ui-components\src\decorators\DisplayMetaDecorator',
+  'DisplayMetaDecorator': 'node_modules/ui-components/src/decorators/DisplayMetaDecorator',
   'UMLStateMachineDecorator': 'node_modules/finite-state-machine/src/decorators/UMLStateMachineDecorator',
   'SysMLDecorator': 'node_modules/sysml/src/decorators/SysMLDecorator',
   'BusinessProcessModelingDecorator': 'node_modules/business-process-modeling/src/decorators/BusinessProcessModelingDecorator',
