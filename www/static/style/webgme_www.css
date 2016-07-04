@@ -71,6 +71,16 @@ ul.nav.navbar-nav {
     margin-top: 9px;
 }
 
+#register-link {
+    font-size: 12px;
+    float: right;
+    position: relative;
+}
+
+#register-btn:hover {
+    cursor: pointer;
+}
+
 .carousel-caption {
     color: #211966;
     text-shadow: 0 0 2px rgba(255,255,255,1);
