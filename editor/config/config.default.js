@@ -9,7 +9,7 @@ config.server.port = 8001;
 config.authentication.enable = true;
 config.authentication.allowGuests = true;
 config.authentication.guestAccount = 'demo';
-config.authentication.logOutUrl = 'http://' + os.hostname(); // FIXME: use config.server.https.enable to decide on protocol
+//config.authentication.logOutUrl = 'http://' + os.hostname(); // FIXME: use config.server.https.enable to decide on protocol
 config.authentication.jwt.privateKey = path.join(__dirname, '..', '..', '..', 'token_keys', 'private_key');
 config.authentication.jwt.publicKey = path.join(__dirname, '..', '..', '..', 'token_keys', 'public_key');
 
