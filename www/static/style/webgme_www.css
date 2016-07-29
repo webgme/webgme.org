@@ -208,6 +208,27 @@ div.carousel-caption .trylink {
     margin-top: 20px;
 }
 
+/* These are styles associated directly with the tutorial page */
+
+.main-content-tutorial {
+    background-image: url(../images/carousel/earthquake.png); 
+    background-size: cover; 
+}
+
+.navbar-wrapper .navbar {
+    border-radius: 4px;
+}
+
+.navbar-wrapper-tutorial {
+    padding-top: 20px; /* This is to mimic the carousel's effect on the navbar on the home page */
+}
+
+.tutorial-heading {
+    color: #211966;
+}
+
+/* ./tutorial styles */
+
 @media screen and (max-width: 850px)  {
     div.carousel-caption img {
         display: none;
