@@ -46,37 +46,35 @@ function queryNpm(outFields, callback) {
 
 function sortData(data) {
     var raw = data.results,
-        result = {
-            components: [],
-            domains: [],
-            unclassified: []
-        },
+        result = [],
         i;
 
     function getEntry(rawEntry) {
+        var category = 'N/A';
+        if (rawEntry.keywords.indexOf('webgme-domain') > -1) {
+            category = 'domain';
+        } else if (rawEntry.keywords.indexOf('webgme-kuk') > -1) {
+            category = 'kuk';
+        }
+
         return {
             name: rawEntry.name[0],
             description: rawEntry.description[0],
             modified: rawEntry.modified[0],
-            keywords: rawEntry.keywords,
+            //keywords: rawEntry.keywords.join(' '),
             version: rawEntry.version[0],
-            author: rawEntry.author[0]
+            author: rawEntry.author[0],
+            keywords: rawEntry.keywords,
+            category: category
         };
     }
 
     for (i = 0; i < raw.length; i += 1) {
-        if (raw[i].keywords.indexOf('webgme-domain') > -1) {
-            result.domains.push(getEntry(raw[i]));
-        } else if (raw[i].keywords.indexOf('meta-agnostic') > -1 || raw[i].keywords.indexOf('meta-agnostic') > -1) {
-            result.domains.push(getEntry(raw[i]));
-        } else {
-            result.unclassified.push(getEntry(raw[i]));
-        }
+        result.push(getEntry(raw[i]));
     }
 
     return result;
 }
-
 
 queryNpm(['name', 'description', 'modified', 'keywords', 'version', 'author'], function (err, result) {
     if (err) {
@@ -85,6 +83,7 @@ queryNpm(['name', 'description', 'modified', 'keywords', 'version', 'author'], f
     } else if (result.statusCode !== 200) {
         process.exit(result.statusCode);
     } else {
-        fs.writeFileSync(path.join(__dirname, 'extensions.json'), JSON.stringify(sortData(result.data)));
+        fs.writeFileSync(path.join(__dirname, 'static', 'extensions.json'),
+            JSON.stringify(sortData(result.data), null, 2));
     }
 });

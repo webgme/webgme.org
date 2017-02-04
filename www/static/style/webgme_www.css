@@ -27,6 +27,47 @@ div#main-content {
     top: -15px;
 }
 
+#home-about {
+    cursor: pointer;
+}
+
+#extensions-link {
+    cursor: pointer;
+}
+
+#extension-table tbody tr td a.list-anchor {
+    text-align: left;
+    position: relative;
+    display: block;
+    padding: 7px 0 7px 45px;
+    color: #6f5a40;
+    font-size: 16px;
+}
+
+#extension-table tbody tr td .list-anchor span.name-description {
+    font-size: 16px;
+    text-align: left;
+    display: inline-block;
+}
+
+#extension-table tbody tr td .list-anchor span.name-description .title {
+    font-size: 24px;
+    font-weight: 400;
+    margin-right: 5px;
+}
+
+#extension-table tbody tr td .list-anchor span.name-description .author {
+    font-size: .8em;
+}
+
+#extension-table tbody tr td .list-anchor span.name-description .desc {
+    display: block;
+    line-height: 24px;
+}
+
+
+
+
 .isis-logo,
 .isis-logo:link,
 .isis-logo:visited {

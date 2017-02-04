@@ -7,7 +7,7 @@
   "version": "1.0.0",
   "dependencies": {
     "business-process-modeling": "webgme/business-process-modeling#published",
-    "finite-state-machine": "webgme/finite-state-machine#published",
+    "webgme-finite-state-machine": "^1.0.0",
     "formula": "webgme/formula#published",
     "logic-gates": "webgme/logic-gates#published",
     "petri-net": "webgme/petri-net#published",
