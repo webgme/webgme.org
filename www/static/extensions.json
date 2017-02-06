@@ -1,56 +1,51 @@
 [
   {
-    "name": "webgme",
-    "description": "Web-based Generic Modeling Environment",
-    "modified": "2017-01-16T23:40:26.276Z",
-    "version": "2.9.0",
-    "author": "kecso",
+    "name": "webgme-finite-state-machine",
+    "description": "UML Finite State Machine domain with plugin for generating executable code.",
+    "version": "1.0.0",
+    "modified": "2017-02-03T20:11:19.433Z",
     "keywords": [
       "webgme",
-      "gme",
-      "cooperative",
-      "modeling",
-      "editor",
-      "domain"
+      "UMLFiniteStateMachine",
+      "FiniteStateMachine",
+      "FSM",
+      "webgme-domain"
     ],
-    "category": "N/A"
-  },
-  {
-    "name": "webgme-to-json",
-    "description": "Creates a meta-agnostic JSON structure from a (sub-)tree of a WebGME model.",
-    "modified": "2016-10-22T22:13:02.447Z",
-    "version": "1.0.4",
-    "author": "finger563",
-    "keywords": [
-      "webgme",
-      "json"
-    ],
-    "category": "N/A"
+    "author": "pmeijer"
   },
   {
     "name": "json-to-webgme",
     "description": "Allows creation of webgme objects as a subtree of a project from an exported json of another project with the same meta.",
-    "modified": "2016-10-03T00:14:09.824Z",
     "version": "1.0.3",
-    "author": "finger563",
+    "modified": "2016-10-03T00:14:09.824Z",
     "keywords": [
       "webgme",
       "json",
       "import"
     ],
-    "category": "N/A"
+    "author": "William Emfinger"
   },
   {
     "name": "webgme-executor-worker",
     "description": "Worker for connecting to webgme executor framework",
-    "modified": "2016-12-20T18:02:36.173Z",
     "version": "1.0.1",
-    "author": "pmeijer",
+    "modified": "2016-12-20T18:02:36.173Z",
     "keywords": [
       "webgme",
       "worker",
       "executor"
     ],
-    "category": "N/A"
+    "author": "pmeijer"
+  },
+  {
+    "name": "webgme-to-json",
+    "description": "Creates a meta-agnostic JSON structure from a (sub-)tree of a WebGME model.",
+    "version": "1.0.4",
+    "modified": "2016-10-22T22:13:02.447Z",
+    "keywords": [
+      "webgme",
+      "json"
+    ],
+    "author": "William Emfinger"
   }
 ]
