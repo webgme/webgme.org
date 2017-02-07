@@ -158,7 +158,7 @@
                                 generated, shared and imported using a command line interface. Check out
                                 available npm-modules with extensions here from this webpage.</p>
                             <a href="images/screenshots/webgme-cli.png" class="fancybox" rel="gallery"
-                               title="Project history"><img src="images/screenshots/webgme-cli.png"/></a>
+                               title="webgme command line interface"><img src="images/screenshots/webgme-cli.png"/></a>
                         </div>
                         <p>
                             <a class="btn btn-lg btn-primary" href="https://www.npmjs.com/package/webgme-cli" role="button">Get webgme-cli now!</a>
@@ -249,9 +249,9 @@
             <table class="display dataTable no-footer" id="extension-table">
                 <thead>
                     <tr role="row">
-                        <th class="colExtension" tabindex="0" rowspan="1" colspan="1">Extension Repository<span class="legend"></span>
+                        <th class="colExtension" tabindex="0" rowspan="1" colspan="1">Extension Modules<span class="legend"></span>
                         </th>
-                        <th tabindex="0" rowspan="1" colspan="1">Downloads<span class="legend">last 30 days</span>
+                        <th tabindex="0" rowspan="1" colspan="1">Category</span>
                         </th>
                     </tr>
                 </thead>
@@ -406,6 +406,7 @@
 <script src="libs/fancybox/jquery.fancybox.pack.js"></script>
 <script src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
 <script src="libs/form/jquery.form.min.js"></script>
+<script src="libs/purl/purl.min.js"></script>
 <script src="libs/rrssb/rrssb.min.js"></script>
 
 <script src="scripts/webgme_www.js"></script>
@@ -502,11 +503,10 @@
             extBtn = $('#extensions-link'),
             homeBtn = $('#home-about'),
             socialBtns = $('.social-buttons-holder'),
-            myCarousel = $('#myCarousel');
+            myCarousel = $('#myCarousel'),
+            query = window.purl(location, true).param();
 
-        extensionsEl.hide();
-
-        extBtn.on('click', function () {
+        function showExtensions() {
             buzzWordsEl.hide();
             socialBtns.hide();
             extensionsEl.show();
@@ -515,15 +515,46 @@
             GMEExtensions.populateTable();
             myCarousel.carousel(3);
             myCarousel.carousel('pause');
-        });
+            if (window.purl(location, true).param().tab !== 'extensions') {
+                window.history.pushState('extensions', 'WebGME - Extensions', '/?tab=extensions');
+            }
+        }
 
-        homeBtn.on('click', function () {
+        function showHome() {
             buzzWordsEl.show();
             socialBtns.show();
             extensionsEl.hide();
             extBtn.parent().removeClass('active');
             homeBtn.parent().addClass('active');
+            if (window.purl(location, true).param().tab && window.purl(location, true).param().tab !== 'home') {
+                window.history.pushState('home', 'WebGME', '/?tab=home');
+            }
+        }
+
+        function switchState(state) {
+            if (state === 'home') {
+                showHome();
+            } else if (state === 'extensions') {
+                showExtensions();
+            } else {
+                showHome();
+            }
+        }
+
+        extBtn.on('click', function () {
+            showExtensions()
         });
+
+        homeBtn.on('click', function () {
+            showHome();
+        });
+
+        $(window).on('popstate', function (event) {
+            switchState(event.originalEvent.state)
+        });
+
+        // Choose state at start up based on query.
+        switchState(query.tab);
     });
 </script>
 <script>

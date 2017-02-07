@@ -24,7 +24,7 @@ $(function () {
                      'bAutoWidth': false,
                      'bLengthChange': false,
                      'aaSorting': [
-                         [0, 'desc']
+                         [1, 'asc']
                      ],
                      'columns': [{
                          'data': 'name',
@@ -47,12 +47,24 @@ $(function () {
                          }
                      },
                          {
-                             'data': 'modified',
+                             'data': 'keywords',
                              'sClass': 'dl',
-                             'sType': 'numeric',
-                             'bSearchable': false,
+                             'bSearchable': true,
                              'sDefaultContent': '',
-                             'asSorting': [ 'desc' ]
+                             'mRender': function (data, type, full) {
+                                 var tmpl = '<a class="category-anchor" href="https://github.com/webgme/webgme/wiki/Publish-Extensions';
+                                 if (data.indexOf('webgme-app') > -1) {
+                                     tmpl += '#webgme-app">App</a>';
+                                 } else if (data.indexOf('webgme-domain') > -1) {
+                                     tmpl += '#webgme-domain">Domain</a>';
+                                 } else if (data.indexOf('webgme-component') > -1) {
+                                     tmpl += '#webgme-component">Component</a>';
+                                 } else {
+                                     tmpl += '#component-domain-or-app">Unclassified</a>';
+                                 }
+
+                                 return tmpl;
+                             }
                          }]
                  });
             })

@@ -1,6 +1,18 @@
 WebGME single-page website
 =========================
 
-Before running `node source/server.js` install all dependencies:
+### Updating extensions.json
+```
+node ./updateextensions.js
+```
 
-    npm install
+Will query the npmjs registry for node-modules containing the keyword `webgme`, see [webgme-wiki](https://github.com/webgme/webgme/wiki/Publish-Extensions) for details about categories.
+
+
+
+### Running node server
+
+Before running `node source/server.js` install all dependencies:
+```
+npm install
+```
