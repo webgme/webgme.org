@@ -43,12 +43,13 @@
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">About</a></li>
+                            <li class="active"><a id='home-about'>About</a></li>
                             <li><a class="trylink" href="#">Try Now</a></li>
                             <li><a href="WebGMEWhitePaper.pdf">White Paper</a></li>
                             <li><a href="https://www.youtube.com/channel/UC1cPQP4jjsXRhpXUnoPZQWg">Tutorials</a></li>
                             <li><a href="https://github.com/webgme/webgme/wiki">Wiki Docs</a></li>
                             <li><a class="source-code-link">Source Code Docs</a></li>
+                            <li><a id="extensions-link">Available Extensions</a></li>
                             <!-- The following two are float right and are therefore in reversed order -->
                             <li id="login-link">
                                 <button role="button" class="btn btn-primary"
@@ -77,6 +78,7 @@
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
         </ol>
         <div class="carousel-inner">
             <div class="item active">
@@ -99,20 +101,6 @@
 
                             <p><a class="btn btn-lg btn-primary trylink" href="#" role="button">Try it now!</a></p>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item prototypical">
-                <img src="images/carousel/inheritance.jpg" alt="First slide">
-
-                <div class="container">
-                    <div class="carousel-caption" style="padding-bottom: 80px;">
-                        <h1>Prototypical Inheritance</h1>
-
-                        <p>WebGME supports prototypical inheritance. Any model can be instantiated. An instance is a
-                            deep copy of the model with all the children instantiated recursively down the composition
-                            hierarchy. Any changes in a prototype propagate down the inheritance tree providing a
-                            powerful way to manage, maintain, and evolve models.</p>
                     </div>
                 </div>
             </div>
@@ -139,6 +127,45 @@
                     </div>
                 </div>
             </div>
+            <div class="item prototypical">
+                <img src="images/carousel/inheritance.jpg" alt="First slide">
+
+                <div class="container">
+                    <div class="carousel-caption" style="padding-bottom: 80px;">
+                        <h1>Prototypical Inheritance</h1>
+
+                        <p>WebGME supports prototypical inheritance. Any model can be instantiated. An instance is a
+                            deep copy of the model with all the children instantiated recursively down the composition
+                            hierarchy. Any changes in a prototype propagate down the inheritance tree providing a
+                            powerful way to manage, maintain, and evolve models.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item extensible">
+                <img src="images/carousel/versioning.jpg" alt="First slide">
+
+                <div class="container">
+                    <div class="carousel-caption">
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-12">
+                                <h1>Easily Extensible</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p class="col-sm-8 col-lg-8">WebGME provides a variety of extension points to
+                                customize your application including: plugins, decorators, visualizers,
+                                server routers, webhooks, layouts etc. All these can be neatly
+                                generated, shared and imported using a command line interface. Check out
+                                available npm-modules with extensions here from this webpage.</p>
+                            <a href="images/screenshots/webgme-cli.png" class="fancybox" rel="gallery"
+                               title="webgme command line interface"><img src="images/screenshots/webgme-cli.png"/></a>
+                        </div>
+                        <p>
+                            <a class="btn btn-lg btn-primary" href="https://www.npmjs.com/package/webgme-cli" role="button">Get webgme-cli now!</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
         <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span
                 class="glyphicon glyphicon-chevron-left"></span></a>
@@ -157,64 +184,85 @@
     <div class="container marketing">
 
         <!-- Three columns of text below the carousel -->
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Collaborate</h2>
+        <div id="buzz-words">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h2>Collaborate</h2>
 
-                <p>Collaborate with your colleagues by simultaneously working on the same project. WebGME works just
-                    like Google Docs; it updates and shows all changes to each user concurrently. And you never lose
-                    work because the models are stored in a database in the cloud.</p>
-            </div>
-            <!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-                <h2>Examples</h2>
+                    <p>Collaborate with your colleagues by simultaneously working on the same project. WebGME works just
+                        like Google Docs; it updates and shows all changes to each user concurrently. And you never lose
+                        work because the models are stored in a database in the cloud.</p>
+                </div>
+                <!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <h2>Examples</h2>
 
-                <p>A set of examples is available in the <a href="" class="editor-link">model editor</a> including:
-                    <ul class="examples"></ul>
-                </p>
-            </div>
-            <!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-                <h2>APIs</h2>
+                    <p>A set of examples is available in the <a href="" class="editor-link">model editor</a> including:
+                        <ul class="examples"></ul>
+                    </p>
+                </div>
+                <!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <h2>APIs</h2>
 
-                <p>Both a native JavaScript and a RESTful <a href="" class="api-link" target="_blank">API</a> are supported. The former makes it possible to write
-                    high-performance code generators, while the latter enables interfacing with WebGME in practically
-                    any programming language.</p>
+                    <p>Both a native JavaScript and a RESTful <a href="" class="api-link" target="_blank">API</a> are supported. The former makes it possible to write
+                        high-performance code generators, while the latter enables interfacing with WebGME in practically
+                        any programming language.</p>
+                </div>
+                <!-- /.col-lg-4 -->
             </div>
-            <!-- /.col-lg-4 -->
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <h2>Inheritance</h2>
+
+                    <p>WebGME supports prototypical inheritance. Any model can be instantiated. An instance is a
+                        deep copy of the model with all the children instantiated recursively down the composition
+                        hierarchy. Any changes in a prototype propagate down the inheritance tree providing a
+                        powerful way to manage, maintain, and evolve models.</p>
+                </div>
+                <!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <h2>Extensible</h2>
+
+                    <p>WebGME provides a variety of extension points to customize your application including:
+                        add-ons, plugins, decorators, visualizers, custom REST API components, or the entire user
+                        interface can be replaced.</p>
+                </div>
+                <!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <h2>Crosscuts</h2>
+
+                    <p>It is always the cross cutting concerns that are hardest to model and manage. WebGME introduces
+                        Crosscuts, a novel way to visualize and modify associations among model elements that are
+                        potentially far away in the composition and/or inheritance hierarchy.</p>
+                </div>
+                <!-- /.col-lg-4 -->
+
+            </div>
+            <!-- /.row -->
         </div>
-        <!-- /.row -->
-        <div class="row">                        
-            <div class="col-lg-4">
-                <h2>Inheritance</h2>
 
-                <p>WebGME supports prototypical inheritance. Any model can be instantiated. An instance is a
-                    deep copy of the model with all the children instantiated recursively down the composition
-                    hierarchy. Any changes in a prototype propagate down the inheritance tree providing a
-                    powerful way to manage, maintain, and evolve models.</p>
-            </div>
-            <!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-                <h2>Extensible</h2>
-
-                <p>WebGME provides a variety of extension points to customize your application including: 
-                    add-ons, plugins, decorators, visualizers, custom REST API components, or the entire user 
-                    interface can be replaced.</p>
-            </div>
-            <!-- /.col-lg-4 -->            
-            <div class="col-lg-4">
-                <h2>Crosscuts</h2>
-
-                <p>It is always the cross cutting concerns that are hardest to model and manage. WebGME introduces
-                    Crosscuts, a novel way to visualize and modify associations among model elements that are
-                    potentially far away in the composition and/or inheritance hierarchy.</p>
-            </div>
-            <!-- /.col-lg-4 -->
-
+        <div id="extensions">
+            <p></p>
+            Developing your own domains or extensions and want the to show up here? View the <a href="https://github.com/webgme/webgme/wiki/Publish-Extensions">instructions here.</a>
+            <table class="display dataTable no-footer" id="extension-table">
+                <thead>
+                    <tr role="row">
+                        <th class="colExtension" tabindex="0" rowspan="1" colspan="1">Extension Modules<span class="legend"></span>
+                        </th>
+                        <th tabindex="0" rowspan="1" colspan="1">Category</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                    <td valign="top" colspan="2" class="dataTables_empty">Loading...</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-        <!-- /.row -->
         <hr>
-
         <div class="row social-buttons-holder">
             <ul class="rrssb-buttons clearfix social-buttons">
                 <li class="facebook">
@@ -337,7 +385,7 @@
     <footer>
         <p class="pull-right back-to-top"><a href="#">Back to top</a></p>
         <p></p>
-        <p>&copy; 2016 <a href="http://www.isis.vanderbilt.edu/" target="_blank">ISIS</a> / <a
+        <p>&copy; 2017 <a href="http://www.isis.vanderbilt.edu/" target="_blank">ISIS</a> / <a
                 href="http://www.vanderbilt.edu" target="_blank">Vanderbilt University</a> / <a
                 href="http://www.vuse.vanderbilt.edu" target="_blank">School of Engineering</a>  -  <a
                 target="_blank" href="https://github.com/webgme/webgme/blob/master/LICENSE"> View License</a>
@@ -351,14 +399,18 @@
 <!-- Placed at the end of the document so the pages load faster -->
 
 <script src="libs/jquery/jquery-2.1.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
 <script src="libs/bootstrap/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
 <script src="libs/bootstrap/holder/holder.2.3.1.min.js"></script>
 <script src="libs/fancybox/jquery.fancybox.pack.js"></script>
 <script src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
 <script src="libs/form/jquery.form.min.js"></script>
+<script src="libs/purl/purl.min.js"></script>
 <script src="libs/rrssb/rrssb.min.js"></script>
 
 <script src="scripts/webgme_www.js"></script>
+<script src="scripts/extensionstable.js"></script>
 
 <script type="text/javascript">
     $(function () {
@@ -444,8 +496,65 @@
             var aE = $('<a>', {href: url, html: project.description});
             liE.append(aE);
             $('.examples').append(liE);
-        }        
-        
+        }
+
+        var buzzWordsEl = $('#buzz-words'),
+            extensionsEl = $('#extensions'),
+            extBtn = $('#extensions-link'),
+            homeBtn = $('#home-about'),
+            socialBtns = $('.social-buttons-holder'),
+            myCarousel = $('#myCarousel'),
+            query = window.purl(location, true).param();
+
+        function showExtensions() {
+            buzzWordsEl.hide();
+            socialBtns.hide();
+            extensionsEl.show();
+            extBtn.parent().addClass('active');
+            homeBtn.parent().removeClass('active');
+            GMEExtensions.populateTable();
+            myCarousel.carousel(3);
+            myCarousel.carousel('pause');
+            if (window.purl(location, true).param().tab !== 'extensions') {
+                window.history.pushState('extensions', 'WebGME - Extensions', '/?tab=extensions');
+            }
+        }
+
+        function showHome() {
+            buzzWordsEl.show();
+            socialBtns.show();
+            extensionsEl.hide();
+            extBtn.parent().removeClass('active');
+            homeBtn.parent().addClass('active');
+            if (window.purl(location, true).param().tab && window.purl(location, true).param().tab !== 'home') {
+                window.history.pushState('home', 'WebGME', '/?tab=home');
+            }
+        }
+
+        function switchState(state) {
+            if (state === 'home') {
+                showHome();
+            } else if (state === 'extensions') {
+                showExtensions();
+            } else {
+                showHome();
+            }
+        }
+
+        extBtn.on('click', function () {
+            showExtensions()
+        });
+
+        homeBtn.on('click', function () {
+            showHome();
+        });
+
+        $(window).on('popstate', function (event) {
+            switchState(event.originalEvent.state)
+        });
+
+        // Choose state at start up based on query.
+        switchState(query.tab);
     });
 </script>
 <script>
