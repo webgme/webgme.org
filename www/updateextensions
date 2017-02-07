@@ -1,2 +1,0 @@
-# Add this to /etc/cron.hourly/
-node ~/webgme.org/www/updateextensions.js
