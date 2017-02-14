@@ -16,11 +16,11 @@
       },
       "FSMCodeGenerator": {
         "project": "finite-state-machine",
-        "path": "node_modules/finite-state-machine/src/plugins/FSMCodeGenerator"
+        "path": "node_modules/webgme-finite-state-machine/src/plugins/FSMCodeGenerator"
       },
       "FSMImporter": {
         "project": "finite-state-machine",
-        "path": "node_modules/finite-state-machine/src/plugins/FSMImporter"
+        "path": "node_modules/webgme-finite-state-machine/src/plugins/FSMImporter"
       },
       "Export2FORMULA": {
         "project": "formula",
@@ -50,7 +50,7 @@
       },
       "FiniteStateMachine": {
         "project": "finite-state-machine",
-        "path": "node_modules/finite-state-machine/src/seeds/FiniteStateMachine"
+        "path": "node_modules/webgme-finite-state-machine/src/seeds/FiniteStateMachine"
       },
       "BusinessProcessModeling": {
         "project": "business-process-modeling",
@@ -84,7 +84,7 @@
       },
       "UMLStateMachineDecorator": {
         "project": "finite-state-machine",
-        "path": "node_modules/finite-state-machine/src/decorators/UMLStateMachineDecorator"
+        "path": "node_modules/webgme-finite-state-machine/src/decorators/UMLStateMachineDecorator"
       },
       "DisplayMetaDecorator": {
         "project": "ui-components",
