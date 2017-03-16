@@ -103,7 +103,7 @@
         "panel": "src/visualizers/panels/ICore",
         "secondary": false,
         "widget": "src/visualizers/widgets/ICore",
-        "project": "ui-components"
+        "project": "webgme-icore"
       }
     }
   }

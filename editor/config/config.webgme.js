@@ -28,7 +28,7 @@ config.seedProjects.basePaths.push(__dirname + '/../node_modules/power/src/seeds
 
 
 
-config.visualization.panelPaths.push(__dirname + '/../node_modules/ui-components/src/visualizers/panels');
+config.visualization.panelPaths.push(__dirname + '/../node_modules/webgme-icore/src/visualizers/panels');
 
 
 
@@ -60,8 +60,8 @@ config.requirejsPaths = {
   'LogicGatesExporter': 'node_modules/logic-gates/src/plugins/LogicGatesExporter',
   'panels': './src/visualizers/panels',
   'widgets': './src/visualizers/widgets',
-  'panels/ICore': './node_modules/ui-components/src/visualizers/panels/ICore',
-  'widgets/ICore': './node_modules/ui-components/src/visualizers/widgets/ICore'
+  'panels/ICore': './node_modules/webgme-icore/src/visualizers/panels/ICore',
+  'widgets/ICore': './node_modules/webgme-icore/src/visualizers/widgets/ICore'
 };
 
 
