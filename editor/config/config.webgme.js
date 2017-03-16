@@ -6,35 +6,38 @@
 var config = require('webgme/config/config.default'),
     validateConfig = require('webgme/config/validator');
 
-
 // The paths can be loaded from the webgme-setup.json
-config.plugin.basePaths.push('node_modules/logic-gates/src/plugins');
-config.plugin.basePaths.push('node_modules/petri-net/src/plugins');
-config.plugin.basePaths.push('node_modules/webgme-finite-state-machine/src/plugins');
-config.plugin.basePaths.push('node_modules/formula/src/plugins');
-config.plugin.basePaths.push('node_modules/sysml/src/plugins');
-config.plugin.basePaths.push('node_modules/power/src/plugins');
-config.visualization.decoratorPaths.push('node_modules/petri-net/src/decorators');
-config.visualization.decoratorPaths.push('node_modules/logic-gates/src/decorators');
-config.visualization.decoratorPaths.push('node_modules/business-process-modeling/src/decorators');
-config.visualization.decoratorPaths.push('node_modules/sysml/src/decorators');
-config.visualization.decoratorPaths.push('node_modules/webgme-finite-state-machine/src/decorators');
-config.visualization.decoratorPaths.push('node_modules/ui-components/src/decorators');
-config.seedProjects.basePaths.push('node_modules/logic-gates/src/seeds/LogicGates');
-config.seedProjects.basePaths.push('node_modules/petri-net/src/seeds/PetriNet');
-config.seedProjects.basePaths.push('node_modules/webgme-finite-state-machine/src/seeds/FiniteStateMachine');
-config.seedProjects.basePaths.push('node_modules/business-process-modeling/src/seeds/BusinessProcessModeling');
-config.seedProjects.basePaths.push('node_modules/sysml/src/seeds/SysML');
-config.seedProjects.basePaths.push('node_modules/power/src/seeds/Power');
+config.plugin.basePaths.push(__dirname + '/../node_modules/logic-gates/src/plugins');
+config.plugin.basePaths.push(__dirname + '/../node_modules/petri-net/src/plugins');
+config.plugin.basePaths.push(__dirname + '/../node_modules/webgme-finite-state-machine/src/plugins');
+config.plugin.basePaths.push(__dirname + '/../node_modules/formula/src/plugins');
+config.plugin.basePaths.push(__dirname + '/../node_modules/sysml/src/plugins');
+config.plugin.basePaths.push(__dirname + '/../node_modules/power/src/plugins');
+config.visualization.decoratorPaths.push(__dirname + '/../node_modules/petri-net/src/decorators');
+config.visualization.decoratorPaths.push(__dirname + '/../node_modules/logic-gates/src/decorators');
+config.visualization.decoratorPaths.push(__dirname + '/../node_modules/business-process-modeling/src/decorators');
+config.visualization.decoratorPaths.push(__dirname + '/../node_modules/sysml/src/decorators');
+config.visualization.decoratorPaths.push(__dirname + '/../node_modules/webgme-finite-state-machine/src/decorators');
+config.visualization.decoratorPaths.push(__dirname + '/../node_modules/ui-components/src/decorators');
+config.seedProjects.basePaths.push(__dirname + '/../node_modules/logic-gates/src/seeds/LogicGates');
+config.seedProjects.basePaths.push(__dirname + '/../node_modules/petri-net/src/seeds/PetriNet');
+config.seedProjects.basePaths.push(__dirname + '/../node_modules/webgme-finite-state-machine/src/seeds/FiniteStateMachine');
+config.seedProjects.basePaths.push(__dirname + '/../node_modules/business-process-modeling/src/seeds/BusinessProcessModeling');
+config.seedProjects.basePaths.push(__dirname + '/../node_modules/sysml/src/seeds/SysML');
+config.seedProjects.basePaths.push(__dirname + '/../node_modules/power/src/seeds/Power');
 
+
+
+config.visualization.panelPaths.push(__dirname + '/../node_modules/webgme-icore/src/visualizers/panels');
 
 
 
 
 // Visualizer descriptors
-
+config.visualization.visualizerDescriptors.push(__dirname + '/../src/visualizers/Visualizers.json');
 // Add requirejs paths
 config.requirejsPaths = {
+  'ICore': 'panels/ICore/ICorePanel',
   'DisplayMetaDecorator': 'node_modules/ui-components/src/decorators/DisplayMetaDecorator',
   'UMLStateMachineDecorator': 'node_modules/webgme-finite-state-machine/src/decorators/UMLStateMachineDecorator',
   'SysMLDecorator': 'node_modules/sysml/src/decorators/SysMLDecorator',
@@ -54,7 +57,11 @@ config.requirejsPaths = {
   'FSMImporter': 'node_modules/webgme-finite-state-machine/src/plugins/FSMImporter',
   'FSMCodeGenerator': 'node_modules/webgme-finite-state-machine/src/plugins/FSMCodeGenerator',
   'PetriNetExporter': 'node_modules/petri-net/src/plugins/PetriNetExporter',
-  'LogicGatesExporter': 'node_modules/logic-gates/src/plugins/LogicGatesExporter'
+  'LogicGatesExporter': 'node_modules/logic-gates/src/plugins/LogicGatesExporter',
+  'panels': './src/visualizers/panels',
+  'widgets': './src/visualizers/widgets',
+  'panels/ICore': './node_modules/webgme-icore/src/visualizers/panels/ICore',
+  'widgets/ICore': './node_modules/webgme-icore/src/visualizers/widgets/ICore'
 };
 
 

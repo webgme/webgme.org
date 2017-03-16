@@ -2,7 +2,10 @@
   "components": {
     "plugins": {},
     "seeds": {},
-    "decorators": {}
+    "decorators": {},
+    "addons": {},
+    "layouts": {},
+    "visualizers": {}
   },
   "dependencies": {
     "plugins": {
@@ -88,7 +91,19 @@
       },
       "DisplayMetaDecorator": {
         "project": "ui-components",
-        "path": "node_modules\\ui-components\\src\\decorators\\DisplayMetaDecorator"
+        "path": "node_modules/ui-components/src/decorators/DisplayMetaDecorator"
+      }
+    },
+    "addons": {},
+    "layouts": {},
+    "visualizers": {
+      "ICore": {
+        "src": "panels/ICore/ICorePanel",
+        "title": "ICore",
+        "panel": "src/visualizers/panels/ICore",
+        "secondary": false,
+        "widget": "src/visualizers/widgets/ICore",
+        "project": "webgme-icore"
       }
     }
   }
