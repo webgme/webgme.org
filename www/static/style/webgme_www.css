@@ -26,7 +26,10 @@ div#main-content {
     position: absolute;
     top: -15px;
 }
-
+#webgme-logo {
+    width: 115px;
+    height: 115px;
+}
 #home-about {
     cursor: pointer;
 }
@@ -148,6 +151,22 @@ ul.nav.navbar-nav {
 
 .carousel {
     margin-bottom: 5px;
+}
+
+#myCarousel > .carousel-control {
+    opacity: 0.8;
+}
+
+#myCarousel > .carousel-control:hover, #myCarousel > .carousel-control:focus {
+    opacity: 1;
+}
+
+#myCarousel > .carousel-control.left {
+     background-image: linear-gradient(to right,rgba(0, 0, 0, 0.7) 0,rgba(0,0,0,.0001) 100%);
+}
+
+#myCarousel > .carousel-control.right {
+     background-image: linear-gradient(to left,rgba(0, 0, 0, 0.7) 0,rgba(0,0,0,.0001) 100%);
 }
 
 .fancybox>img {
