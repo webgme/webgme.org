@@ -29,6 +29,7 @@ config.seedProjects.basePaths.push(__dirname + '/../node_modules/power/src/seeds
 
 
 config.visualization.panelPaths.push(__dirname + '/../node_modules/webgme-icore/src/visualizers/panels');
+config.visualization.panelPaths.push(__dirname + '/../node_modules/webgme-bip-editors/src/visualizers/panels');
 
 
 
@@ -37,6 +38,8 @@ config.visualization.panelPaths.push(__dirname + '/../node_modules/webgme-icore/
 config.visualization.visualizerDescriptors.push(__dirname + '/../src/visualizers/Visualizers.json');
 // Add requirejs paths
 config.requirejsPaths = {
+  'ModelEditorDD': 'panels/ModelEditor/ModelEditorPanel',
+  'BIPExecutionViz': 'panels/BIPExecutionViz/BIPExecutionVizPanel',
   'ICore': 'panels/ICore/ICorePanel',
   'DisplayMetaDecorator': 'node_modules/ui-components/src/decorators/DisplayMetaDecorator',
   'UMLStateMachineDecorator': 'node_modules/webgme-finite-state-machine/src/decorators/UMLStateMachineDecorator',
@@ -60,6 +63,10 @@ config.requirejsPaths = {
   'LogicGatesExporter': 'node_modules/logic-gates/src/plugins/LogicGatesExporter',
   'panels': './src/visualizers/panels',
   'widgets': './src/visualizers/widgets',
+  'panels/ModelEditor': './node_modules/webgme-bip-editors/src/visualizers/panels/ModelEditor',
+  'widgets/ModelEditor': './node_modules/webgme-bip-editors/src/visualizers/widgets/ModelEditor',
+  'panels/BIPExecutionViz': './node_modules/webgme-bip-editors/src/visualizers/panels/BIPExecutionViz',
+  'widgets/BIPExecutionViz': './node_modules/webgme-bip-editors/src/visualizers/widgets/BIPExecutionViz',
   'panels/ICore': './node_modules/webgme-icore/src/visualizers/panels/ICore',
   'widgets/ICore': './node_modules/webgme-icore/src/visualizers/widgets/ICore'
 };
