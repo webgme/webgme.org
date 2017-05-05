@@ -1,0 +1,17 @@
+.hidden-xs
+  h3.text-center Published Projects
+  ul#projects-slider.cS-hidden
+    each eg in projects
+      .element-item.col-xs-12.col-sm-4.col-md-3.col-lg-2
+         a(class="wrapper-link", href= env.EDITOR_ADDRESS + '/#present:Username='+eg.owner+'&ProjectName='+eg.projectName, target='_blank')
+          .h-thumbnail
+            .img-container
+              img.img-responsive.center-block.img-thumbnail(src= eg.thumbnail, style='width: 100%;')
+              .overlay
+                .caption.text-center= eg.notes || 'No description provided.'
+            ul.list-group
+              span.label.label-success= eg.services ? eg.services[0] : null
+              li.list-group-item.title
+                b= eg.projectName
+
+                span.pull-right= ' Roles: '+ eg.roleNames.length

@@ -1,0 +1,74 @@
+extends layout.pug
+block content
+	#myCarousel.carousel.slide(data-ride='carousel', data-interval='15000')
+		ol.carousel-indicators
+			li.active(data-target='#myCarousel', data-slide-to='0')
+			li(data-target='#myCarousel', data-slide-to='1')
+			li(data-target='#myCarousel', data-slide-to='2')
+		.carousel-inner
+			.item.active
+				img(src='images/carousel/earthquake.png', alt='First slide')
+				.container
+					.carousel-caption
+						.row
+							.col-sm-12.col-lg-12
+								h1 Limitless
+						.row
+							p.col-sm-12.col-lg-12 Just two simple distributed programming concepts - message passing and remote procedure calls - open a world of possibilities.
+							p
+								a.btn.btn-lg.btn-primary.trylink(href='#', role='button') Use NetsBlox!
+			.item.prototypical
+				img(src='images/carousel/MultiWeather.png', alt='First slide')
+				.container
+					.carousel-caption
+						.row
+							.col-sm-12.col-lg-12
+								h1 Flexible
+						.row
+							p.col-sm-12.col-lg-12 Work on any computer or deploy the programs you created with NetsBlox on your phone or tablet and play against your friends in the next room or the next state.
+							p
+								a.btn.btn-lg.btn-primary.trylink(href='#', role='button') Use NetsBlox!
+			.item.versioning
+				img(src='images/carousel/ttt.png', alt='First slide')
+				.container
+					.carousel-caption
+						.row
+							.col-sm-12.col-lg-12
+								h1 Collaborative
+						.row
+							p.col-sm-12.col-lg-12 Work with your friends sharing the same workspace or have your own two programs play each other; it&apos;s your choice.
+							p
+								a.btn.btn-lg.btn-primary.trylink(href='#', role='button') Use NetsBlox!
+		a.left.hidden-xs.carousel-control(href='#myCarousel', data-slide='prev')
+			span.glyphicon.glyphicon-chevron-left
+		a.right.hidden-xs.carousel-control(href='#myCarousel', data-slide='next')
+			span.glyphicon.glyphicon-chevron-right
+	br
+	.container.marketing
+		p.text-center NetsBlox is a visual programming language and cloud-based environment that enables novice programmers to create networked programs such as multi-player games. Its visual notation is based on Scratch and it uses the open source JavaScript code base of Snap! NetsBlox opens up the internet with its vast array of public domain scientific and other data sources making it possible to create STEM projects, such as displaying seismic activity anywhere on Earth using an interactive Google Maps background. Similarly, weather, air pollution, and many other data sources such as the Open Movie Database and the Sloan Digital Sky Server are available. NetsBlox supports collaborative program editing similar to how Google Docs work.
+		//- .col-md-3.col-sm-6
+		//-   h2 Familiar
+		//-   p Uses the same visual formalism of Scratch and Snap! so you can start with NetsBlox where you left off.
+		//- .col-md-3.col-sm-6
+		//-   h2 Safe
+		//-   p Only your friends can collaborate with you, play against you or even contact you without permission.
+		//- .col-md-3.col-sm-6
+		//-   h2 Fun
+		//-   p Design multi-player games or harness real-time data sources from the Internet to create your science projects!
+		//- .col-md-3.col-sm-6
+		//-   h2 Rewarding
+		//-   p Learn the key concepts that run our interconnected world from iPhones through Instagram to traffic lights.
+
+	.container-fluid#showcase
+		#userProjects-grid.hidden.text-center
+			h3 My Projects
+			.row
+		include examples.pug
+		include pubProjects.pug
+
+	.social-buttons-holder
+		a(href='https://github.com/netsblox/netsblox', target="_blank" title='GitHub')
+			i.fa.fa-github.fa-2x
+		a(href='https://www.facebook.com/netsblox', target="_blank" title='Facebook')
+			i.fa.fa-facebook-square.fa-2x
+	br

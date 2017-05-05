@@ -1,0 +1,26 @@
+extends layout.pug
+block content
+	style(type='text/css').
+		#main-content {
+			background-image: url(../images/carousel/earthquake.png) !important;
+		}
+	br
+	.container.text-center
+		.row
+			.col-md-6.col-lg-6
+				.panel.panel-default
+					.panel-body
+						.embed-responsive.embed-responsive-16by9
+							iframe(class="embed-responsive-item", src='https://www.youtube.com/embed/YXKUtTbbVWI')
+
+			.col-md-6.col-lg-6
+				.panel.panel-default
+					.panel-body
+						.embed-responsive.embed-responsive-16by9
+							iframe(class="embed-responsive-item", width='100%', height='400px', frameborder='0', allowfullscreen='', src='https://www.youtube.com/embed/NRIUUiJMCmI')
+
+			.col-md-6.col-lg-6
+				.panel.panel-default
+					.panel-body
+						.embed-responsive.embed-responsive-16by9
+							iframe(class="embed-responsive-item", width='100%', height='400px', frameborder='0', allowfullscreen='', src='https://www.youtube.com/embed/-qS7hGowQKQ')

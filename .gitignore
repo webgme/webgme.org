@@ -1,8 +1,5 @@
 .idea
-
-editor/update.sh.log
-editor/server.log
-editor/server-error.log
-editor/blob-local-storage
-editor/node_modules
-editor/npm-debug.log
+.env
+node_modules
+npm-debug.log
+*.pem

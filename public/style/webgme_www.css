@@ -1,0 +1,263 @@
+body {
+    padding-bottom: 0;
+    background-color: #000;
+}
+
+div#main-content {
+    background-color: #fff;
+}
+
+/*.navbar {
+
+}
+
+.navbar-wrapper .navbar {
+    margin-left: 125px;
+}
+
+.navbar-wrapper .container {
+    position: relative;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; 
+    width: 100%;
+}
+
+.navbar-logo {
+    position: absolute;
+    top: -15px;
+}*/
+
+.isis-logo,
+.isis-logo:link,
+.isis-logo:visited {
+    position: absolute;
+    bottom: 10px;
+    right: 16px;
+    opacity: .6;
+}
+
+.isis-logo:hover {
+    opacity: 1;
+}
+
+.isis-logo img {
+    width: 40px;
+}
+
+footer {
+    background-color: #000;
+    padding: 10px;
+    min-height: 100px;
+    color: #eee;
+}
+
+.marketing .col-lg-4 {
+    text-align: left;
+}
+
+.marketing .col-lg-4 p {
+    margin: 0;
+}
+
+/*ul.nav.navbar-nav {
+    width: 100%;
+}*/
+
+#login-link {
+    float: right;
+}
+
+#login-link button {
+    margin-top: 9px;
+}
+
+.carousel-caption {
+    color: #211966;
+    text-shadow: 0 0 2px rgba(255,255,255,1);
+    bottom: 5px;
+}
+
+.carousel-caption h1 {
+    font-size: 3.5em;
+    margin-bottom: 30px;
+}
+
+.carousel-caption p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.carousel-caption img {
+    width: 250px;
+}
+
+.carousel-inner {
+    border-bottom: 1px solid #aaa;
+}
+
+.carousel {
+    margin-bottom: 5px;
+}
+
+.fancybox>img {
+    border: 1px solid #aaa;
+    box-shadow: 0 0 5px rgba(255,255,255,.4);
+}
+
+.item.versioning .carousel-caption p {
+    font-size: 1.4em;
+}
+
+.iten.prototypical .carousel-caption p {
+    font-size: 1.7em;
+}
+
+footer {
+    font-size: .9em;
+    min-height: 50px;
+}
+
+footer a,
+footer a:link,
+footer a:visited {
+    color: #1c80d8;
+}
+
+footer a:hover,
+footer a:active {
+    color: #329fff;
+    text-decoration: none;
+}
+
+.back-to-top {
+    background-color: #1c80d8;
+    opacity: .6;
+    cursor: pointer;
+}
+
+.back-to-top:hover {
+    opacity: 1;
+}
+
+footer .back-to-top a,
+footer .back-to-top a:link,
+footer .back-to-top a:visited {
+    color: #fff;
+    padding: 1ex 2ex;
+    display: inline-block;
+}
+
+footer .back-to-top a:hover,
+footer .back-to-top a:active {
+    color: #fff;
+}
+
+.container.marketing {
+    padding-bottom: 20px;
+}
+
+h2 {
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+.bigbig {
+    font-size: 3em;
+}
+
+form {
+    margin-top: 35px;
+}
+
+form > .row {
+    margin-bottom: 20px;
+}
+
+input.error {
+    border: 1px solid red;
+    position: relative;
+}
+
+p.message {
+    min-height: 20px;
+    font-weight: bold;
+}
+
+p.message.error {
+    color: red;
+}
+
+#recaptcha-holder, {
+    display: none;
+}
+
+#recaptcha_response_field {
+    border: 1px solid #777;
+    width: 302px;
+}
+
+#recaptcha_response_field.error {
+    border-color: red;
+}
+
+#submit-button {
+    display: none;
+}
+
+div.carousel-caption .trylink {
+    margin-top: 20px;
+}
+
+/* These are styles associated directly with the tutorial page */
+
+.main-content-tutorial {
+    background-image: url(../images/carousel/earthquake.png); 
+    background-size: cover; 
+}
+
+/*.navbar-wrapper .navbar {
+    border-radius: 4px;
+}
+
+.navbar-wrapper-tutorial {
+    padding-top: 20px; 
+
+.tutorial-heading {
+    color: #211966;
+}*/
+
+/* ./tutorial styles */
+
+@media screen and (max-width: 850px)  {
+    div.carousel-caption img {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 900px)  {
+    .carousel-caption h1 {
+        font-size: 2.4em;
+    }
+
+    div.carousel-caption .trylink {
+        margin-top: 10px;
+    }
+
+}
+
+@media screen and (max-width: 1200px)  {
+    div.carousel-caption img {
+        width: 150px;
+    }
+}
+
+.social-buttons-holder {
+    text-align: center;
+    margin: auto;
+    max-width: 200px;
+}
+
+.social-buttons {
+    max-width: 200px;
+    display: inline-block;
+}

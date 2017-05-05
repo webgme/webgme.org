@@ -1,0 +1,37 @@
+{
+  "name": "netsblox",
+  "version": "0.0.1",
+  "description": "NetsBlox website",
+  "main": "source/server.js",
+  "scripts": {
+    "start": "node src/server/index.js",
+    "dev": "nodemon src/server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:NetsBlox/netsblox.org.git"
+  },
+  "author": "NetsBlox",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/netsblox/netsblox.org/issues"
+  },
+  "homepage": "https://github.com/NetsBlox/netsblox.org",
+  "dependencies": {
+    "axios": "^0.16.1",
+    "body-parser": "^1.12.2",
+    "cache-manager": "^2.4.0",
+    "compression": "^1.4.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.12.0",
+    "morgan": "^1.8.1",
+    "nconf": "^0.6.9",
+    "pug": "^2.0.0-beta.12"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "webpack": "^2.4.1",
+    "webpack-livereload-plugin": "^0.11.0"
+  }
+}
