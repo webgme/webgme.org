@@ -13,22 +13,27 @@ config.plugin.basePaths.push(__dirname + '/../node_modules/webgme-finite-state-m
 config.plugin.basePaths.push(__dirname + '/../node_modules/formula/src/plugins');
 config.plugin.basePaths.push(__dirname + '/../node_modules/sysml/src/plugins');
 config.plugin.basePaths.push(__dirname + '/../node_modules/power/src/plugins');
+config.plugin.basePaths.push(__dirname + '/../node_modules/webgme-bip/src/plugins');
 config.visualization.decoratorPaths.push(__dirname + '/../node_modules/petri-net/src/decorators');
 config.visualization.decoratorPaths.push(__dirname + '/../node_modules/logic-gates/src/decorators');
 config.visualization.decoratorPaths.push(__dirname + '/../node_modules/business-process-modeling/src/decorators');
 config.visualization.decoratorPaths.push(__dirname + '/../node_modules/sysml/src/decorators');
 config.visualization.decoratorPaths.push(__dirname + '/../node_modules/webgme-finite-state-machine/src/decorators');
 config.visualization.decoratorPaths.push(__dirname + '/../node_modules/ui-components/src/decorators');
+config.visualization.decoratorPaths.push(__dirname + '/../node_modules/webgme-bip/src/decorators');
 config.seedProjects.basePaths.push(__dirname + '/../node_modules/logic-gates/src/seeds/LogicGates');
 config.seedProjects.basePaths.push(__dirname + '/../node_modules/petri-net/src/seeds/PetriNet');
 config.seedProjects.basePaths.push(__dirname + '/../node_modules/webgme-finite-state-machine/src/seeds/FiniteStateMachine');
 config.seedProjects.basePaths.push(__dirname + '/../node_modules/business-process-modeling/src/seeds/BusinessProcessModeling');
 config.seedProjects.basePaths.push(__dirname + '/../node_modules/sysml/src/seeds/SysML');
 config.seedProjects.basePaths.push(__dirname + '/../node_modules/power/src/seeds/Power');
+config.seedProjects.basePaths.push(__dirname + '/../node_modules/webgme-bip/src/seeds/BIP');
 
 
 
 config.visualization.panelPaths.push(__dirname + '/../node_modules/webgme-icore/src/visualizers/panels');
+config.visualization.panelPaths.push(__dirname + '/../node_modules/webgme-bip-editors/src/visualizers/panels');
+config.visualization.panelPaths.push(__dirname + '/../node_modules/webgme-bip/src/visualizers/panels');
 
 
 
@@ -37,19 +42,28 @@ config.visualization.panelPaths.push(__dirname + '/../node_modules/webgme-icore/
 config.visualization.visualizerDescriptors.push(__dirname + '/../src/visualizers/Visualizers.json');
 // Add requirejs paths
 config.requirejsPaths = {
+  'BIPCodeEditor': 'panels/BIPCodeEditor/BIPCodeEditorPanel',
+  'ModelEditorDD': 'panels/ModelEditor/ModelEditorPanel',
+  'BIPExecutionViz': 'panels/BIPExecutionViz/BIPExecutionVizPanel',
   'ICore': 'panels/ICore/ICorePanel',
+  'BIPConnectorEndDecorator': 'node_modules/webgme-bip/src/decorators/BIPConnectorEndDecorator',
+  'BIPStateDecorator': 'node_modules/webgme-bip/src/decorators/BIPStateDecorator',
+  'BIPComponentTypeDecorator': 'node_modules/webgme-bip/src/decorators/BIPComponentTypeDecorator',
   'DisplayMetaDecorator': 'node_modules/ui-components/src/decorators/DisplayMetaDecorator',
   'UMLStateMachineDecorator': 'node_modules/webgme-finite-state-machine/src/decorators/UMLStateMachineDecorator',
   'SysMLDecorator': 'node_modules/sysml/src/decorators/SysMLDecorator',
   'BusinessProcessModelingDecorator': 'node_modules/business-process-modeling/src/decorators/BusinessProcessModelingDecorator',
   'LogicGatesDecorator': 'node_modules/logic-gates/src/decorators/LogicGatesDecorator',
   'PetriNetDecorator': 'node_modules/petri-net/src/decorators/PetriNetDecorator',
+  'BIP': 'node_modules/webgme-bip/src/seeds/BIP',
   'Power': 'node_modules/power/src/seeds/Power',
   'SysML': 'node_modules/sysml/src/seeds/SysML',
   'BusinessProcessModeling': 'node_modules/business-process-modeling/src/seeds/BusinessProcessModeling',
   'FiniteStateMachine': 'node_modules/webgme-finite-state-machine/src/seeds/FiniteStateMachine',
   'PetriNet': 'node_modules/petri-net/src/seeds/PetriNet',
   'LogicGates': 'node_modules/logic-gates/src/seeds/LogicGates',
+  'BehaviorSpecGenerator': 'node_modules/webgme-bip/src/plugins/BehaviorSpecGenerator',
+  'ArchitectureSpecGenerator': 'node_modules/webgme-bip/src/plugins/ArchitectureSpecGenerator',
   'OpenDSS_Generator': 'node_modules/power/src/plugins/OpenDSS_Generator',
   'SysMLImporter': 'node_modules/sysml/src/plugins/SysMLImporter',
   'SysMLExporter': 'node_modules/sysml/src/plugins/SysMLExporter',
@@ -60,6 +74,12 @@ config.requirejsPaths = {
   'LogicGatesExporter': 'node_modules/logic-gates/src/plugins/LogicGatesExporter',
   'panels': './src/visualizers/panels',
   'widgets': './src/visualizers/widgets',
+  'panels/BIPCodeEditor': './node_modules/webgme-bip/src/visualizers/panels/BIPCodeEditor',
+  'widgets/BIPCodeEditor': './node_modules/webgme-bip/src/visualizers/widgets/BIPCodeEditor',
+  'panels/ModelEditor': './node_modules/webgme-bip-editors/src/visualizers/panels/ModelEditor',
+  'widgets/ModelEditor': './node_modules/webgme-bip-editors/src/visualizers/widgets/ModelEditor',
+  'panels/BIPExecutionViz': './node_modules/webgme-bip-editors/src/visualizers/panels/BIPExecutionViz',
+  'widgets/BIPExecutionViz': './node_modules/webgme-bip-editors/src/visualizers/widgets/BIPExecutionViz',
   'panels/ICore': './node_modules/webgme-icore/src/visualizers/panels/ICore',
   'widgets/ICore': './node_modules/webgme-icore/src/visualizers/widgets/ICore'
 };
