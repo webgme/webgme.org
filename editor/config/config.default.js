@@ -15,6 +15,8 @@ config.authentication.guestAccount = 'demo';
 config.requirejsPaths['widgets/DiagramDesigner'] =
     './node_modules/webgme-bip-editors/src/visualizers/widgets/DiagramDesigner';
 
+config.requirejsPaths['bipsrc'] = './node_modules/webgme-bip/src';
+
 config.plugin.allowServerExecution = false;
 config.executor.enable = false;
 config.addOn.enable = false;
@@ -26,10 +28,11 @@ config.seedProjects.defaultProject = 'Boilerplate';
 
 config.server.behindSecureProxy = true;
 
-config.client.errorReporting.enable = true;
-config.client.errorReporting.DSN = 'https://3118066a25db430086ad064fb35af2e8@sentry.io/118310';
+//config.client.errorReporting.enable = true;
+//config.client.errorReporting.DSN = 'https://3118066a25db430086ad064fb35af2e8@sentry.io/118310';
 
 //TODO This should probably not be configured from here (for now it will do)
 config.visualization.svgDirs.push('./node_modules/power/Icons');
+config.visualization.svgDirs = ['./node_modules/webgme-bip/src/svgs'];
 
 module.exports = config;

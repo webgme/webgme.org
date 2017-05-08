@@ -40,6 +40,14 @@
       "OpenDSS_Generator": {
         "project": "power",
         "path": "node_modules/power/src/plugins/OpenDSS_Generator"
+      },
+      "ArchitectureSpecGenerator": {
+        "project": "webgme-bip",
+        "path": "node_modules/webgme-bip/src/plugins/ArchitectureSpecGenerator"
+      },
+      "BehaviorSpecGenerator": {
+        "project": "webgme-bip",
+        "path": "node_modules/webgme-bip/src/plugins/BehaviorSpecGenerator"
       }
     },
     "seeds": {
@@ -66,6 +74,10 @@
       "Power": {
         "project": "power",
         "path": "node_modules/power/src/seeds/Power"
+      },
+      "BIP": {
+        "project": "webgme-bip",
+        "path": "node_modules/webgme-bip/src/seeds/BIP"
       }
     },
     "decorators": {
@@ -92,6 +104,18 @@
       "DisplayMetaDecorator": {
         "project": "ui-components",
         "path": "node_modules/ui-components/src/decorators/DisplayMetaDecorator"
+      },
+      "BIPComponentTypeDecorator": {
+        "project": "webgme-bip",
+        "path": "node_modules/webgme-bip/src/decorators/BIPComponentTypeDecorator"
+      },
+      "BIPStateDecorator": {
+        "project": "webgme-bip",
+        "path": "node_modules/webgme-bip/src/decorators/BIPStateDecorator"
+      },
+      "BIPConnectorEndDecorator": {
+        "project": "webgme-bip",
+        "path": "node_modules/webgme-bip/src/decorators/BIPConnectorEndDecorator"
       }
     },
     "addons": {},
@@ -120,6 +144,14 @@
         "secondary": false,
         "widget": "src/visualizers/widgets/ModelEditor",
         "project": "webgme-bip-editors"
+      },
+      "BIPCodeEditor": {
+        "src": "panels/BIPCodeEditor/BIPCodeEditorPanel",
+        "title": "BIPCodeEditor",
+        "panel": "src/visualizers/panels/BIPCodeEditor",
+        "secondary": false,
+        "widget": "src/visualizers/widgets/BIPCodeEditor",
+        "project": "webgme-bip"
       }
     }
   }
