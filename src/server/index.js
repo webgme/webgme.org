@@ -1,12 +1,14 @@
 'use strict';
-const path       = require('path'),
-  express     = require('express'),
-  bodyParser     = require('body-parser'),
-  axios      = require('axios'),
-  http       = require('http'),
-  cookieParser   = require('cookie-parser'),
-  logger      = require('morgan'),
-  fs         = require('fs');
+const path      = require('path'),
+  express       = require('express'),
+  bodyParser    = require('body-parser'),
+  axios         = require('axios'),
+  http          = require('http'),
+  memoize       = require('memoizee'),
+  cookieParser  = require('cookie-parser'),
+  logger        = require('morgan'),
+  log           = require('loglevel'),
+  fs            = require('fs');
 
 const PORT = process.env.PORT || 8000;
 const NODE_ENV = process.env.NODE_ENV ? process.env.NODE_ENV : 'dev';
@@ -25,7 +27,7 @@ app.use(express.static(path.join(__dirname, '../../public')));
 app.engine('pug', require('pug').__express);
 app.set('views', path.join(__dirname, 'views'));
 app.locals.pretty = true;
-app.locals.env = process.env; 
+app.locals.env = process.env;
 
 // Finish pipeline setup
 app.use(bodyParser.json());
@@ -33,28 +35,39 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 /**********************************************************************************************************/
 
+
+let getPublicProjects = memoize(() => {
+  log.debug('Calling server for public projects');
+  return axios({
+    method: 'GET',
+    url: SERVER_ADDRESS +'/api/Projects/PROJECTS'
+  });
+},{promise: true, maxAge: 86400  });
+
+let getExamples = memoize(() => {
+  log.debug('Calling server for example projects');
+  return axios({
+      url: SERVER_ADDRESS + '/api/Examples/EXAMPLES?metadata=true',
+      method: 'get'
+  });
+}, {promise: true, maxAge: 86400 });
+
 app.get('/', (req, res) => {
     // get the exmaples and public projects data
     // get examples data
-    let examplesPromise = axios({
-        url: SERVER_ADDRESS + '/api/Examples/EXAMPLES?metadata=true',
-        method: 'get'
-    });
-
+    let examplesPromise = getExamples();
     // get projects data
-    let publicProjectsPromise = axios({
-      method: 'GET',
-      url: SERVER_ADDRESS +'/api/Projects/PROJECTS'
-    });
+    let publicProjectsPromise = getPublicProjects();
     // end of calls to get the data
 
+
     axios.all([examplesPromise,publicProjectsPromise]).then(axios.spread((examples,projects)=>{
-        console.log('Data received from server',projects.data.length)
-    // TODO cache results and serve from cache
+        log.debug('Data received from server',projects.data.length)
+    // this is cached by default by express if node env is set to production
         res.render('index.pug', {examples: examples.data, projects: projects.data });
     })).catch((err)=>{
     //handle errors
-        console.log('Failed to get projects data from netsblox server.',err);
+        log.debug('Failed to get projects data from netsblox server.',err);
         res.status(500).send();
     });
 
@@ -74,5 +87,5 @@ app.get('*', (req,res)=>{
 
 
 let httpServer = http.Server(app).listen(PORT, () => {
-  console.log('listening on unsecure port: ' + PORT);
+  log.info('listening on unsecure port: ' + PORT);
 });
