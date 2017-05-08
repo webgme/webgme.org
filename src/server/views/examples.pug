@@ -8,6 +8,13 @@ h3.text-center Examples &amp; Services
   .col-sm-4.col-sm-offset-4.col-lg-2.col-lg-offset-5
     .form-group
       input(type='text',class='form-control quicksearch',placeholder='Search')
+//- spinner
+.spinner
+  .rect1
+  .rect2
+  .rect3
+  .rect4
+  .rect5
 
 
 
@@ -43,7 +50,7 @@ h3.text-center Examples &amp; Services
 //-                       h4= eg.roleNames.length
 //-                       p Roles
 
-#examples-grid-m.clearfix
+#examples-grid-m.clearfix.hidden
   .grid-sizer.col-xs-12.col-sm-4.col-md-3
   each eg in examples
     a(class="wrapper-link",href= env.EDITOR_ADDRESS+'/?action=example&ProjectName='+eg.projectName, target='_blank') 

@@ -25,9 +25,19 @@ $(document).ready(function() {
       }
     });
   // layout the items after the images are loaded
-  setTimeout(()=>{
-    $gridM.isotope('layout');
-  },1500);
+  let images = document.querySelectorAll('#examples-grid-m img');
+  let loadedImages = 0;
+  images.forEach((img)=>{
+    img.addEventListener('load',(e)=>{
+      loadedImages++;
+      if (loadedImages === images.length -1) {
+        document.querySelector('.spinner').className += ' hidden';
+        $gridM.removeClass('hidden');
+        $gridM.isotope('layout');
+      }
+    })
+  })
+
   // setup button filters for isotope
   // $('.filter-button-group').on( 'click', 'button', function() {
   //   var filterValue = $(this).attr('data-filter');
@@ -89,7 +99,7 @@ $(document).ready(function() {
   }
 
 
-  //logout 
+  //logout
   $('#logout').on('click', () => {
     $.ajax({
       url: SERVER_ADDRESS + 'api/logout',
@@ -152,7 +162,7 @@ $('form').submit(function(e) {
 
 
 function updateLoginViews(isLoggedIn) {
-    //use toggle? 
+    //use toggle?
     if (isLoggedIn) {
       $('#login').addClass('hidden');
       $('#logout').removeClass('hidden');
