@@ -13,6 +13,7 @@
     "power": "webgme/power#published",
     "sysml": "webgme/sysml#published",
     "ui-components": "github:webgme/ui-components",
+    "webgme-bip": "github:anmavrid/webgme-bip#pmeijer-patch-1",
     "webgme-bip-editors": "0.1.1",
     "webgme-finite-state-machine": "^1.0.0",
     "webgme-icore": "^0.2.0"
