@@ -19,7 +19,7 @@
   },
   {
     "id": "BIPCodeEditor",
-    "title": "BIPCodeEditor",
+    "title": "BIP Code Editor",
     "panel": "panels/BIPCodeEditor/BIPCodeEditorPanel",
     "DEBUG_ONLY": false
   }
