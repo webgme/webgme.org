@@ -100,7 +100,8 @@ $(document).ready(function() {
 
 
   //logout
-  $('#logout').on('click', () => {
+  $('#logout').on('click', (e) => {
+    e.preventDefault();
     $.ajax({
       url: SERVER_ADDRESS + 'api/logout',
       success: () => {
