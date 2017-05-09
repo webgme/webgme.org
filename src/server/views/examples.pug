@@ -51,10 +51,10 @@ h3.text-center Examples &amp; Services
 //-                       p Roles
 
 #examples-grid-m.clearfix.hidden
-  .grid-sizer.col-xs-12.col-sm-4.col-md-3
+  .grid-sizer.col-xs-12.col-sm-4.col-md-3.col-lg-2
   each eg in examples
     a(class="wrapper-link",href= env.EDITOR_ADDRESS+'/?action=example&ProjectName='+eg.projectName, target='_blank') 
-      .element-item.col-xs-12.col-sm-4.col-md-3
+      .element-item.col-xs-12.col-sm-4.col-md-3.col-lg-2
         .h-thumbnail
           .img-container
             img.img-responsive.center-block.img-thumbnail(src= `${env.EDITOR_ADDRESS}/api/examples/${eg.projectName}/thumbnail?aspectRatio=1.33333`, style='width: 100%;')
