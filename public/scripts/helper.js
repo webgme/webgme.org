@@ -67,13 +67,13 @@ function json2Card(project){
 let json2MobileEl = project => {
   return `<div class="col-lg-2 col-md-3 col-sm-4">
   <div class="h-thumbnail">
-    <a href="#">
+    <a href="${SERVER_ADDRESS}?action=private&ProjectName=${project.ProjectName}">
       <img class="img-responsive center-block img-thumbnail" alt="" src="${project.Thumbnail}" style="width: 100%;"/>
     </a>
       <ul class="list-group">
-      <span class="label label-success"></span>  
+      <span class="label label-success"></span>
         <li class="list-group-item title">${project.ProjectName}</li>
-      </ul> 
+      </ul>
   </div>
 </div>`
 }
