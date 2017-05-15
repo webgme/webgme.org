@@ -30,7 +30,8 @@ $(document).ready(function() {
   images.forEach((img)=>{
     img.addEventListener('load',(e)=>{
       loadedImages++;
-      if (loadedImages === images.length -1) {
+      console.log(loadedImages, images.length)
+      if (loadedImages === images.length -2) {
         document.querySelector('.spinner').className += ' hidden';
         $gridM.removeClass('hidden');
         $gridM.isotope('layout');
