@@ -64,6 +64,7 @@ app.get('/', (req, res) => {
     axios.all([examplesPromise,publicProjectsPromise]).then(axios.spread((examples,projects)=>{
         log.debug('Data received from server',projects.data.length)
     // this is cached by default by express if node env is set to production
+        examples.data = examples.data.filter(eg => !['Weather','Star Map','Battleship','Earthquakes'].includes(eg.projectName));
         res.render('index.pug', {examples: examples.data, projects: projects.data });
     })).catch((err)=>{
     //handle errors

@@ -64,4 +64,5 @@ h3.text-center Examples &amp; Services
             span.label.label-success= eg.services[0]
             li.list-group-item.title
               b= eg.projectName
-              span.pull-right= ' Roles: '+ eg.roleNames.length
+              if eg.roleNames.length > 1
+                i.fa.fa-users.pull-right(title="Multiplayer")
