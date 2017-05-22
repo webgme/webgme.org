@@ -106,18 +106,29 @@ nav.navbar {
 /*carousel*/
 
 .carousel-caption {
-  padding-bottom: 9rem;
+  /*padding-bottom: 9rem;*/
+  position: unset;
+  max-width: 80%;
 }
-
+.mobile-banner {
+    background-image: url('/images/carousel/earthquake.png');
+    min-height: 12rem;
+    color: #333;
+    margin: 0;
+}
 /*.carousel {
   height: 100vh !important;
+}*/
+
+.carousel-inner {
+    height: 300px;
 }
 
 #myCarousel{
-  height: 100vh;
-  margin-top: -50px;
+  height: 300px;
+  /*margin-top: -50px;*/
 }
-#myCarousel .item{
+/*#myCarousel .item{
   height: 100vh;
 }
 #myCarousel img{

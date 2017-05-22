@@ -25,7 +25,7 @@ $(document).ready(function() {
       }
     });
   // layout the items after the images are loaded
-  let images = document.querySelectorAll('#examples-grid-m img');
+  let images = document.querySelectorAll('#examples-grid-m .element-item img');
   let loadedImages = 0;
   images.forEach((img)=>{
     img.addEventListener('load',(e)=>{
