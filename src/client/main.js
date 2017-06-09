@@ -10,6 +10,11 @@ $(document).ready(function() {
   var $pSlider = $('#projects-slider');
 
 
+  // helper to check if image is loaded.
+  function isImgLoaded(img){
+    return !(typeof img.naturalWidth !== undefined && img.naturalWidth == 0)
+  }
+
   // init Isotope
   var qsRegex;
   $gridM.isotope({
@@ -24,20 +29,31 @@ $(document).ready(function() {
         return qsRegex ? $(this).text().match(qsRegex) : true;
       }
     });
+
+  let revealExamples = () => {
+    document.querySelector('.spinner').className += ' hidden';
+    $gridM.removeClass('hidden');
+    $gridM.isotope('layout');
+  };
+
   // layout the items after the images are loaded
   let images = document.querySelectorAll('#examples-grid-m .element-item img');
-  let loadedImages = 0;
-  images.forEach((img)=>{
-    img.addEventListener('load',(e)=>{
-      loadedImages++;
-      console.log(loadedImages, images.length)
-      if (loadedImages === images.length -2) {
-        document.querySelector('.spinner').className += ' hidden';
-        $gridM.removeClass('hidden');
-        $gridM.isotope('layout');
-      }
-    })
-  })
+  document.querySelector('.spinner').className += ' hidden';
+  console.log('preloaded images', loadedImages);
+  const LOADING_THRESHOLD = 2;
+  if (loadedImages >= images.length - LOADING_THRESHOLD) {
+    //reveal and layout isotope
+    revealExamples();
+  }else {
+    images.forEach((img)=>{
+      img.addEventListener('load',(e)=>{
+        if (loadedImages >= images.length - LOADING_THRESHOLD) {
+          revealExamples();
+        };
+      });
+    });
+  }
+
 
   // setup button filters for isotope
   // $('.filter-button-group').on( 'click', 'button', function() {
