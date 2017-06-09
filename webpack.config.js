@@ -6,8 +6,6 @@ module.exports = {
     devtool: "source-map",
     entry: {
         main: [
-            './src/client/sha512.js',
-            './src/client/helper.js',
             './src/client/main.js'
             ]
         },

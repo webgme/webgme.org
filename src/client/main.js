@@ -1,6 +1,6 @@
 /* jshint esversion: 6 */
-// let SERVER_ADDRESS = 'https://editor.netsblox.org';
 const SERVER_ADDRESS = document.getElementById('editor').href;
+const { json2MobileEl } = require('./helper');
 
 
 $(document).ready(function() {
@@ -121,7 +121,7 @@ $('form').submit(function(e) {
   e.preventDefault();
   let username = $('input[name="username"]').val();
   let password = $('input[name="password"]').val();
-  let hashedP = SHA512(password);
+  let hashedP = sha512(password);
 
   $.ajax({
     url: SERVER_ADDRESS + 'api/?SESSIONGLUE=.sc1m16',
@@ -190,11 +190,11 @@ function updateLoginViews(isLoggedIn) {
       crossDomain: true,
 
       success: data => {
-        $('#userProjects-grid').removeClass('hidden');
         console.log('grabbed user projects', data);
         data.forEach( proj => {
           $('#userProjects-grid').find('.row').append(json2MobileEl(proj));
         });
+        $('#userProjects-grid').removeClass('hidden');
       }
     });
   }

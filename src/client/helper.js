@@ -1,5 +1,5 @@
 // helper functions for some UI operations
-
+const SERVER_ADDRESS = document.getElementById('editor').href;
 //create an html element based on a project obj
 function json2Proj(project, classes=''){
   project.category = ['max','even','featured'][Math.floor(Math.random() * 3)];
@@ -17,7 +17,7 @@ function json2Proj(project, classes=''){
                 </div>
                 </a>
               </div>`
-}
+};;
 //create html card based on project obj
 function json2Card(project){
   return `
@@ -60,7 +60,7 @@ function json2Card(project){
         </div>
       </div>
     </div>`
-}
+};
 
 
 
@@ -76,4 +76,6 @@ let json2MobileEl = project => {
       </ul>
   </div>
 </div>`
-}
+};
+
+export { json2MobileEl };
