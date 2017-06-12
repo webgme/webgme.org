@@ -1,13 +1,11 @@
 /* jshint esversion: 6 */
 const SERVER_ADDRESS = document.getElementById('editor').href;
 const { json2MobileEl } = require('./helper');
-
 // helper disable project links on mobile
 var disableMobileProject = () =>{
   if (/Mobi/.test(navigator.userAgent)) {
     // mobile!
-    let projectLinks = document.querySelectorAll('a[href^="https://dev.netsblox.org/?action"], a[href^="https://dev.netsblox.org/#present"]');
-    // document.querySelectorAll('a[href^="https://dev.netsblox.org/#present"]')
+    let projectLinks = document.querySelectorAll(`a[href^="${SERVER_ADDRESS}?action"], a[href^="${SERVER_ADDRESS}#present"]`);
     projectLinks.forEach(a => {
       a.addEventListener('click', e => {
         e.preventDefault();
