@@ -32,6 +32,10 @@ div.btn-group {
   width: 100%;
 }
 
+.fa.pull-right {
+    margin-top: 3px;
+}
+
 /* set navbar size backto normal since we dont have logo there*/
 nav.navbar {
   margin-left:unset;
