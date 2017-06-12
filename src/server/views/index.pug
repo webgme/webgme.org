@@ -64,7 +64,7 @@ block content
     //-   p Learn the key concepts that run our interconnected world from iPhones through Instagram to traffic lights.
 
   mixin featuredProject(name, description, isMultiplayer)
-    a(class="wrapper-link",href= env.EDITOR_ADDRESS+'/?action=example&ProjectName=' + name + (isMultiplayer ? '&editMode=true': ''), target='_blank')
+    a(class="wrapper-link",href= env.EDITOR_ADDRESS+'/?action=example&ProjectName=' + name + '&editMode=true', target='_blank')
       .element-item.col-xs-12.col-sm-4.col-md-3
         .h-thumbnail
           .img-container

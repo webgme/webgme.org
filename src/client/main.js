@@ -2,6 +2,21 @@
 const SERVER_ADDRESS = document.getElementById('editor').href;
 const { json2MobileEl } = require('./helper');
 
+// helper disable project links on mobile
+var disableMobileProject = () =>{
+  if (/Mobi/.test(navigator.userAgent)) {
+    // mobile!
+    let projectLinks = document.querySelectorAll('a[href^="https://dev.netsblox.org/?action"], a[href^="https://dev.netsblox.org/#present"]');
+    // document.querySelectorAll('a[href^="https://dev.netsblox.org/#present"]')
+    projectLinks.forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        alert('Opening projects on small-screen devies is not fully supported yet. Please try again on a desktop.');
+      })
+    })
+  }
+};
+
 
 $(document).ready(function() {
 
@@ -9,6 +24,7 @@ $(document).ready(function() {
   let $gridM = $('#examples-grid-m');
   var $pSlider = $('#projects-slider');
 
+  disableMobileProject();
 
   // init Isotope
   var qsRegex;
@@ -194,6 +210,7 @@ function updateLoginViews(isLoggedIn) {
         data.forEach( proj => {
           $('#userProjects-grid').find('.row').append(json2MobileEl(proj));
         });
+        disableMobileProject();
         $('#userProjects-grid').removeClass('hidden');
       }
     });
