@@ -10,7 +10,11 @@ body a:hover{
   text-align: center;
 }
 
-
+footer {
+    min-height: unset;
+    padding: 0;
+    padding-top: 1rem;
+}
 div.btn-group {
   margin: 0 auto;
   text-align: center;
