@@ -8,17 +8,24 @@ nav.navbar.navbar-inverse
         span.icon-bar
       a.navbar-brand(href='/')
           img(class="img-responsive", src="/images/logo.png")
-      h4.navbar-text.hidden-xs NetsBlox
+      a.hidden-xs(href='/')
+        h4.navbar-text NetsBlox
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav
         li
-          a#editor(href=env.EDITOR_ADDRESS) Try Now
+          a#editor(href=env.EDITOR_ADDRESS, target="_blank") 
+            i.fa.fa-play  Try Now
         li
-          a(href='NetsBloxWhitePaper.pdf') White Paper
+          a(href='/quickstart')
+            i.fa.fa-fast-forward  QuickStart
         li
-          a(href='tutorials') Tutorials
+          a(href='/help') 
+            i.fa.fa-book  Help
+          
         li
-          a(href='http://community.netsblox.org') Community
+          a(href='http://community.netsblox.org') 
+            i.fa.fa-comments  Community
+          
       ul.nav.navbar-nav.navbar-right
         li
           a(href='', title="login", id="login" data-toggle='modal', data-target='#login-modal', onClick="document.querySelector('form input').focus();")

@@ -1,26 +1,26 @@
-extends layout.pug
+extends includes/layout.pug
+block title
+    title Demos - NetsBlox
 block content
   style(type='text/css').
     #main-content {
-      background-image: url(../images/carousel/earthquake.png) !important;
+      background-image: url(../images/carousel/earthquake.png);
+      background-size: cover;
+      background-position: center; 
     }
   br
+  mixin ytPlayer(url, title)
+      .panel.panel-default
+          .panel-body
+              .embed-responsive.embed-responsive-16by9
+                    iframe(class="embed-responsive-item", allowfullscreen="allowfullscreen", src= url)
   .container.text-center
     .row
       .col-md-6.col-lg-6
-        .panel.panel-default
-          .panel-body
-            .embed-responsive.embed-responsive-16by9
-              iframe(class="embed-responsive-item", src='https://www.youtube.com/embed/YXKUtTbbVWI')
+        +ytPlayer('https://www.youtube.com/embed/YXKUtTbbVWI')
 
       .col-md-6.col-lg-6
-        .panel.panel-default
-          .panel-body
-            .embed-responsive.embed-responsive-16by9
-              iframe(class="embed-responsive-item", width='100%', height='400px', frameborder='0', allowfullscreen='', src='https://www.youtube.com/embed/NRIUUiJMCmI')
+        +ytPlayer('https://www.youtube.com/embed/NRIUUiJMCmI')
 
       .col-md-6.col-lg-6
-        .panel.panel-default
-          .panel-body
-            .embed-responsive.embed-responsive-16by9
-              iframe(class="embed-responsive-item", width='100%', height='400px', frameborder='0', allowfullscreen='', src='https://www.youtube.com/embed/-qS7hGowQKQ')
+        +ytPlayer('https://www.youtube.com/embed/-qS7hGowQKQ')

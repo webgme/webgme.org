@@ -1,4 +1,6 @@
-extends layout.pug
+extends includes/layout.pug
+block title
+  title NetsBlox - Innovative Learning
 block content
   #myCarousel.carousel.hidden-xs.slide(data-ride='carousel', data-interval='15000')
     ol.carousel-indicators
@@ -87,12 +89,13 @@ block content
       +featuredProject('Battleship','Select the Room tab and click the "player 2 role" to invite a friend to play. Then click the green flag. Once you placed your ships, hit space to start.',true)
       +featuredProject('Star Map','Navigate the sky with the Sloan Digital Sky Survey! Use the on-screen buttons or the arrow keys to move around. Press SPACE for a new cool place to explore! Press F to search for galaxies and nebulae by name.',false)
       +featuredProject('Earthquakes','Click to green flag to get a map. Use the +/- and arrow keys zoom and navigate. Click anywhere to get historical earthquake events.',false)
-    include examples.pug
-    include pubProjects.pug
-
+    #userProjects-grid.hidden.text-center
+      h3 My Projects
+      .row
+    include includes/examples.pug
+    include includes/pubProjects.pug
   .social-buttons-holder
     a(href='https://github.com/netsblox/netsblox', target="_blank" title='GitHub')
       i.fa.fa-github.fa-2x
     a(href='https://www.facebook.com/netsblox', target="_blank" title='Facebook')
       i.fa.fa-facebook-square.fa-2x
-  br

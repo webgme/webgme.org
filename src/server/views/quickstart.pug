@@ -1,0 +1,32 @@
+extends includes/layout.pug
+block title
+    title Quick Start - NetsBlox
+block content
+    .container
+        h2 Playing multiplayer games
+        p
+            | NetsBlox makes it easy to create multiplayer games, after going through these steps you will learn about a few different techniques to make games that you can play with your friends worldwide. Before we start with creating games lets see how you can play one that is already created by our users.
+        .row
+            .col-md-6.col-sm-offset-3.panel.panel-default
+                .panel-body
+                    .embed-responsive.embed-responsive-16by9
+                        iframe(class="embed-responsive-item", allowfullscreen="allowfullscreen",  src='https://www.youtube.com/embed/h5q8M-N25uI')
+
+        ol
+            li
+                | Sign in: First things first, for multiplayer games to work all the players need to be signed up and logged in. #[a( href='/howtos#singup', target="_blank") Here is how to do that].
+            li
+                | Find & open a game you like: you can go through the list of our examples and user created apps on 
+                a(href='https://netsblox.org') NetsBlox front page
+                | , or have a friend share his own creation with you.
+            li Get the participants in the game/room: 
+            ol
+                li If you are the first one opening the game (owner), to invite your opponents/teammates, go to the room tab you will see a circular view of the room and available roles. Each player occupies one role. To invite players, click on a role choose invite users and search for your friend's username and hit ok to ask them to join your game.
+                li If you are being invited to a game, make sure you have 
+                    a(href='https://editor.netsblox.org/') editor.netsblox.org
+                    |  open in your browser and that you are signed in. After you are invited, you will get a dialog asking you if you want to join the game.
+            li Start the game: make sure all the players are in by looking at the room view, if there is someone missing go back to the third step. Now that you are all set, the main role can start the game by clicking on the green flag at the top right corner. You can maximize the stage (playground) by clicking on the icon.
+        ul
+            li To test multiplayer games, you can invite yourself to play by opening a new browser tab, going to the netsblox editor and invite "myself" as a player.
+            
+            

@@ -1,6 +1,12 @@
 body div#main-content{
   background-color: #fbfbfb;
-  font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif
+  font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+  /*padding before footer*/
+  padding-bottom: 1rem;
+}
+
+body {
+  background-color: #2f2f2f;
 }
 
 body a:hover{
@@ -10,11 +16,17 @@ body a:hover{
   text-align: center;
 }
 
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
 footer {
     min-height: unset;
     padding: 0;
     padding-top: 1rem;
 }
+
 div.btn-group {
   margin: 0 auto;
   text-align: center;
@@ -53,7 +65,7 @@ nav.navbar {
   padding: 7px;
   width: auto;
 }
-.navbar i {
+.navbar #login i {
   color: #e6e6e6;
   font-size: 2rem;
 }
@@ -69,8 +81,6 @@ nav.navbar {
 .navbar-inverse .navbar-text, .navbar-brand {
   color: #e8e8e8  !important;
 }
-
-
 
 
 .social-buttons-holder a{
@@ -197,8 +207,48 @@ nav.navbar {
 
 
 
-
 /* Start of Imports */
+
+/* box panels for documentation */
+
+.box {
+  background:#fff;
+  transition:all 0.3s ease;
+  border:2px dashed #dadada;
+  margin-top: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-clip: padding-box;
+  padding:0 20px 20px 20px;
+  min-height:45rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.box a {
+  margin-top: auto;
+}
+
+.box:hover {
+  border:2px solid #525C7A;
+}
+
+.box .box-title {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.box .tag-title {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+.box p {
+  color:#515c66;
+  text-transform:none;
+}
 
 
 /* Bootstrap Login */
