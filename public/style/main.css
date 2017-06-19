@@ -1,3 +1,10 @@
+@media (max-width: 768px) {
+    footer p{
+        text-align: center;
+    }
+}
+
+
 body div#main-content{
   background-color: #fbfbfb;
   font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
