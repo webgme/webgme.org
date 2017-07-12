@@ -4,10 +4,12 @@
     }
 }
 
+body {
+  font-family: sans-serif;
+}
 
 body div#main-content{
   background-color: #fbfbfb;
-  font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
   /*padding before footer*/
   padding-bottom: 1rem;
 }
