@@ -7,6 +7,13 @@ Setup instructions on AWS EC2 machines
  * Run `sudo apt-get update && sudo apt-get -y upgrade`
  * Tweak `/etc/hostname` (reflect your choice of DNS name)
  * Tweak `.ssh/authorized_keys`
+ * Install [docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
+ * Add current user to docker group `sudo usermod -aG docker $USER`
+ * Copy dockershare to home directory `cp -R ../dockershare ~/dockershare`
+ * Install [nvm and node](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04#how-to-install-using-nvm)
+ * Install 
+ * If migrating copy blob-files, token_keys and mongodb files to respective folder.
+ * `docker run -d -p 27017:27017 -v ~/dockershare/db:/data/db ~/webgme.org/aws/mongodb.conf:/etc/mongo.conf --name mongo --restart unless-stopped mongo`
  * Run `sudo apt-get -y install git build-essential curl mongodb`
  * Copy (overwrite) 'mongodb.conf' to '/etc/mongodb.conf' and restart mongodb (`sudo restart mongodb`)
  * Run `curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -`

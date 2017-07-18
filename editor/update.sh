@@ -17,31 +17,22 @@
 #     $ ./update.sh ccfcaff
 # - Otherwise the script will fail
 
-
-sudo stop webgme
-
-if [ -d /etc/init/ ]; then
-  echo "Updating webgme.conf ..."
-  sudo cp ../aws/webgme.conf /etc/init/webgme.conf
-else
-  echo "/etc/init/ does not exist; do not copy webgme.conf."
-fi
-
-
-sudo rm -rf node_modules
-
-echo "Installing all dependencies ..."
-npm install
+readonly POST_FIX="-org"
+webgme_repo=webgme@latest
+webgme_version=1.0.0
 
 if [ -z "$1" ]; then
-  echo "Installing latest release from npm ..."
-  npm install webgme@latest
+  echo "No argument given will use latest"
+  webgme_version=$(npm show webgme version)
+  echo "Latest version ${webgme_version}"
+  webgme_repo=webgme@${webgme_version}
 else
   # is it a valid webgme release version number
   release_count="$(npm view webgme versions | grep -c "'$1'")"
   if [ $release_count -gt 0 ]; then
     echo "Found webgme release in npm registry: $1"
-    npm install webgme@$1
+    webgme_version=$1
+    webgme_repo=webgme@${webgme_version}
   else
     # trying to use it as a branch or tag or hash
     branch_or_tag="$1"
@@ -59,30 +50,39 @@ else
         echo "Using $branch_or_tag as a commit hash"
       fi
     fi
-
-    npm install https://github.com/webgme/webgme/tarball/$commit_hash
+    webgme_version=${commit_hash}
+    webgme_repo=https://github.com/webgme/webgme/tarball/${commit_hash}
   fi
 fi
 
-sudo start webgme
+readonly IMAGE_NAME="webgme${POST_FIX}:${webgme_version}"
+readonly IMAGE_FILE="webgme${POST_FIX}_${webgme_version}.tar"
+readonly TIME_STAMP=$(date +%Y_%m_%d_%H_%M_%S)
+readonly CONTAINER_NAME="webgme${POST_FIX}_${webgme_version}_$TIME_STAMP"
+readonly EXISTING_IMAGE=$(docker images ${IMAGE_NAME} -q)
+readonly RUNNING_CONTAINER=$(docker ps -f name="webgme${POST_FIX}" -q)
 
-npm list webgme --long
-
-logfile=`basename $0`.log
-echo "$logfile"
-npm list webgme --long true > $logfile
-npm list webgme --parseable --long  >> $logfile
-
-if [ -n "$branch_or_tag" ]; then
-  echo "installed from github" >> $logfile
-  echo "branch tag or hosh $branch_or_tag" >> $logfile
-  echo "commit $commit_hash" >> $logfile
- 
-  echo "branch or tag or hash link https://github.com/webgme/webgme/tree/$branch_or_tag" >> $logfile
-  echo "commit link https://github.com/webgme/webgme/tree/$commit_hash" >> $logfile
+if [ -z "${EXISTING_IMAGE}" ]; then
+  echo "Image ${IMAGE_NAME} did not exist"
+  docker build --no-cache -t ${IMAGE_NAME} --build-arg webgme_repo=${webgme_repo} .
 else
-  echo "installed from npm registry" >> $logfile
+  echo "Image ${IMAGE_NAME} existed"
 fi
 
-datetime="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
-echo "installed on $datetime" >> $logfile
+## The request image is loaded - stop any running containers
+if [ -z "${RUNNING_CONTAINER}" ]; then
+  echo "No webgme container running"
+else
+  docker stop ${RUNNING_CONTAINER}
+  sleep 4
+fi
+
+docker run -d -p 8001:8001 -v ~/dockershare:/dockershare --link mongo:mongo --name=${CONTAINER_NAME} --restart unless-stopped ${IMAGE_NAME}
+
+sleep 2
+
+docker ps -a
+
+sleep 2
+
+docker logs ${CONTAINER_NAME}
