@@ -1,5 +1,5 @@
 #!/bin/bash
-# Installs or updates webgme
+# Builds docker image and launches new container for webgme-org
 #
 # Usage:
 #
@@ -16,7 +16,7 @@
 #     $ ./update.sh ccfcaffa853d9f552ac3d5ac8c01b8ba2c13e2cb
 #     $ ./update.sh ccfcaff
 # - Otherwise the script will fail
-set -ex
+#set -ex
 readonly POST_FIX="-org"
 webgme_repo=webgme@latest
 webgme_version=1.0.0
@@ -28,20 +28,22 @@ if [ -z "$1" ]; then
   webgme_repo=webgme@${webgme_version}
 else
   # is it a valid webgme release version number
-  release_count="$(npm view webgme versions | grep -c "'$1'")"
-  if [ $release_count -gt 0 ]; then
+  release_match="$(npm view webgme versions | grep "'$1'")"
+  if ! [ -z "${release_match}" ]; then
     echo "Found webgme release in npm registry: $1"
     webgme_version=$1
     webgme_repo=webgme@${webgme_version}
   else
+    echo "Given input not in npm registry, checking for branch at github.."
     # trying to use it as a branch or tag or hash
     branch_or_tag="$1"
 
     commit_hash="$(git ls-remote git://github.com/webgme/webgme.git refs/heads/$branch_or_tag | cut -f 1)"
-    if [ -n "$commit_hash" ]; then    
+    echo "commit_hash ${commit_hash}"
+    if [ -n "$commit_hash" ]; then
       echo "Branch name was given: $branch_or_tag commit hash $commit_hash"
     else
-      # find annotated tag    
+      # find annotated tag
       commit_hash="$(git ls-remote git://github.com/webgme/webgme.git refs/tags/$branch_or_tag^{} | cut -f 1)"
       if [ -n "$commit_hash" ]; then
         echo "Tag was found: $branch_or_tag commit hash $commit_hash"
@@ -69,7 +71,13 @@ else
   echo "Image ${IMAGE_NAME} existed"
 fi
 
-## The request image is loaded - stop any running containers
+## Make sure there is an image at this point
+if [ -z "$(docker images ${IMAGE_NAME} -q)" ]; then
+  echo "Image did not get built..."
+  exit 2
+fi
+
+## The requested image is loaded - stop any running containers
 if [ -z "${RUNNING_CONTAINER}" ]; then
   echo "No webgme container running"
 else
