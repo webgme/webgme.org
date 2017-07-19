@@ -1,6 +1,12 @@
 #!/bin/bash
 # Builds docker image and launches new container for webgme-org
-#
+# This script does not remove the stopped containers or images.
+# Remove all stopped containers:
+# $ docker rm $(docker ps --filter "status=exited" -q)
+# List images
+# $ docker images
+# Remove images
+# $ docker rmi cc34
 # Usage:
 #
 # - Installs the latest webgme release from npm registry 
