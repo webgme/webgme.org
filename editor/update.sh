@@ -16,7 +16,7 @@
 #     $ ./update.sh ccfcaffa853d9f552ac3d5ac8c01b8ba2c13e2cb
 #     $ ./update.sh ccfcaff
 # - Otherwise the script will fail
-
+set -ex
 readonly POST_FIX="-org"
 webgme_repo=webgme@latest
 webgme_version=1.0.0
@@ -64,7 +64,7 @@ readonly RUNNING_CONTAINER=$(docker ps -f name="webgme${POST_FIX}" -q)
 
 if [ -z "${EXISTING_IMAGE}" ]; then
   echo "Image ${IMAGE_NAME} did not exist"
-  docker build --no-cache -t ${IMAGE_NAME} --build-arg webgme_repo=${webgme_repo} .
+  docker build -t ${IMAGE_NAME} --build-arg webgme_repo=${webgme_repo} .
 else
   echo "Image ${IMAGE_NAME} existed"
 fi

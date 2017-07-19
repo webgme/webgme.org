@@ -44,6 +44,6 @@ RUN npm install ${webgme_repo}
 # Set environment variable in order to use ./config/config.docker.js
 ENV NODE_ENV docker
 
-EXPOSE 8888
+EXPOSE 8001
 
 CMD ["npm", "start"]
