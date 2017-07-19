@@ -6,7 +6,7 @@
 # List images
 # $ docker images
 # Remove images
-# $ docker rmi cc34
+# $ docker rmi cc34 5703 
 # Usage:
 #
 # - Installs the latest webgme release from npm registry 
