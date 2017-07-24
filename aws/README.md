@@ -10,19 +10,13 @@ Setup instructions on AWS EC2 machines
  * Install [docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
  * Add current user to docker group `sudo usermod -aG docker $USER`
  * `mkdir ~/dockershare`
- * If migrating copy blob-files and token_keys files to respective folder:
- * `cp -R blob-local-storage ~/dockershare/blob-local-storage`
- * `cp -R token_keys ~/dockershare/token_keys` (If no previous keys see Authentication below)
- * Make sure to export any old db files `mongodump -d webgme` (the old files should be removed)
  * `mkdir ~/dockershare/db`
  * `docker run -d -p 27017:27017 -v ~/dockershare/db:/data/db -v ~/webgme.org/aws/mongodb.conf:/etc/mongo.conf --name mongo --restart unless-stopped mongo`
- * Remove the [old mongodb installation 2.6](https://askubuntu.com/questions/497139/how-to-completely-uninstall-mongodb-2-6-3-from-ubuntu-13-04)
  * Install but do not start the daemon! [mongodb 3.2](https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-16-04)
  * The mongo container exposes its port at default so `mongo`, `mongodump`, etc. works the same way.
- * Import the exported files (if any) `mongorestore -d webgme dump/webgme`
  * Clone the webgme-deployment project to the home folder.
      ```git clone https://github.com/webgme/webgme-deployment.git```
- * Remove all unversioned files inside editor (MAKE SURE YOU'VE copied the blob-local-storage)
+ * Remove all unversioned files inside editor (MAKE SURE YOU'VE copied the blob-local-storage if migrating see below)
  * `git clean -dfx`
  * Run `editor/update.sh`.
  * Install [nvm/node](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04#how-to-install-using-nvm)
@@ -31,6 +25,15 @@ Setup instructions on AWS EC2 machines
  */20 * * * * /home/ubuntu/.nvm/versions/node/v6.11.1/bin/node /home/ubuntu/webgme.org/www/updateextensions.js
  ```
  * TODO: certificates with [certbot](https://certbot.eff.org/all-instructions/#ubuntu-16-04-xenial-none-of-the-above) when ensured to work.
+
+Upgrading from Ubuntu 14.04
+========================================
+ * Make sure to export any old db files `mongodump -d webgme`
+ * `cp -R blob-local-storage ~/dockershare/blob-local-storage`
+ * `cp -R token_keys ~/dockershare/token_keys` (If no previous keys see Authentication below)
+ * Remove the [old mongodb installation 2.6](https://askubuntu.com/questions/497139/how-to-completely-uninstall-mongodb-2-6-3-from-ubuntu-13-04)
+ * Once mongod > 3 is installed and docker container running - import the exported files (if any) `mongorestore -d webgme dump/webgme`
+
 
 Authentication
 ========================================
