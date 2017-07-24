@@ -16,7 +16,7 @@
     "webgme-bip": "1.0.0",
     "webgme-bip-editors": "0.2.0",
     "webgme-finite-state-machine": "^1.0.0",
-    "webgme-icore": "^0.2.0"
+    "webgme-icore": "^0.3.0"
   },
   "devDependencies": {
     "mocha": "^2.2.5",
