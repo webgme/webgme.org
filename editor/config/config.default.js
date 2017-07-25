@@ -33,6 +33,6 @@ config.client.errorReporting.DSN = 'https://3118066a25db430086ad064fb35af2e8@sen
 
 //TODO This should probably not be configured from here (for now it will do)
 config.visualization.svgDirs.push('./node_modules/power/Icons');
-config.visualization.svgDirs = ['./node_modules/webgme-bip/src/svgs'];
+config.visualization.svgDirs.push('./node_modules/webgme-bip/src/svgs');
 
 module.exports = config;

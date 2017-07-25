@@ -7,35 +7,65 @@ Setup instructions on AWS EC2 machines
  * Run `sudo apt-get update && sudo apt-get -y upgrade`
  * Tweak `/etc/hostname` (reflect your choice of DNS name)
  * Tweak `.ssh/authorized_keys`
- * Run `sudo apt-get -y install git build-essential curl mongodb`
- * Copy (overwrite) 'mongodb.conf' to '/etc/mongodb.conf' and restart mongodb (`sudo restart mongodb`)
- * Run `curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -`
- * Run `sudo  apt-get install -y nodejs`
- * Clone the webgme-deployment project to the home folder (or whatever, just update `/etc/init/webgme.conf` later):
+ * Install [docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
+ * Add current user to docker group `sudo usermod -aG docker $USER`
+ * `mkdir ~/dockershare`
+ * `mkdir ~/dockershare/db`
+ * `docker run -d -p 27017:27017 -v ~/dockershare/db:/data/db -v ~/webgme.org/aws/mongodb.conf:/etc/mongo.conf --name mongo --restart unless-stopped mongo`
+ * Install but do not start the daemon! [mongodb 3.2](https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-16-04)
+ * The mongo container exposes its port at default so `mongo`, `mongodump`, etc. works the same way.
+ * Clone the webgme-deployment project to the home folder.
      ```git clone https://github.com/webgme/webgme-deployment.git```
- * Optional: database migration
- * Optional: update config.js to your liking 
- * Run `update.sh` in this folder 
+ * Remove all unversioned files inside editor (MAKE SURE YOU'VE copied the blob-local-storage if migrating see below)
+ * `git clean -dfx`
+ * Run `editor/update.sh`.
+ * Install [nvm/node](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04#how-to-install-using-nvm)
+ * Add to crontab (check `whereis node`)
+ ```
+ */20 * * * * /home/ubuntu/.nvm/versions/node/v6.11.1/bin/node /home/ubuntu/webgme.org/www/updateextensions.js
+ ```
+ * TODO: certificates with [certbot](https://certbot.eff.org/all-instructions/#ubuntu-16-04-xenial-none-of-the-above) when ensured to work.
+
+Upgrading from Ubuntu 14.04
+========================================
+ * Make sure to export any old db files `mongodump -d webgme`
+ * `cp -R blob-local-storage ~/dockershare/blob-local-storage`
+ * `cp -R token_keys ~/dockershare/token_keys` (If no previous keys see Authentication below)
+ * Remove the [old mongodb installation 2.6](https://askubuntu.com/questions/497139/how-to-completely-uninstall-mongodb-2-6-3-from-ubuntu-13-04)
+ * Once mongod > 3 is installed and docker container running - import the exported files (if any) `mongorestore -d webgme dump/webgme`
+
+
+Authentication
+========================================
+ The authentication scheme for Json Web Token uses OpenSSL RSA256 keys. They should live outside of the docker container.
+ - `mkdir ~/dockershare/token_keys`
+ - `cd ~/dockershare/token_keys`
+ - `openssl genrsa -out private_key 1024`
+ - `openssl rsa -in private_key -pubout > public_key`
 
 Update instructions on AWS EC2 machines
 ========================================
- * Run `update.sh` in this folder  (you might want to change webgme dependency in package.json)
+ * Run `editor/update.sh` in this folder  (you might want to change webgme dependency in package.json)
 
 webgme.org (editor) website specific instructions
 ==================================================
  * Install nginx: `sudo apt-get -y install nginx`
- * Copy `nginx.conf` to `/etc/nginx/sites-available/default`:
-    ```sudo cp nginx.conf /etc/nginx/sites-available/default```
+ * Copy `nginx.conf` to `/etc/nginx`:
+    ```sudo cp nginx.conf /etc/nginx/nginx.conf```
  * Restart nginx:
-    ```sudo /etc/init.d/nginx restart```
- * Make sure, that config.js was customized to use internal port (8001)
+    ```sudo systemctl restart nginx```
+ * Make sure the the nginx user owns `ls -l /var/lib/nginx` and all sub-dirs.
+ * To check user `ps aux | grep nginx` and check for the worker_process
+ * If wrong owner do: `chown -R nginx:nginx /var/lib/nginx` or `chown -R nobody:root /var/lib/nginx`
 
 User management
 ===============
 
-- `cd ~/webgme-deployment/aws`
+- `docker exec -it <webgme-container-name-or-id-hash> bash`
 - `node node_modules/webgme/src/bin/usermanager.js useradd --canCreate username email pass`
 - `node node_modules/webgme/src/bin/usermanager.js usermod_auth -a r username SignalFlowSystem` default project
+
+To exit bash: Ctrl + D
 
 To check the mongo database collections use run `mongo`
 

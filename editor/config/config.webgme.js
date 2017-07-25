@@ -27,7 +27,7 @@ config.seedProjects.basePaths.push(__dirname + '/../node_modules/webgme-finite-s
 config.seedProjects.basePaths.push(__dirname + '/../node_modules/business-process-modeling/src/seeds/BusinessProcessModeling');
 config.seedProjects.basePaths.push(__dirname + '/../node_modules/sysml/src/seeds/SysML');
 config.seedProjects.basePaths.push(__dirname + '/../node_modules/power/src/seeds/Power');
-config.seedProjects.basePaths.push(__dirname + '/../node_modules/webgme-bip/src/seeds/BIP');
+config.seedProjects.basePaths.push(__dirname + '/../node_modules/webgme-bip/src/seeds/BIPv1');
 
 
 
