@@ -35,11 +35,11 @@ WORKDIR /usr/app
 # copy app source
 ADD . /usr/app/
 
-# Install node-modules
-RUN npm install
-
 # Install webgme
 RUN npm install ${webgme_repo}
+
+# Install node-modules
+RUN npm install
 
 # Set environment variable in order to use ./config/config.docker.js
 ENV NODE_ENV docker
