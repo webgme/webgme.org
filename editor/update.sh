@@ -58,14 +58,14 @@ else
         echo "Using $branch_or_tag as a commit hash"
       fi
     fi
-    webgme_version=${commit_hash}
+    webgme_version=${commit_hash:0:7}
     webgme_repo=https://github.com/webgme/webgme/tarball/${commit_hash}
   fi
 fi
 
 readonly IMAGE_NAME="webgme${POST_FIX}:${webgme_version}"
 readonly IMAGE_FILE="webgme${POST_FIX}_${webgme_version}.tar"
-readonly TIME_STAMP=$(date +%Y_%m_%d_%H_%M_%S)
+readonly TIME_STAMP=$(date +%Y%m%d_%H%M%S)
 readonly CONTAINER_NAME="webgme${POST_FIX}_${webgme_version}_$TIME_STAMP"
 readonly EXISTING_IMAGE=$(docker images ${IMAGE_NAME} -q)
 readonly RUNNING_CONTAINER=$(docker ps -f name="webgme${POST_FIX}" -q)
