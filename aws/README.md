@@ -45,7 +45,7 @@ Authentication
 
 Update instructions on AWS EC2 machines
 ========================================
- * Run `editor/update.sh` in this folder  (you might want to change webgme dependency in package.json)
+ * Run `editor/update.sh`, see the header of [update.sh](https://github.com/webgme/webgme.org/blob/master/editor/update.sh) for more details.
 
 webgme.org (editor) website specific instructions
 ==================================================
