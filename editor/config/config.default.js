@@ -26,11 +26,6 @@ config.mongo.uri = 'mongodb://127.0.0.1:27017/webgme';
 config.seedProjects.basePaths.push('./seeds');
 config.seedProjects.defaultProject = 'Boilerplate';
 
-config.server.behindSecureProxy = true;
-
-config.client.errorReporting.enable = true;
-config.client.errorReporting.DSN = 'https://3118066a25db430086ad064fb35af2e8@sentry.io/118310';
-
 //TODO This should probably not be configured from here (for now it will do)
 config.visualization.svgDirs.push('./node_modules/power/Icons');
 config.visualization.svgDirs.push('./node_modules/webgme-bip/src/svgs');
