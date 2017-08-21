@@ -217,6 +217,14 @@ footer .back-to-top a:visited {
     display: inline-block;
 }
 
+#docker-hub-badge {
+    background-color: #22354c;
+}
+
+#docker-hub-badge:hover {
+    background-color: #1e2834;
+}
+
 footer .back-to-top a:hover,
 footer .back-to-top a:active {
     color: #fff;
@@ -257,7 +265,7 @@ p.message.error {
     color: red;
 }
 
-#recaptcha-holder, {
+#recaptcha-holder {
     display: none;
 }
 
