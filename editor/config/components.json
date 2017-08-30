@@ -1,9 +1,16 @@
 {
-  "GenericUIWebGMEStart": {
-    "initialContext": {
-      "project": "demo+SignalFlowSystem",
-      "branch": "master",
-      "node": "/682825457"
+  "GenericUIProjectRepositoryWidget": {
+    "commitBadges": {
+      "UIReplayCommitBadge": {
+        "path": "widgets/UIReplay/UIReplayCommitBadge"
+      }
+    }
+  },
+  "GenericUIFooterControlsPanel": {
+    "extraWidgets": {
+      "UIReplayWidget": {
+        "path": "widgets/UIReplay/UIReplayWidget"
+      }
     }
   }
 }

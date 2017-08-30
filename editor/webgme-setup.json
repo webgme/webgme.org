@@ -153,6 +153,29 @@
         "secondary": false,
         "widget": "src/visualizers/widgets/BIPCodeEditor",
         "project": "webgme-bip"
+      },
+      "UIReplay": {
+        "src": "panels/UIReplay/UIReplayControllers",
+        "title": "UIReplay",
+        "panel": "src/visualizers/panels/UIReplay",
+        "secondary": true,
+        "widget": "src/visualizers/widgets/UIReplay",
+        "project": "webgme-ui-replay"
+      },
+      "FormulaEditor": {
+        "src": "panels/FormulaEditor/FormulaEditorPanel",
+        "title": "FormulaEditor",
+        "panel": "src/visualizers/panels/FormulaEditor",
+        "secondary": false,
+        "widget": "src/visualizers/widgets/FormulaEditor",
+        "project": "formula"
+      }
+    },
+    "routers": {
+      "UIRecorder": {
+        "project": "webgme-ui-replay",
+        "path": "node_modules/webgme-ui-replay/src/routers/UIRecorder",
+        "mount": "routers/UIRecorder"
       }
     },
     "routers": {}

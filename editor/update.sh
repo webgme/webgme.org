@@ -23,7 +23,7 @@
 #     $ ./update.sh ccfcaff
 # - Otherwise the script will fail
 #set -ex
-readonly POST_FIX="-org"
+readonly POST_FIX="-mic"
 webgme_repo=webgme@latest
 webgme_version=1.0.0
 
@@ -75,6 +75,7 @@ if [ -z "${EXISTING_IMAGE}" ]; then
   # docker build -t ${IMAGE_NAME} --build-arg webgme_repo=${webgme_repo} .
 else
   echo "Image ${IMAGE_NAME} existed"
+  docker build -t ${IMAGE_NAME} --build-arg webgme_repo=${webgme_repo} .
 fi
 
 ## Always build a new image
@@ -93,7 +94,7 @@ else
   sleep 4
 fi
 
-docker run -d -p 8001:8001 -v ~/dockershare:/dockershare --link mongo:mongo --name=${CONTAINER_NAME} --restart unless-stopped ${IMAGE_NAME}
+docker run -d -p 8001:8001 -v ~/dockershare:/dockershare --link mongo:mongo --link 4mlMachine:4mlMachine --name=${CONTAINER_NAME} --restart unless-stopped ${IMAGE_NAME}
 
 sleep 2
 

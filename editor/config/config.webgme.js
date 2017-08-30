@@ -34,14 +34,19 @@ config.seedProjects.basePaths.push(__dirname + '/../node_modules/webgme-bip/src/
 config.visualization.panelPaths.push(__dirname + '/../node_modules/webgme-icore/src/visualizers/panels');
 config.visualization.panelPaths.push(__dirname + '/../node_modules/webgme-bip-editors/src/visualizers/panels');
 config.visualization.panelPaths.push(__dirname + '/../node_modules/webgme-bip/src/visualizers/panels');
+config.visualization.panelPaths.push(__dirname + '/../node_modules/webgme-ui-replay/src/visualizers/panels');
+config.visualization.panelPaths.push(__dirname + '/../node_modules/formula/src/visualizers/panels');
 
 
-
+config.rest.components['routers/UIRecorder'] = __dirname + '/../node_modules/webgme-ui-replay/src/routers/UIRecorder/UIRecorder.js';
 
 // Visualizer descriptors
 config.visualization.visualizerDescriptors.push(__dirname + '/../src/visualizers/Visualizers.json');
 // Add requirejs paths
 config.requirejsPaths = {
+  'UIRecorder': 'node_modules/webgme-ui-replay/src/routers/UIRecorder',
+  'FormulaEditor': 'panels/FormulaEditor/FormulaEditorPanel',
+  'UIReplay': 'panels/UIReplay/UIReplayControllers',
   'BIPCodeEditor': 'panels/BIPCodeEditor/BIPCodeEditorPanel',
   'ModelEditorDD': 'panels/ModelEditor/ModelEditorPanel',
   'BIPExecutionViz': 'panels/BIPExecutionViz/BIPExecutionVizPanel',
@@ -74,6 +79,10 @@ config.requirejsPaths = {
   'PetriNetExporter': 'node_modules/petri-net/src/plugins/PetriNetExporter',
   'panels': './src/visualizers/panels',
   'widgets': './src/visualizers/widgets',
+  'panels/FormulaEditor': './node_modules/formula/src/visualizers/panels/FormulaEditor',
+  'widgets/FormulaEditor': './node_modules/formula/src/visualizers/widgets/FormulaEditor',
+  'panels/UIReplay': './node_modules/webgme-ui-replay/src/visualizers/panels/UIReplay',
+  'widgets/UIReplay': './node_modules/webgme-ui-replay/src/visualizers/widgets/UIReplay',
   'panels/BIPCodeEditor': './node_modules/webgme-bip/src/visualizers/panels/BIPCodeEditor',
   'widgets/BIPCodeEditor': './node_modules/webgme-bip/src/visualizers/widgets/BIPCodeEditor',
   'panels/ModelEditor': './node_modules/webgme-bip-editors/src/visualizers/panels/ModelEditor',

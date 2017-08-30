@@ -27,7 +27,7 @@ try {
 
 try {
     if ((fs.lstatSync(config.authentication.jwt.privateKey).isFile() &&
-        fs.lstatSync(config.authentication.jwt.publicKey).isFile()) === false) {
+            fs.lstatSync(config.authentication.jwt.publicKey).isFile()) === false) {
         console.error('token keys exists but both are not files (?)');
         process.exit(1);
     }
@@ -59,6 +59,19 @@ try {
         console.error('Problems with /dockershare/extraconfigs.js', e);
     }
 }
+
+// Add the 4mlMachine router
+config.rest.components['4ml'] = __dirname + '/../node_modules/formula/src/routers/4ml/4ml.js';
+
+//webhook support
+config.webhooks.enable = true;
+config.webhooks.manager = 'memory';
+
+//mic registration page
+config.authentication.enable = true;
+config.authentication.allowGuests = false;
+config.authentication.allowUserRegistration = __dirname + '/../node_modules/webgme-registration-user-management-page/src/server/registrationEndPoint';
+config.authentication.userManagementPage = __dirname + '/../node_modules/webgme-registration-user-management-page/src/server/usermanagement';
 
 validateConfig(config);
 module.exports = config;
