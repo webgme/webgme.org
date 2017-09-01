@@ -24,7 +24,6 @@ Setup instructions on AWS EC2 machines
  ```
  */20 * * * * /home/ubuntu/.nvm/versions/node/v6.11.1/bin/node /home/ubuntu/webgme.org/www/updateextensions.js
  ```
- * TODO: certificates with [certbot](https://certbot.eff.org/all-instructions/#ubuntu-16-04-xenial-none-of-the-above) when ensured to work.
 
 Upgrading from Ubuntu 14.04
 ========================================
@@ -47,16 +46,35 @@ Update instructions on AWS EC2 machines
 ========================================
  * Run `editor/update.sh`, see the header of [update.sh](https://github.com/webgme/webgme.org/blob/master/editor/update.sh) for more details.
 
-webgme.org (editor) website specific instructions
+Nginx and SSL
 ==================================================
  * Install nginx: `sudo apt-get -y install nginx`
- * Copy `nginx.conf` to `/etc/nginx`:
+ * Install [cerbot (with nginx plugin)](https://certbot.eff.org/#ubuntuxenial-nginx)
+ ```
+ $ sudo apt-get update
+ $ sudo apt-get install software-properties-common
+ $ sudo add-apt-repository ppa:certbot/certbot
+ $ sudo apt-get update
+ $ sudo apt-get install python-certbot-nginx 
+ ```
+ * Generate the certificates (prefix with `dev` if dev machine)
+ ```
+sudo cerbot --nginx certonly --cert-name webgme.org -d webgme.org editor.webgme.org
+ ```
+ * Copy the `nginx.conf` to `/etc/nginx`:
     ```sudo cp nginx.conf /etc/nginx/nginx.conf```
  * Restart nginx:
     ```sudo systemctl restart nginx```
+
+### If 403 issues
  * Make sure the the nginx user owns `ls -l /var/lib/nginx` and all sub-dirs.
  * To check user `ps aux | grep nginx` and check for the worker_process
  * If wrong owner do: `chown -R nginx:nginx /var/lib/nginx` or `chown -R nobody:root /var/lib/nginx`
+
+### Renew certificates
+```
+sudo ./renew_certs.sh
+```
 
 User management
 ===============
