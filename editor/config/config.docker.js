@@ -73,5 +73,15 @@ config.authentication.allowGuests = false;
 config.authentication.allowUserRegistration = __dirname + '/../node_modules/webgme-registration-user-management-page/src/server/registrationEndPoint';
 config.authentication.userManagementPage = __dirname + '/../node_modules/webgme-registration-user-management-page/src/server/usermanagement';
 
+config.rest.components.UIRecorder = {
+    src: __dirname + '/../node_modules/webgme-ui-replay/src/routers/UIRecorder/UIRecorder.js',
+    mount: 'routers/UIRecorder',
+    options: {
+    mongo: {
+        uri: 'mongodb://' + process.env.MONGO_PORT_27017_TCP_ADDR + ':' + process.env.MONGO_PORT_27017_TCP_PORT + '/webgme-ui-recording-data',
+        options: {}
+    }
+};
+
 validateConfig(config);
 module.exports = config;

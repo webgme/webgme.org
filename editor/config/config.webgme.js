@@ -38,13 +38,12 @@ config.visualization.panelPaths.push(__dirname + '/../node_modules/webgme-ui-rep
 config.visualization.panelPaths.push(__dirname + '/../node_modules/formula/src/visualizers/panels');
 
 
-config.rest.components['routers/UIRecorder'] = __dirname + '/../node_modules/webgme-ui-replay/src/routers/UIRecorder/UIRecorder.js';
+
 
 // Visualizer descriptors
 config.visualization.visualizerDescriptors.push(__dirname + '/../src/visualizers/Visualizers.json');
 // Add requirejs paths
 config.requirejsPaths = {
-  'UIRecorder': 'node_modules/webgme-ui-replay/src/routers/UIRecorder',
   'FormulaEditor': 'panels/FormulaEditor/FormulaEditorPanel',
   'UIReplay': 'panels/UIReplay/UIReplayControllers',
   'BIPCodeEditor': 'panels/BIPCodeEditor/BIPCodeEditorPanel',

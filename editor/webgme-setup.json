@@ -171,13 +171,6 @@
         "project": "formula"
       }
     },
-    "routers": {
-      "UIRecorder": {
-        "project": "webgme-ui-replay",
-        "path": "node_modules/webgme-ui-replay/src/routers/UIRecorder",
-        "mount": "routers/UIRecorder"
-      }
-    },
     "routers": {}
   }
 }
