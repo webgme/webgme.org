@@ -72,11 +72,13 @@ readonly RUNNING_CONTAINER=$(docker ps -f name="webgme${POST_FIX}" -q)
 
 if [ -z "${EXISTING_IMAGE}" ]; then
   echo "Image ${IMAGE_NAME} did not exist"
-  docker build -t ${IMAGE_NAME} --build-arg webgme_repo=${webgme_repo} .
+  # docker build -t ${IMAGE_NAME} --build-arg webgme_repo=${webgme_repo} .
 else
   echo "Image ${IMAGE_NAME} existed"
 fi
 
+## Always build a new image
+docker build --no-cache -t ${IMAGE_NAME} --build-arg webgme_repo=${webgme_repo} .
 ## Make sure there is an image at this point
 if [ -z "$(docker images ${IMAGE_NAME} -q)" ]; then
   echo "Image did not get built..."
