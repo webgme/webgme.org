@@ -14,13 +14,13 @@ config.plugin.basePaths.push(__dirname + '/../node_modules/sysml/src/plugins');
 config.plugin.basePaths.push(__dirname + '/../node_modules/power/src/plugins');
 config.plugin.basePaths.push(__dirname + '/../node_modules/webgme-bip/src/plugins');
 config.visualization.decoratorPaths.push(__dirname + '/../node_modules/petri-net/src/decorators');
-config.visualization.decoratorPaths.push(__dirname + '/../node_modules/logic-gates/src/decorators');
+config.visualization.decoratorPaths.push(__dirname + '/../node_modules/webgme-logic-gates/src/decorators');
 config.visualization.decoratorPaths.push(__dirname + '/../node_modules/business-process-modeling/src/decorators');
 config.visualization.decoratorPaths.push(__dirname + '/../node_modules/sysml/src/decorators');
 config.visualization.decoratorPaths.push(__dirname + '/../node_modules/webgme-finite-state-machine/src/decorators');
 config.visualization.decoratorPaths.push(__dirname + '/../node_modules/ui-components/src/decorators');
 config.visualization.decoratorPaths.push(__dirname + '/../node_modules/webgme-bip/src/decorators');
-config.seedProjects.basePaths.push(__dirname + '/../node_modules/logic-gates/src/seeds/LogicGates');
+config.seedProjects.basePaths.push(__dirname + '/../node_modules/webgme-logic-gates/src/seeds/LogicGates');
 config.seedProjects.basePaths.push(__dirname + '/../node_modules/petri-net/src/seeds/PetriNet');
 config.seedProjects.basePaths.push(__dirname + '/../node_modules/webgme-finite-state-machine/src/seeds/FiniteStateMachine');
 config.seedProjects.basePaths.push(__dirname + '/../node_modules/business-process-modeling/src/seeds/BusinessProcessModeling');
@@ -52,7 +52,7 @@ config.requirejsPaths = {
   'UMLStateMachineDecorator': 'node_modules/webgme-finite-state-machine/src/decorators/UMLStateMachineDecorator',
   'SysMLDecorator': 'node_modules/sysml/src/decorators/SysMLDecorator',
   'BusinessProcessModelingDecorator': 'node_modules/business-process-modeling/src/decorators/BusinessProcessModelingDecorator',
-  'LogicGatesDecorator': 'node_modules/logic-gates/src/decorators/LogicGatesDecorator',
+  'LogicGatesDecorator': 'node_modules/webgme-logic-gates/src/decorators/LogicGatesDecorator',
   'PetriNetDecorator': 'node_modules/petri-net/src/decorators/PetriNetDecorator',
   'BIP': 'node_modules/webgme-bip/src/seeds/BIPv1',
   'Power': 'node_modules/power/src/seeds/Power',
@@ -60,7 +60,7 @@ config.requirejsPaths = {
   'BusinessProcessModeling': 'node_modules/business-process-modeling/src/seeds/BusinessProcessModeling',
   'FiniteStateMachine': 'node_modules/webgme-finite-state-machine/src/seeds/FiniteStateMachine',
   'PetriNet': 'node_modules/petri-net/src/seeds/PetriNet',
-  'LogicGates': 'node_modules/logic-gates/src/seeds/LogicGates',
+  'LogicGates': 'node_modules/webgme-logic-gates/src/seeds/LogicGates',
   'BehaviorSpecGenerator': 'node_modules/webgme-bip/src/plugins/BehaviorSpecGenerator',
   'ArchitectureSpecGenerator': 'node_modules/webgme-bip/src/plugins/ArchitectureSpecGenerator',
   'OpenDSS_Generator': 'node_modules/power/src/plugins/OpenDSS_Generator',

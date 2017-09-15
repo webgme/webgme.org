@@ -50,7 +50,7 @@
     "seeds": {
       "LogicGates": {
         "project": "logic-gates",
-        "path": "node_modules/logic-gates/src/seeds/LogicGates"
+        "path": "node_modules/webgme-logic-gates/src/seeds/LogicGates"
       },
       "PetriNet": {
         "project": "petri-net",
@@ -84,7 +84,7 @@
       },
       "LogicGatesDecorator": {
         "project": "logic-gates",
-        "path": "node_modules/logic-gates/src/decorators/LogicGatesDecorator"
+        "path": "node_modules/webgme-logic-gates/src/decorators/LogicGatesDecorator"
       },
       "BusinessProcessModelingDecorator": {
         "project": "business-process-modeling",

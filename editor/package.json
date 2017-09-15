@@ -8,7 +8,7 @@
   "dependencies": {
     "business-process-modeling": "webgme/business-process-modeling#published",
     "formula": "webgme/formula#published",
-    "logic-gates": "^1.0.1",
+    "webgme-logic-gates": "^1.0.1",
     "node-rsa": "^0.4.2",
     "petri-net": "webgme/petri-net#published",
     "power": "webgme/power#published",
