@@ -7,7 +7,6 @@ var config = require('webgme/config/config.default'),
     validateConfig = require('webgme/config/validator');
 
 // The paths can be loaded from the webgme-setup.json
-config.plugin.basePaths.push(__dirname + '/../node_modules/logic-gates/src/plugins');
 config.plugin.basePaths.push(__dirname + '/../node_modules/petri-net/src/plugins');
 config.plugin.basePaths.push(__dirname + '/../node_modules/webgme-finite-state-machine/src/plugins');
 config.plugin.basePaths.push(__dirname + '/../node_modules/formula/src/plugins');
@@ -55,7 +54,7 @@ config.requirejsPaths = {
   'BusinessProcessModelingDecorator': 'node_modules/business-process-modeling/src/decorators/BusinessProcessModelingDecorator',
   'LogicGatesDecorator': 'node_modules/logic-gates/src/decorators/LogicGatesDecorator',
   'PetriNetDecorator': 'node_modules/petri-net/src/decorators/PetriNetDecorator',
-  'BIP': 'node_modules/webgme-bip/src/seeds/BIP',
+  'BIP': 'node_modules/webgme-bip/src/seeds/BIPv1',
   'Power': 'node_modules/power/src/seeds/Power',
   'SysML': 'node_modules/sysml/src/seeds/SysML',
   'BusinessProcessModeling': 'node_modules/business-process-modeling/src/seeds/BusinessProcessModeling',
@@ -71,7 +70,6 @@ config.requirejsPaths = {
   'FSMImporter': 'node_modules/webgme-finite-state-machine/src/plugins/FSMImporter',
   'FSMCodeGenerator': 'node_modules/webgme-finite-state-machine/src/plugins/FSMCodeGenerator',
   'PetriNetExporter': 'node_modules/petri-net/src/plugins/PetriNetExporter',
-  'LogicGatesExporter': 'node_modules/logic-gates/src/plugins/LogicGatesExporter',
   'panels': './src/visualizers/panels',
   'widgets': './src/visualizers/widgets',
   'panels/BIPCodeEditor': './node_modules/webgme-bip/src/visualizers/panels/BIPCodeEditor',
