@@ -70,8 +70,9 @@ config.webhooks.manager = 'memory';
 //mic registration page
 config.authentication.enable = true;
 config.authentication.allowGuests = false;
-config.authentication.allowUserRegistration = __dirname + '/../node_modules/webgme-registration-user-management-page/src/server/registrationEndPoint';
-config.authentication.userManagementPage = __dirname + '/../node_modules/webgme-registration-user-management-page/src/server/usermanagement';
+config.authentication.allowUserRegistration = false;
+//config.authentication.allowUserRegistration = __dirname + '/../node_modules/webgme-registration-user-management-page/src/server/registrationEndPoint';
+//config.authentication.userManagementPage = __dirname + '/../node_modules/webgme-registration-user-management-page/src/server/usermanagement';
 
 config.rest.components.UIRecorder = {
     src: __dirname + '/../node_modules/webgme-ui-replay/src/routers/UIRecorder/UIRecorder.js',
