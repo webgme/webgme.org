@@ -18,8 +18,7 @@
     "webgme-bip-editors": "0.2.0",
     "webgme-finite-state-machine": "^1.0.0",
     "webgme-icore": "^1.0.0",
-    "webgme-ui-replay": "webgme/ui-replay#master",
-    "webgme-registration-user-management-page": "kecso/user-management-page#master"
+    "webgme-ui-replay": "webgme/ui-replay#master"
   },
   "devDependencies": {
     "mocha": "^2.2.5",
