@@ -77,9 +77,10 @@ config.rest.components.UIRecorder = {
     src: __dirname + '/../node_modules/webgme-ui-replay/src/routers/UIRecorder/UIRecorder.js',
     mount: 'routers/UIRecorder',
     options: {
-    mongo: {
-        uri: 'mongodb://' + process.env.MONGO_PORT_27017_TCP_ADDR + ':' + process.env.MONGO_PORT_27017_TCP_PORT + '/webgme-ui-recording-data',
-        options: {}
+        mongo: {
+            uri: 'mongodb://' + process.env.MONGO_PORT_27017_TCP_ADDR + ':' + process.env.MONGO_PORT_27017_TCP_PORT + '/webgme-ui-recording-data',
+            options: {}
+        }
     }
 };
 
