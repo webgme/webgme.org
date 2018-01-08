@@ -1,5 +1,5 @@
 .idea
-
+editor/package-lock.json
 editor/update.sh.log
 editor/server.log
 editor/server-error.log

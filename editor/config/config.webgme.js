@@ -20,6 +20,7 @@ config.visualization.decoratorPaths.push(__dirname + '/../node_modules/sysml/src
 config.visualization.decoratorPaths.push(__dirname + '/../node_modules/webgme-finite-state-machine/src/decorators');
 config.visualization.decoratorPaths.push(__dirname + '/../node_modules/ui-components/src/decorators');
 config.visualization.decoratorPaths.push(__dirname + '/../node_modules/webgme-bip/src/decorators');
+config.visualization.decoratorPaths.push(__dirname + '/../node_modules/webgme-connection-remover/src/decorators');
 config.seedProjects.basePaths.push(__dirname + '/../node_modules/webgme-logic-gates/src/seeds/LogicGates');
 config.seedProjects.basePaths.push(__dirname + '/../node_modules/petri-net/src/seeds/PetriNet');
 config.seedProjects.basePaths.push(__dirname + '/../node_modules/webgme-finite-state-machine/src/seeds/FiniteStateMachine');
@@ -45,6 +46,7 @@ config.requirejsPaths = {
   'ModelEditorDD': 'panels/ModelEditor/ModelEditorPanel',
   'BIPExecutionViz': 'panels/BIPExecutionViz/BIPExecutionVizPanel',
   'ICore': 'panels/ICore/ICorePanel',
+  'ConnRemoverDecorator': 'node_modules/webgme-connection-remover/src/decorators/ConnRemoverDecorator',
   'BIPConnectorEndDecorator': 'node_modules/webgme-bip/src/decorators/BIPConnectorEndDecorator',
   'BIPStateDecorator': 'node_modules/webgme-bip/src/decorators/BIPStateDecorator',
   'BIPComponentTypeDecorator': 'node_modules/webgme-bip/src/decorators/BIPComponentTypeDecorator',
@@ -79,7 +81,20 @@ config.requirejsPaths = {
   'panels/BIPExecutionViz': './node_modules/webgme-bip-editors/src/visualizers/panels/BIPExecutionViz',
   'widgets/BIPExecutionViz': './node_modules/webgme-bip-editors/src/visualizers/widgets/BIPExecutionViz',
   'panels/ICore': './node_modules/webgme-icore/src/visualizers/panels/ICore',
-  'widgets/ICore': './node_modules/webgme-icore/src/visualizers/widgets/ICore'
+  'widgets/ICore': './node_modules/webgme-icore/src/visualizers/widgets/ICore',
+  'petri-net': './node_modules/petri-net/src/common',
+  'finite-state-machine': './node_modules/finite-state-machine/src/common',
+  'formula': './node_modules/formula/src/common',
+  'sysml': './node_modules/sysml/src/common',
+  'power': './node_modules/power/src/common',
+  'webgme-bip': './node_modules/webgme-bip/src/common',
+  'logic-gates': './node_modules/logic-gates/src/common',
+  'business-process-modeling': './node_modules/business-process-modeling/src/common',
+  'ui-components': './node_modules/ui-components/src/common',
+  'webgme-connection-remover': './node_modules/webgme-connection-remover/src/common',
+  'webgme-icore': './node_modules/webgme-icore/src/common',
+  'webgme-bip-editors': './node_modules/webgme-bip-editors/src/common',
+  'editor': './src/common'
 };
 
 

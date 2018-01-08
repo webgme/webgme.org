@@ -113,6 +113,10 @@
       "BIPConnectorEndDecorator": {
         "project": "webgme-bip",
         "path": "node_modules/webgme-bip/src/decorators/BIPConnectorEndDecorator"
+      },
+      "ConnRemoverDecorator": {
+        "project": "webgme-connection-remover",
+        "path": "node_modules/webgme-connection-remover/src/decorators/ConnRemoverDecorator"
       }
     },
     "addons": {},
