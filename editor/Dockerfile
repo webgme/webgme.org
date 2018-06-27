@@ -18,8 +18,8 @@
 # import an image:                                  docker load -i webgme-seaml.tar
 
 
-# https://github.com/nodejs/docker-node/blob/3b038b8a1ac8f65e3d368bedb9f979884342fdcb/6.9/Dockerfile
-FROM node:boron
+# Node 8
+FROM node:carbon
 MAINTAINER Patrik Meijer <patrik.meijer@vanderbilt.edu>
 ARG webgme_repo=webgme@latest
 
