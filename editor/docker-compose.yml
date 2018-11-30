@@ -42,7 +42,6 @@ services:
       - ~/dockershare/blob-local-storage:/blob-local-storage
     networks:
       - database
-      - workers
       - frontend
   mongo:
     image: mongo:3.4.1
