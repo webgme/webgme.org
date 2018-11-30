@@ -25,6 +25,7 @@ services:
       - webgme-server
     volumes:
       - ~/dockershare/ssl_certs:/ssl_certs
+      - ~/webgme.org/www/static
     networks:
       - frontend
     ports:
@@ -38,8 +39,7 @@ services:
     environment:
       - NODE_ENV=docker
     volumes:
-      - ~/dockershare/token_keys:/token_keys
-      - ~/dockershare/blob-local-storage:/blob-local-storage
+      - ~/dockershare:/dockershare
     networks:
       - database
       - frontend
