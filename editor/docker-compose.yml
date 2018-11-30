@@ -20,12 +20,12 @@ services:
   web:
     build:
       context: .
-      dockerfile: "Dockerfile.nginx.${HOSTNAME}"
+      dockerfile: "Dockerfile.nginx.dev.webgme.org"
     depends_on:
       - webgme-server
     volumes:
       - ~/dockershare/ssl_certs:/ssl_certs
-      - ~/webgme.org/www/static
+      - ~/webgme.org/www/static:/static
     networks:
       - frontend
     ports:
