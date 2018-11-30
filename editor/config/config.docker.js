@@ -46,8 +46,7 @@ config.blob.fsDir = '/dockershare/blob-local-storage';
 // This is the exposed port from the docker container.
 config.server.port = 8001;
 
-// Connect to the linked mongo container N.B. container must be named mongo
-config.mongo.uri = 'mongodb://' + process.env.MONGO_PORT_27017_TCP_ADDR + ':' + process.env.MONGO_PORT_27017_TCP_PORT + '/webgme';
+config.mongo.uri = 'mongodb://mongo:27017/webgme';
 
 // Finally load any extra configuration parameters from dockershare
 try {
