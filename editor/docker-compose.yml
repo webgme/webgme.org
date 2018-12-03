@@ -34,6 +34,9 @@ services:
   webgme-server:
     build:
       context: .
+    args:
+      # This is overridden in update.sh when rebuilding the server
+      - webgme_repo: webgme@latest
     depends_on:
       - mongo
     environment:
