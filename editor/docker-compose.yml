@@ -20,7 +20,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: "Dockerfile.nginx.dev.webgme.org"
+      dockerfile: "Dockerfile.nginx.${HOSTNAME}"
     depends_on:
       - webgme-server
     volumes:
