@@ -70,7 +70,7 @@ fi
 ## Always build a new image
 docker-compose build --no-cache --build-arg webgme_repo=${webgme_repo} ${SERVICE_NAME}
 
-docker-compose up -d --no-recreate ${SERVICE_NAME}
+docker-compose up -d ${SERVICE_NAME}
 
 sleep 2
 
