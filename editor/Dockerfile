@@ -18,14 +18,13 @@
 # import an image:                                  docker load -i webgme-seaml.tar
 
 
-# Node 8
-FROM node:carbon
+# Node 10
+FROM node:dubnium
 MAINTAINER Patrik Meijer <patrik.meijer@vanderbilt.edu>
 ARG webgme_repo=webgme@latest
 
-RUN apt-get update
-
 # Install git
+RUN apt-get update
 RUN apt-get install -y git
 
 RUN mkdir /usr/app
@@ -40,10 +39,5 @@ RUN npm install ${webgme_repo}
 
 # Install node-modules
 RUN npm install
-
-# Set environment variable in order to use ./config/config.docker.js
-ENV NODE_ENV docker
-
-EXPOSE 8001
 
 CMD ["npm", "start"]

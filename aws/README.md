@@ -1,24 +1,25 @@
-Setup instructions on AWS EC2 machines
-======================================
+Setup instructions on AWS EC2 machines (Ubuntu 18.04)
+=====================================================
 
  * Allocate new EC2 instance (e.g. t1.medium) with a Ubuntu 64-bit image
  * Associate public IP and set firewall rules (Security Group) for service ports
  * Log-in via SSH and
  * Run `sudo apt-get update && sudo apt-get -y upgrade`
  * Tweak `/etc/hostname` (reflect your choice of DNS name)
+ * In `./.profile` add the line `export HOSTNAME=<DNS name>` (needed for building correct nginx image)
  * Tweak `.ssh/authorized_keys`
- * Install [docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
+ * Install [docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
+ * Install [docker-compse](https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-18-04)
  * Add current user to docker group `sudo usermod -aG docker $USER`
  * `mkdir ~/dockershare`
  * `mkdir ~/dockershare/db`
- * `docker run -d -p 27017:27017 -v ~/dockershare/db:/data/db -v ~/webgme.org/aws/mongodb.conf:/etc/mongo.conf --name mongo --restart unless-stopped mongo`
- * Install but do not start the daemon! [mongodb 3.2](https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-16-04)
+ * `mkdir ~/dockershare/ssl_certs`
  * The mongo container exposes its port at default so `mongo`, `mongodump`, etc. works the same way.
- * Clone the webgme-deployment project to the home folder.
-     ```git clone https://github.com/webgme/webgme-deployment.git```
+ * Clone the webgme.org project to the home folder.
+     ```git clone https://github.com/webgme/webgme.org.git```
  * Remove all unversioned files inside editor (MAKE SURE YOU'VE copied the blob-local-storage if migrating see below)
  * `git clean -dfx`
- * Run `editor/update.sh`.
+ * Inside `/editor` run
  * Install [nvm/node](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04#how-to-install-using-nvm)
  * Add to crontab (check `whereis node`)
  ```
@@ -33,6 +34,22 @@ Upgrading from Ubuntu 14.04
  * Remove the [old mongodb installation 2.6](https://askubuntu.com/questions/497139/how-to-completely-uninstall-mongodb-2-6-3-from-ubuntu-13-04)
  * Once mongod > 3 is installed and docker container running - import the exported files (if any) `mongorestore -d webgme dump/webgme`
 
+Upgrading from Ubuntu 16.04
+===========================
+ * Key difference is that this approach uses docker-compose and runs nginx as a container
+ * (All these steps can be made using Ubuntu 16.04 and upgrade the OS afterwards)
+ * Make a back-up of the database files
+ * Install docker-compose
+ * stop all running containers (and remove old images) `docker system prune`
+ * `sudo systemctl stop nginx` and `sudo systemctl disable nginx`
+ * `mkdir ~/dockershare/ssl_certs`
+ * In `./.profile` add the line `export HOSTNAME=<DNS name>` (needed for building correct nginx image and copying certs in renew_certs.sh)
+ * `sudo cp /etc/letsencrypt/live/${HOSTNAME}/privkey.pem /home/ubuntu/dockershare/ssl_certs/privkey.pem`
+ * `sudo cp /etc/letsencrypt/live/${HOSTNAME}/fullchain.pem /home/ubuntu/dockershare/ssl_certs/fullchain.pem`
+ * Build/pull the images and launch them
+ * `cd webgme.org/editor`
+ * `docker-compose up -d`
+ * Overwrite renew_certs.sh with the new one
 
 Authentication
 ========================================
@@ -44,7 +61,8 @@ Authentication
 
 Update instructions on AWS EC2 machines
 ========================================
- * Run `editor/update.sh`, see the header of [update.sh](https://github.com/webgme/webgme.org/blob/master/editor/update.sh) for more details.
+ * `cd webgme.org/editor`
+ * `./update.sh`, see the header of [update.sh](https://github.com/webgme/webgme.org/blob/master/editor/update.sh) for more details.
 
 Nginx and SSL
 ==================================================
@@ -55,21 +73,9 @@ Nginx and SSL
  $ sudo apt-get install software-properties-common
  $ sudo add-apt-repository ppa:certbot/certbot
  $ sudo apt-get update
- $ sudo apt-get install python-certbot-nginx 
+ $ sudo apt-get install python-certbot-nginx
  ```
- * Generate the certificates (prefix with `dev` if dev machine)
- ```
-sudo cerbot --nginx certonly --cert-name webgme.org -d webgme.org editor.webgme.org
- ```
- * Copy the `nginx.conf` to `/etc/nginx`:
-    ```sudo cp nginx.conf /etc/nginx/nginx.conf```
- * Restart nginx:
-    ```sudo systemctl restart nginx```
-
-### If 403 issues
- * Make sure the the nginx user owns `ls -l /var/lib/nginx` and all sub-dirs.
- * To check user `ps aux | grep nginx` and check for the worker_process
- * If wrong owner do: `chown -R nginx:nginx /var/lib/nginx` or `chown -R nobody:root /var/lib/nginx`
+ * `./renew_certs.sh` will copy over certs
 
 ### Renew certificates
 ```

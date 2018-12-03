@@ -1,13 +1,16 @@
 #!/bin/bash
-# Builds docker image and launches new container for webgme-server
+# Builds docker image and launches new container for webgme-org
+# This script does not remove the stopped containers or images.
+# Remove all stopped containers:
+# $ docker rm $(docker ps --filter "status=exited" -q)
 # List images
 # $ docker images
 # Remove images
 # $ docker rmi cc34 5703
 # Usage:
 #
-# - Installs the latest webgme release from npm registry
-#     $ ./update.sh
+# - Installs the latest webgme release from npm registry 
+#     $ ./update.sh 
 # - Installs a specific webgme release from npm registry if found
 #     $ ./update.sh 0.7.0
 # - Installs a specific branch from github if found
@@ -20,7 +23,7 @@
 #     $ ./update.sh ccfcaff
 # - Otherwise the script will fail
 #set -ex
-readonly POST_FIX="-server"
+readonly POST_FIX="-org"
 webgme_repo=webgme@latest
 webgme_version=1.0.0
 
@@ -60,22 +63,42 @@ else
   fi
 fi
 
-readonly SERVICE_NAME="webgme${POST_FIX}"
+readonly IMAGE_NAME="webgme${POST_FIX}:${webgme_version}"
+readonly IMAGE_FILE="webgme${POST_FIX}_${webgme_version}.tar"
+readonly TIME_STAMP=$(date +%Y%m%d_%H%M%S)
+readonly CONTAINER_NAME="webgme${POST_FIX}_${webgme_version}_$TIME_STAMP"
+readonly EXISTING_IMAGE=$(docker images ${IMAGE_NAME} -q)
+readonly RUNNING_CONTAINER=$(docker ps -f name="webgme${POST_FIX}" -q)
 
-if [ -z "docker-compose stop ${SERVICE_NAME}" ]; then
-  echo "Did not stop service ${SERVICE_NAME} is it still running?"
-  echo docker-compose ps ${SERVICE_NAME}
+if [ -z "${EXISTING_IMAGE}" ]; then
+  echo "Image ${IMAGE_NAME} did not exist"
+  # docker build -t ${IMAGE_NAME} --build-arg webgme_repo=${webgme_repo} .
+else
+  echo "Image ${IMAGE_NAME} existed"
 fi
 
 ## Always build a new image
-docker-compose build --no-cache --build-arg webgme_repo=${webgme_repo} ${SERVICE_NAME}
+docker build --no-cache -t ${IMAGE_NAME} --build-arg webgme_repo=${webgme_repo} .
+## Make sure there is an image at this point
+if [ -z "$(docker images ${IMAGE_NAME} -q)" ]; then
+  echo "Image did not get built..."
+  exit 2
+fi
 
-docker-compose up -d ${SERVICE_NAME}
+## The requested image is loaded - stop any running containers
+if [ -z "${RUNNING_CONTAINER}" ]; then
+  echo "No webgme container running"
+else
+  docker stop ${RUNNING_CONTAINER}
+  sleep 4
+fi
+
+docker run -d -p 8001:8001 -v ~/dockershare:/dockershare --link mongo:mongo --name=${CONTAINER_NAME} --restart unless-stopped ${IMAGE_NAME}
 
 sleep 2
 
-docker-compose ps
+docker ps -a
 
 sleep 2
 
-docker-compose logs ${SERVICE_NAME}
+docker logs ${CONTAINER_NAME}
