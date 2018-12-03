@@ -5,13 +5,11 @@ See /aws/README.md for more aws specific directions.
 Create an empty directory to share with the containers (e.g. ~/dockershare)
 ```mkdir ~/dockershare```
 
-Launch a mongo container (it must be named mongo)
-```docker run -d -v ~/dockershare/db:/data/db --name mongo mongo```
+Create/obtain ssl certs (`privkey.pem` and `fullchain.pem`) and put them inside
+```mkdir ~/dockershare/ssl_certs```
 
-Launch a webgme-org container
-```docker run -d -p 8888:8001 -v ~/dockershare:/dockershare --link mongo:mongo --name=webgme -e "GME_ADMIN=admin:admin" webgme/webgme-org:2.16.0```
-
-Webgme should be available at `localhost:8888`
+Inside `./editor` start using docker-compose (if not running at (dev.)webgme.org modify the nginx.conf appropriately.
+```docker-compose up -d```
 
 #### Notes
 The above will pull the image tagged `2.16.0` check [docker-hub/webgme](https://hub.docker.com/r/webgme/compact/tags/) for latest tag.
