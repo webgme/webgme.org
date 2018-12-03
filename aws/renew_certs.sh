@@ -1,10 +1,22 @@
 #!/bin/sh
+COMPOSE_YML=/home/ubuntu/webgme.org/editor/docker-compose.yml
 
-systemctl stop nginx  # or whatever your webserver is
+# or whatever your webserver is
+docker-compose -f $COMPOSE_YML stop web
+
 if ! certbot renew > /var/log/letsencrypt/renew.log 2>&1 ; then
     echo Automated renewal failed:
     cat /var/log/letsencrypt/renew.log
-    systemctl start nginx
+    systemctl stop nginx
+    tail /var/log/letsencrypt/letsencrypt.log
+    docker-compose -f $COMPOSE_YML up --no-recreate -d web
     exit 1
 fi
-systemctl start nginx # or whatever your webserver is
+
+systemctl stop nginx
+tail /var/log/letsencrypt/letsencrypt.log
+# Copy over the new certs
+cp /etc/letsencrypt/live/dev.webgme.org/privkey.pem /home/ubuntu/dockershare/ssl_certs/privkey.pem
+cp /etc/letsencrypt/live/dev.webgme.org/fullchain.pem /home/ubuntu/dockershare/ssl_certs/fullchain.pem
+
+docker-compose -f $COMPOSE_YML up --no-recreate -d web 
