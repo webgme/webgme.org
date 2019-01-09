@@ -21,6 +21,7 @@ services:
     build:
       context: .
       dockerfile: "Dockerfile.nginx.${HOSTNAME}"
+    restart: unless-stopped
     depends_on:
       - webgme-server
     volumes:
@@ -34,6 +35,7 @@ services:
   webgme-server:
     build:
       context: .
+    restart: unless-stopped
     depends_on:
       - mongo
     environment:
@@ -45,6 +47,7 @@ services:
       - frontend
   mongo:
     image: mongo:3.4.1
+    restart: unless-stopped
     ports:
       - 27017:27017
     volumes:
