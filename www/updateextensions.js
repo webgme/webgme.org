@@ -93,7 +93,7 @@ function queryNpmRegistry(module, callback) {
             }
         },
         req;
-console.log(options.path);
+// console.log(options.path);
     req = https.request(options, function (res) {
         var output = '';
         res.setEncoding('utf8');
@@ -215,7 +215,7 @@ queryNpmRegistry(null, function (err, result) {
                 process.exit(1);
             } else {
                 fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-                console.log('Wrote file to', filePath);
+                //console.log('Wrote file to', filePath);
             }
         });
     }
