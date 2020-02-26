@@ -20,7 +20,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: "Dockerfile.nginx.${HOSTNAME}"
+      dockerfile: "Dockerfile.nginx.webgme.org"
     restart: unless-stopped
     depends_on:
       - webgme-server

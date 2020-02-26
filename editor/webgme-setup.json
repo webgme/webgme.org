@@ -37,14 +37,6 @@
       "OpenDSS_Generator": {
         "project": "power",
         "path": "node_modules/power/src/plugins/OpenDSS_Generator"
-      },
-      "ArchitectureSpecGenerator": {
-        "project": "webgme-bip",
-        "path": "node_modules/webgme-bip/src/plugins/ArchitectureSpecGenerator"
-      },
-      "BehaviorSpecGenerator": {
-        "project": "webgme-bip",
-        "path": "node_modules/webgme-bip/src/plugins/BehaviorSpecGenerator"
       }
     },
     "seeds": {
@@ -71,10 +63,6 @@
       "Power": {
         "project": "power",
         "path": "node_modules/power/src/seeds/Power"
-      },
-      "BIP": {
-        "project": "webgme-bip",
-        "path": "node_modules/webgme-bip/src/seeds/BIPv1"
       }
     },
     "decorators": {
@@ -102,18 +90,6 @@
         "project": "ui-components",
         "path": "node_modules/ui-components/src/decorators/DisplayMetaDecorator"
       },
-      "BIPComponentTypeDecorator": {
-        "project": "webgme-bip",
-        "path": "node_modules/webgme-bip/src/decorators/BIPComponentTypeDecorator"
-      },
-      "BIPStateDecorator": {
-        "project": "webgme-bip",
-        "path": "node_modules/webgme-bip/src/decorators/BIPStateDecorator"
-      },
-      "BIPConnectorEndDecorator": {
-        "project": "webgme-bip",
-        "path": "node_modules/webgme-bip/src/decorators/BIPConnectorEndDecorator"
-      },
       "ConnRemoverDecorator": {
         "project": "webgme-connection-remover",
         "path": "node_modules/webgme-connection-remover/src/decorators/ConnRemoverDecorator"
@@ -129,30 +105,6 @@
         "secondary": false,
         "widget": "src/visualizers/widgets/ICore",
         "project": "webgme-icore"
-      },
-      "BIPExecutionViz": {
-        "src": "panels/BIPExecutionViz/BIPExecutionVizPanel",
-        "title": "BIPExecutionViz",
-        "panel": "src/visualizers/panels/BIPExecutionViz",
-        "secondary": false,
-        "widget": "src/visualizers/widgets/BIPExecutionViz",
-        "project": "webgme-bip-editors"
-      },
-      "ModelEditorDD": {
-        "src": "panels/ModelEditor/ModelEditorPanel",
-        "title": "ModelEditorDD",
-        "panel": "src/visualizers/panels/ModelEditor",
-        "secondary": false,
-        "widget": "src/visualizers/widgets/ModelEditor",
-        "project": "webgme-bip-editors"
-      },
-      "BIPCodeEditor": {
-        "src": "panels/BIPCodeEditor/BIPCodeEditorPanel",
-        "title": "BIPCodeEditor",
-        "panel": "src/visualizers/panels/BIPCodeEditor",
-        "secondary": false,
-        "widget": "src/visualizers/widgets/BIPCodeEditor",
-        "project": "webgme-bip"
       }
     },
     "routers": {}
