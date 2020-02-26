@@ -15,7 +15,7 @@ config.authentication.jwt.publicKey = path.join(__dirname, '..', '..', '..', 'to
 config.requirejsPaths['widgets/DiagramDesigner'] =
     './node_modules/webgme-bip-editors/src/visualizers/widgets/DiagramDesigner';
 
-config.requirejsPaths['bipsrc'] = './node_modules/webgme-bip/src';
+// config.requirejsPaths['bipsrc'] = './node_modules/webgme-bip/src';
 
 config.plugin.allowServerExecution = false;
 config.executor.enable = false;
@@ -28,6 +28,6 @@ config.seedProjects.defaultProject = 'Boilerplate';
 
 //TODO This should probably not be configured from here (for now it will do)
 config.visualization.svgDirs.push('./node_modules/power/Icons');
-config.visualization.svgDirs.push('./node_modules/webgme-bip/src/svgs');
+// config.visualization.svgDirs.push('./node_modules/webgme-bip/src/svgs');
 
 module.exports = config;
