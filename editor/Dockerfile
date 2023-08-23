@@ -20,12 +20,9 @@
 
 # Node 18
 FROM node:hydrogen
-MAINTAINER Patrik Meijer <patrik.meijer@vanderbilt.edu>
+LABEL maintainer="Patrik Meijer <patrik.meijer@vanderbilt.edu>"
 ARG webgme_repo=webgme@latest
 
-# Install git
-RUN apt-get update
-RUN apt-get install -y git
 
 RUN mkdir /usr/app
 
