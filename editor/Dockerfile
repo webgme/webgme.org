@@ -18,8 +18,8 @@
 # import an image:                                  docker load -i webgme-seaml.tar
 
 
-# Node 10
-FROM node:dubnium
+# Node 18
+FROM node:hydrogen
 MAINTAINER Patrik Meijer <patrik.meijer@vanderbilt.edu>
 ARG webgme_repo=webgme@latest
 
