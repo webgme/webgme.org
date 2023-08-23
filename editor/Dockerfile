@@ -18,8 +18,9 @@
 # import an image:                                  docker load -i webgme-seaml.tar
 
 
-# Node 18
-FROM node:hydrogen
+# Node 16
+FROM node:gallium
+
 LABEL maintainer="Patrik Meijer <patrik.meijer@vanderbilt.edu>"
 ARG webgme_repo=webgme@latest
 
