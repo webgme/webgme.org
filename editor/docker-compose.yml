@@ -18,6 +18,7 @@ networks:
     driver: bridge
 services:
   web:
+    container_name: web
     build:
       context: .
       dockerfile: "Dockerfile.nginx.webgme.org"
@@ -33,6 +34,7 @@ services:
       - 80:80
       - 443:443
   webgme-server:
+    container_name: webgme
     build:
       context: .
     restart: unless-stopped
@@ -46,6 +48,7 @@ services:
       - database
       - frontend
   mongo:
+    container_name: mongo
     image: mongo:3.4.1
     restart: unless-stopped
     ports:
