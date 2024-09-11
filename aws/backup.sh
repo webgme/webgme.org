@@ -18,15 +18,3 @@ tar -cvzf $zip_path $folder_name
 rm -rf $folder_name
 
 docker-compose -f $COMPOSE_YML up --no-recreate -d $SERVICE_NAME
-
-scp $zip_path ubuntu@zsolt-ws.isis.vanderbilt.edu:~/share/Archives/${zip_file}
-
-if [ $? -eq 0 ]
-then
-  echo "Success! cleaning up.."
-  rm $zip_path
-  exit 0
-else
-  echo "Could not move back-up. Manually move ${zip_path} "
-  exit 1
-fi
