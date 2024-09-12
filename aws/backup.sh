@@ -11,10 +11,10 @@ zip_path=/home/ubuntu/${PREFIX}_${time_stamp}.tar.gz
 
 mkdir $folder_name
 
-docker-compose -f $COMPOSE_YML stop $SERVICE_NAME
+docker compose -f $COMPOSE_YML stop $SERVICE_NAME
 
 mongodump -d ${DB_NAME} -o $folder_name
 tar -cvzf $zip_path $folder_name
 rm -rf $folder_name
 
-docker-compose -f $COMPOSE_YML up --no-recreate -d $SERVICE_NAME
+docker compose -f $COMPOSE_YML up --no-recreate -d $SERVICE_NAME
