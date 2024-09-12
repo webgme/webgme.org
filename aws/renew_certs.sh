@@ -1,6 +1,8 @@
 #!/bin/sh
 # Installed using:
 # https://certbot.eff.org/instructions?ws=nginx&os=pip
+# Monthly upgrade: $ /opt/certbot/bin/pip install --upgrade certbot certbot-nginx
+
 COMPOSE_YML=/home/ubuntu/webgme.org/editor/docker-compose.yml
 
 # or whatever your webserver is
