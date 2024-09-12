@@ -1,19 +1,21 @@
 #!/bin/sh
+# Installed using:
+# https://certbot.eff.org/instructions?ws=nginx&os=pip
 COMPOSE_YML=/home/ubuntu/webgme.org/editor/docker-compose.yml
 
 # or whatever your webserver is
 docker compose -f $COMPOSE_YML stop web
 
-if ! certbot renew > /var/log/letsencrypt/renew.log 2>&1 ; then
+if ! certbot renew -q --nginx > /var/log/letsencrypt/renew.log 2>&1 ; then
     echo Automated renewal failed:
     cat /var/log/letsencrypt/renew.log
-    systemctl stop nginx
+    nginx -s stop
     tail /var/log/letsencrypt/letsencrypt.log
     docker compose -f $COMPOSE_YML up --no-recreate -d web
     exit 1
 fi
 
-systemctl stop nginx
+nginx -s stop
 tail /var/log/letsencrypt/letsencrypt.log
 # Copy over the new certs
 cp /etc/letsencrypt/live/${HOSTNAME}/privkey.pem /home/ubuntu/dockershare/ssl_certs/privkey.pem
