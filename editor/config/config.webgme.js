@@ -31,12 +31,17 @@ config.seedProjects.basePaths.push(__dirname + '/../node_modules/power/src/seeds
 config.visualization.panelPaths.push(__dirname + '/../node_modules/webgme-icore/src/visualizers/panels');
 
 
-
+config.rest.components['BindingsDocs'] = {
+  src: __dirname + '/../node_modules/webgme-bindings/src/routers/BindingsDocs/BindingsDocs.js',
+  mount: 'bindings-docs',
+  options: {}
+};
 
 // Visualizer descriptors
 config.visualization.visualizerDescriptors.push(__dirname + '/../src/visualizers/Visualizers.json');
 // Add requirejs paths
 config.requirejsPaths = {
+  'BindingsDocs': 'node_modules/webgme-bindings/src/routers/BindingsDocs',
   'ICore': 'panels/ICore/ICorePanel',
   'ConnRemoverDecorator': 'node_modules/webgme-connection-remover/src/decorators/ConnRemoverDecorator',
   'DisplayMetaDecorator': 'node_modules/ui-components/src/decorators/DisplayMetaDecorator',
@@ -72,6 +77,7 @@ config.requirejsPaths = {
   'ui-components': './node_modules/ui-components/src/common',
   'webgme-connection-remover': './node_modules/webgme-connection-remover/src/common',
   'webgme-icore': './node_modules/webgme-icore/src/common',
+  'webgme-bindings': './node_modules/webgme-bindings/src/common',
   'editor': './src/common'
 };
 
