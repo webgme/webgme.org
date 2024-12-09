@@ -20,7 +20,7 @@ fi
 nginx -s stop
 tail /var/log/letsencrypt/letsencrypt.log
 # Copy over the new certs
-cp /etc/letsencrypt/live/${HOSTNAME}/privkey.pem /home/ubuntu/dockershare/ssl_certs/privkey.pem
-cp /etc/letsencrypt/live/${HOSTNAME}/fullchain.pem /home/ubuntu/dockershare/ssl_certs/fullchain.pem
+cp /etc/letsencrypt/live/webgme.org/privkey.pem /home/ubuntu/dockershare/ssl_certs/privkey.pem
+cp /etc/letsencrypt/live/webgme.org/fullchain.pem /home/ubuntu/dockershare/ssl_certs/fullchain.pem
 
 docker compose -f $COMPOSE_YML up --no-recreate -d web
