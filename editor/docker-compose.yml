@@ -25,7 +25,7 @@ services:
     depends_on:
       - webgme-server
     volumes:
-      - /etc/letsencrypt/live/webgme.org:/ssl_certs
+      - ~/dockershare/ssl_certs:/ssl_certs
       - ~/webgme.org/www/static:/static
     networks:
       - frontend
