@@ -18,8 +18,8 @@ mkdir "$folder_name"
 # Avoid writing to the DB while dumping.
 docker compose -f $COMPOSE_YML stop $SERVICE_NAME
 
-mongodump -d ${DB_NAME} -o $folder_name
-tar -cvzf $zip_path $folder_name
+mongodump --quiet -d ${DB_NAME} -o $folder_name
+tar -czf $zip_path $folder_name
 rm -rf $folder_name
 
 # Drop oldest backups when there are more than 10 tarballs in BACKUP_DIR.
@@ -31,5 +31,11 @@ while true; do
   [[ -n "$oldest" ]] || break
   rm -f "$oldest"
 done
+
+echo "New archive: $zip_path"
+echo "Backups in $BACKUP_DIR:"
+ls -lah "$BACKUP_DIR"
+echo "Disk usage (df -h):"
+df -h
 
 docker compose -f $COMPOSE_YML up --no-recreate -d $SERVICE_NAME
