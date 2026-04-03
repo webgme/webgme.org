@@ -26,7 +26,7 @@ rm -rf $folder_name
 shopt -s nullglob
 while true; do
   backups=("$BACKUP_DIR"/*.tar.gz)
-  [[ ${#backups[@]} -le 10 ]] && break
+  [[ ${#backups[@]} -le 12 ]] && break
   oldest=$(ls -1tr "$BACKUP_DIR"/*.tar.gz | head -n1)
   [[ -n "$oldest" ]] || break
   rm -f "$oldest"

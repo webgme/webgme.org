@@ -19,7 +19,7 @@
 
 
 # Node 20
-FROM node:iron
+FROM node:24
 
 LABEL maintainer="Patrik Meijer <patrik.meijer@vanderbilt.edu>"
 ARG webgme_repo=webgme@latest
