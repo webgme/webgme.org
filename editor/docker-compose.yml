@@ -48,7 +48,7 @@ services:
       - frontend
   mongo:
     container_name: mongo
-    image: mongo:5
+    image: mongo:8
     restart: unless-stopped
     ports:
       - 27017:27017
