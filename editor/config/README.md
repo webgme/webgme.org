@@ -1,7 +1,9 @@
 # Configuration
 
-Overwrite/append the [default webgme configuration](https://github.com/webgme/webgme/blob/master/config/config.default.js) in `config.default.js`.
+Overwrite or extend the [default WebGME configuration](https://github.com/webgme/webgme/blob/master/config/config.default.js) in `config.default.js`.
 
-When adding your own paths, make sure to either use `__dirname` or a relative path which will be resolved from your repository's root.
+When adding your own paths, use `__dirname` or paths relative to this repository root so they resolve correctly on all platforms.
 
-To load another configuration set the environment variable `NODE_ENV` to the wanted configuration, e.g. on windows `set NODE_ENV = app` will load `config.app.js`.
+Set `NODE_ENV` to choose which file is loaded (e.g. `NODE_ENV=docker` loads `config.docker.js`; on Windows, `set NODE_ENV=docker`). The Docker Compose stack sets `NODE_ENV=docker` for the WebGME container.
+
+For Docker deployments, optional overrides can also live in `/dockershare/extraconfigs.js` on the host (see `config.docker.js` and `../../aws/extraconfigs.js`).

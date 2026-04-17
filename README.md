@@ -1,24 +1,46 @@
-See /aws/README.md for more aws specific directions.
+# webgme.org
 
-### To launch the editor from docker
+This repository holds deployment assets and the public website for [WebGME](https://webgme.org).
 
-Create an empty directory to share with the containers (e.g. ~/dockershare)
-```mkdir ~/dockershare```
+| Path | Purpose |
+|------|---------|
+| [`editor/`](editor/) | Docker Compose stack: WebGME app, MongoDB, and nginx (HTTPS + reverse proxy). |
+| [`www/`](www/) | Static site and tooling used for [webgme.org](https://webgme.org) (e.g. extension registry updates). |
+| [`aws/`](aws/) | AWS-oriented helpers (cert renewal, backups, sample `extraconfigs.js`). See [`aws/README.md`](aws/README.md). |
 
-Create/obtain ssl certs (`privkey.pem` and `fullchain.pem`) and put them inside
-```mkdir ~/dockershare/ssl_certs```
+---
 
-Inside `./editor` start using docker-compose (if not running at (dev.)webgme.org modify the nginx.conf appropriately.
-```docker-compose up -d```
+## Run the editor with Docker
 
-#### Notes
-The above will pull the image tagged `2.16.0` check [docker-hub/webgme](https://hub.docker.com/r/webgme/compact/tags/) for latest tag.
-The tags follow the [releases of webgme](https://github.com/webgme/webgme/releases).
+Prerequisites: [Docker](https://docs.docker.com/get-docker/) with [Compose](https://docs.docker.com/compose/) (`docker compose`).
 
-The env variable `GME_ADMIN` will create a siteAdmin `admin` with password `admin` if it does not exist. 
-After the first launch - go to `localhost:8888/profile/login` and change password once logged in.
+1. **Shared host directory** (mounted as `/dockershare` in the WebGME container), e.g.:
 
-To overwrite configuration parameters, stop the webgme container and create a file `~/dockershare/extraconfigs.js`, see aws/extraconfigs.js for the structure.
-After restart the config parameters will be picked up by the webgme app.
+   ```bash
+   mkdir -p ~/dockershare/db ~/dockershare/ssl_certs
+   ```
 
-Typically webgme should run behind a secure proxy, see aws/nginx.conf for an example of a config for nginx.
+2. **TLS certificates** for nginx HTTPS: place `privkey.pem` and `fullchain.pem` under `~/dockershare/ssl_certs/`. For local development you can use self-signed certs or adjust [`editor/nginx.conf`](editor/nginx.conf) (e.g. `server_name`, listeners) to match how you reach the stack.
+
+3. **Static site volume**: [`editor/docker-compose.yml`](editor/docker-compose.yml) mounts the marketing site at `~/webgme.org/www/static` into the `web` service. If your clone lives elsewhere, edit that path to point at this repo’s `www/static` directory.
+
+4. **Start the stack** from the `editor` directory:
+
+   ```bash
+   cd editor
+   docker compose up -d --build
+   ```
+
+   The first run builds images from [`editor/Dockerfile`](editor/Dockerfile) (WebGME from npm, default `webgme@latest`) and [`editor/Dockerfile.nginx.webgme.org`](editor/Dockerfile.nginx.webgme.org). The `web` service exposes **80** and **443** on the host; the WebGME process listens on **8001** inside the Docker network and is reached via nginx (see [`editor/nginx.conf`](editor/nginx.conf)).
+
+### Optional: admin user on first boot
+
+Set `GME_ADMIN` to `username:password` (e.g. `admin:admin`) in the `webgme-server` service environment in `docker-compose.yml` or via your orchestrator. After login, change the password at `/profile/login` on your editor URL.
+
+### Extra WebGME configuration
+
+To override settings, add `~/dockershare/extraconfigs.js` exporting a function `(config) => { ... }`. See [`aws/extraconfigs.js`](aws/extraconfigs.js) for shape and [`editor/config/config.docker.js`](editor/config/config.docker.js) for how it is loaded. Restart the `webgme-server` container after changes.
+
+### Production notes
+
+WebGME is normally run behind a reverse proxy with TLS. The in-repo example is [`editor/nginx.conf`](editor/nginx.conf). For pinning a specific WebGME version when building the image, use the `webgme_repo` build argument in `editor/Dockerfile` or use [`editor/update.sh`](editor/update.sh) on a server deployment (see [`aws/README.md`](aws/README.md)). Release versions are listed on [GitHub releases](https://github.com/webgme/webgme/releases).

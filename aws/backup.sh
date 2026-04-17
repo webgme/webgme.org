@@ -1,5 +1,5 @@
 #!/bin/bash
-# Stops the WebGME server, dumps MongoDB to a tarball under BACKUP_DIR, keeps the 10 newest
+# Stops the WebGME server, dumps MongoDB to a tarball under BACKUP_DIR, keeps the 12 newest
 # archives, then starts the server again.
 
 PREFIX=$HOSTNAME

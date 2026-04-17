@@ -1,78 +1,90 @@
-Setup instructions on AWS EC2 machines (Ubuntu 24.04)
-=====================================================
+# AWS (EC2) deployment notes
 
- * Allocate new EC2 instance (e.g. t1.medium) with a Ubuntu 64-bit image
- * Associate public IP and set firewall rules (Security Group) for service ports
- * Log-in via SSH and
- * Run `sudo apt-get update && sudo apt-get -y upgrade`
- * Tweak `/etc/hostname` (reflect your choice of DNS name)
- * In `./.profile` add the line `export HOSTNAME=<DNS name>` (needed for building correct nginx image)
- * Tweak `.ssh/authorized_keys`
- * Install [docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
- * Install [docker-compse](https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-18-04)
- * Add current user to docker group `sudo usermod -aG docker $USER`
- * `mkdir ~/dockershare`
- * `mkdir ~/dockershare/db`
- * `mkdir ~/dockershare/ssl_certs`
- * The mongo container exposes its port at default so `mongo`, `mongodump`, etc. works the same way.
- * Clone the webgme.org project to the home folder.
-     ```git clone https://github.com/webgme/webgme.org.git```
- * Remove all unversioned files inside editor (MAKE SURE YOU'VE copied the blob-local-storage if migrating see below)
- * `git clean -dfx`
- * Inside `/editor` run
- * Install [nvm/node](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04#how-to-install-using-nvm)
- * Add to crontab (check `whereis node`)
- ```
- */20 * * * * /home/ubuntu/.nvm/versions/node/v6.11.1/bin/node /home/ubuntu/webgme.org/www/updateextensions.js
- ```
+These steps describe a typical Ubuntu **24.04 LTS** EC2 host used to run the Docker stack from this repo. Adjust hostnames, paths, and instance sizes for your environment.
 
-Authentication
-========================================
- The authentication scheme for Json Web Token uses OpenSSL RSA256 keys. They should live outside of the docker container.
- - `mkdir ~/dockershare/token_keys`
- - `cd ~/dockershare/token_keys`
- - `openssl genrsa -out private_key 1024`
- - `openssl rsa -in private_key -pubout > public_key`
+## Initial host setup
 
-Update instructions on AWS EC2 machines
-========================================
- * `cd webgme.org/editor`
- * `./update.sh`, see the header of [update.sh](https://github.com/webgme/webgme.org/blob/master/editor/update.sh) for more details.
+- Allocate an EC2 instance (size as needed) with Ubuntu 64-bit.
+- Associate a public IP and open the required ports in the security group (e.g. 22, 80, 443).
+- SSH in and run `sudo apt-get update && sudo apt-get -y upgrade`.
+- Set `/etc/hostname` to match your DNS name.
+- In `~/.profile`, set `export HOSTNAME=<your-dns-name>` if your tooling or images rely on it.
+- Install [Docker](https://docs.docker.com/engine/install/ubuntu/) and [Docker Compose](https://docs.docker.com/compose/install/linux/) (plugin: `docker compose`).
+- Add your user to the `docker` group: `sudo usermod -aG docker $USER` (log out and back in).
 
-Nginx and SSL
-==================================================
- * Install nginx: `sudo apt-get -y install nginx`
- * Install [cerbot (with nginx plugin)](https://certbot.eff.org/#ubuntuxenial-nginx)
- ```
- $ sudo apt-get update
- $ sudo apt-get install software-properties-common
- $ sudo add-apt-repository ppa:certbot/certbot
- $ sudo apt-get update
- $ sudo apt-get install python-certbot-nginx
- ```
- * `./renew_certs.sh` will copy over certs
+## Directories and data
 
-### Renew certificates
-```
-sudo ./renew_certs.sh
+```bash
+mkdir -p ~/dockershare/db ~/dockershare/ssl_certs
 ```
 
-User management
-===============
+The MongoDB container persists data under `~/dockershare/db` (see [`editor/docker-compose.yml`](../editor/docker-compose.yml)). The WebGME container maps `~/dockershare` to `/dockershare` for blobs, JWT keys, and optional `extraconfigs.js`.
 
-- `docker exec -it <webgme-container-name-or-id-hash> bash`
-- `node node_modules/webgme/src/bin/usermanager.js useradd --canCreate username email pass`
-- `node node_modules/webgme/src/bin/usermanager.js usermod_auth -a r username SignalFlowSystem` default project
+## Backups
 
-To exit bash: Ctrl + D
+[`backup.sh`](backup.sh) stops the WebGME service, runs `mongodump`, writes a compressed archive under `BACKUP_DIR`, and prunes older archives so only the **12 newest** backups are kept. In production, this script is scheduled to run **once a month**, which corresponds to roughly **a year** of retained database backups (12 monthly snapshots). Edit paths in the script (`COMPOSE_YML`, `BACKUP_DIR`, etc.) before use.
 
-To check the mongo database collections use run `mongo`
+## Clone and clean editor working tree
+
+```bash
+git clone https://github.com/webgme/webgme.org.git
+cd webgme.org
+```
+
+Before a fresh deploy from git, you may remove untracked files under `editor/` (only after backing up anything you need, e.g. `blob-local-storage`):
+
+```bash
+cd editor
+git clean -dfx
+```
+
+## Extension registry cron
+
+If you use [`www/updateextensions.js`](../www/updateextensions.js), schedule it with the Node binary you use in production, for example:
+
+```cron
+*/20 * * * * /home/ubuntu/.nvm/versions/node/v22.0.0/bin/node /home/ubuntu/webgme.org/www/updateextensions.js
+```
+
+Replace the Node path with `$(which node)` from your environment.
+
+## JWT keys for authentication
+
+Json Web Token signing uses RSA keys under `~/dockershare/token_keys` (see [`editor/config/config.docker.js`](../editor/config/config.docker.js)). The docker config can generate keys on first run if they are missing; for production you may prefer to create them explicitly:
+
+```bash
+mkdir -p ~/dockershare/token_keys
+cd ~/dockershare/token_keys
+openssl genrsa -out private_key 1024
+openssl rsa -in private_key -pubout > public_key
+```
+
+## Updates
+
+From `webgme.org/editor`, run [`update.sh`](https://github.com/webgme/webgme.org/blob/master/editor/update.sh) to rebuild the WebGME server image (see the script header for version/branch options).
+
+## Nginx and TLS on the host
+
+The Docker `web` service uses [`editor/nginx.conf`](../editor/nginx.conf) inside the container. On the host you may still install nginx and [Certbot](https://certbot.eff.org/) for Let’s Encrypt, then copy certificates into `~/dockershare/ssl_certs` as required by your process. [`renew_certs.sh`](renew_certs.sh) is an example that stops the `web` container, renews certs, copies PEM files into `dockershare`, and starts the container again—**edit paths** (`COMPOSE_YML`, cert paths) before use.
+
+## User management
+
+```bash
+docker exec -it webgme bash
+node node_modules/webgme/src/bin/usermanager.js useradd --canCreate username email password
+node node_modules/webgme/src/bin/usermanager.js usermod_auth -a r username SignalFlowSystem
+```
+
+Exit the shell with Ctrl+D.
+
+### Inspect MongoDB
+
+With `mongo` or `mongosh` pointed at the host’s exposed `27017` port (if enabled in Compose):
 
 ```javascript
 show dbs
 use webgme
 db.getCollection('_users')
 db.getCollection('_organizations')
-
-db.getCollection('_users').findOne() // finds one user
+db.getCollection('_users').findOne()
 ```
