@@ -1,4 +1,4 @@
-Setup instructions on AWS EC2 machines (Ubuntu 18.04)
+Setup instructions on AWS EC2 machines (Ubuntu 24.04)
 =====================================================
 
  * Allocate new EC2 instance (e.g. t1.medium) with a Ubuntu 64-bit image
@@ -25,31 +25,6 @@ Setup instructions on AWS EC2 machines (Ubuntu 18.04)
  ```
  */20 * * * * /home/ubuntu/.nvm/versions/node/v6.11.1/bin/node /home/ubuntu/webgme.org/www/updateextensions.js
  ```
-
-Upgrading from Ubuntu 14.04
-========================================
- * Make sure to export any old db files `mongodump -d webgme`
- * `cp -R blob-local-storage ~/dockershare/blob-local-storage`
- * `cp -R token_keys ~/dockershare/token_keys` (If no previous keys see Authentication below)
- * Remove the [old mongodb installation 2.6](https://askubuntu.com/questions/497139/how-to-completely-uninstall-mongodb-2-6-3-from-ubuntu-13-04)
- * Once mongod > 3 is installed and docker container running - import the exported files (if any) `mongorestore -d webgme dump/webgme`
-
-Upgrading from Ubuntu 16.04
-===========================
- * Key difference is that this approach uses docker-compose and runs nginx as a container
- * (All these steps can be made using Ubuntu 16.04 and upgrade the OS afterwards)
- * Make a back-up of the database files
- * Install docker-compose
- * stop all running containers (and remove old images) `docker system prune`
- * `sudo systemctl stop nginx` and `sudo systemctl disable nginx`
- * `mkdir ~/dockershare/ssl_certs`
- * In `./.profile` add the line `export HOSTNAME=<DNS name>` (needed for building correct nginx image and copying certs in renew_certs.sh)
- * `sudo cp /etc/letsencrypt/live/${HOSTNAME}/privkey.pem /home/ubuntu/dockershare/ssl_certs/privkey.pem`
- * `sudo cp /etc/letsencrypt/live/${HOSTNAME}/fullchain.pem /home/ubuntu/dockershare/ssl_certs/fullchain.pem`
- * Build/pull the images and launch them
- * `cd webgme.org/editor`
- * `docker-compose up -d`
- * Overwrite renew_certs.sh with the new one
 
 Authentication
 ========================================
