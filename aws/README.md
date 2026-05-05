@@ -61,7 +61,7 @@ openssl rsa -in private_key -pubout > public_key
 
 ## Updates
 
-From `webgme.org/editor`, run [`update.sh`](https://github.com/webgme/webgme.org/blob/master/editor/update.sh) to rebuild the WebGME server image (see the script header for version/branch options).
+From `webgme.org/editor`, run [`update.sh`](https://github.com/webgme/webgme.org/blob/main/editor/update.sh) to rebuild the WebGME server image (see the script header for version/branch options).
 
 ## Nginx and TLS on the host
 
