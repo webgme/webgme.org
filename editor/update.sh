@@ -20,6 +20,9 @@
 #     $ ./update.sh ccfcaff
 # - Otherwise the script will fail
 #set -ex
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+readonly COMPOSE_FILE="${SCRIPT_DIR}/docker-compose.yml"
+
 readonly POST_FIX="-server"
 webgme_repo=webgme@latest
 webgme_version=1.0.0
@@ -62,20 +65,20 @@ fi
 
 readonly SERVICE_NAME="webgme${POST_FIX}"
 
-if [ -z "docker compose stop ${SERVICE_NAME}" ]; then
+if ! docker compose -f "${COMPOSE_FILE}" stop "${SERVICE_NAME}"; then
   echo "Did not stop service ${SERVICE_NAME} is it still running?"
-  echo docker compose ps ${SERVICE_NAME}
+  docker compose -f "${COMPOSE_FILE}" ps "${SERVICE_NAME}"
 fi
 
 ## Always build a new image
-docker compose build --no-cache --build-arg webgme_repo=${webgme_repo} ${SERVICE_NAME}
+docker compose -f "${COMPOSE_FILE}" build --no-cache --build-arg "webgme_repo=${webgme_repo}" "${SERVICE_NAME}"
 
-docker compose up -d ${SERVICE_NAME}
-
-sleep 2
-
-docker compose ps
+docker compose -f "${COMPOSE_FILE}" up -d "${SERVICE_NAME}"
 
 sleep 2
 
-docker compose logs ${SERVICE_NAME}
+docker compose -f "${COMPOSE_FILE}" ps
+
+sleep 2
+
+docker compose -f "${COMPOSE_FILE}" logs "${SERVICE_NAME}"

@@ -1,6 +1,6 @@
 # Configuration
 
-Overwrite or extend the [default WebGME configuration](https://github.com/webgme/webgme/blob/master/config/config.default.js) in `config.default.js`.
+Overwrite or extend the [default WebGME configuration](https://github.com/webgme/webgme/blob/main/config/config.default.js) in `config.default.js`.
 
 When adding your own paths, use `__dirname` or paths relative to this repository root so they resolve correctly on all platforms.
 
